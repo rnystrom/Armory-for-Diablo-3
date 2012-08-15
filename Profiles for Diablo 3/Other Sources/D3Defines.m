@@ -7,3 +7,10 @@
 //
 
 #import "D3Defines.h"
+
+#pragma mark - URL
+
+NSString * const kD3BaseURL = @"http://us.battle.net";
+NSString * const kD3APIParam = @"api/d3";
+NSString * const kD3APIProfileParam = @"profile";
+NSString * const kD3APIHeroParam = @"hero";

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9444D3E415DBF3F40098CFE6 /* D3HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9444D3C615DBED120098CFE6 /* D3HTTPClient.m */; };
+		945E334315DBDFE500F41270 /* D3Artisan.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E333615DBDFBF00F41270 /* D3Artisan.m */; };
+		945E334415DBDFE500F41270 /* D3Career.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E333815DBDFBF00F41270 /* D3Career.m */; };
+		945E334515DBDFE500F41270 /* D3Follower.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E333A15DBDFBF00F41270 /* D3Follower.m */; };
+		945E334615DBDFE500F41270 /* D3Hero.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E333C15DBDFBF00F41270 /* D3Hero.m */; };
+		945E334715DBDFE500F41270 /* D3Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E333E15DBDFBF00F41270 /* D3Item.m */; };
+		945E334815DBDFE500F41270 /* D3Rune.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E334015DBDFBF00F41270 /* D3Rune.m */; };
+		945E334915DBDFE500F41270 /* D3Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E334215DBDFBF00F41270 /* D3Skill.m */; };
 		94EF72C515DBD556008161FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C415DBD556008161FE /* UIKit.framework */; };
 		94EF72C715DBD556008161FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C615DBD556008161FE /* Foundation.framework */; };
 		94EF72C915DBD556008161FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C815DBD556008161FE /* CoreGraphics.framework */; };
@@ -28,6 +36,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9444D3C515DBED120098CFE6 /* D3HTTPClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3HTTPClient.h; path = "Profiles for Diablo 3/Classes/D3HTTPClient.h"; sourceTree = "<group>"; };
+		9444D3C615DBED120098CFE6 /* D3HTTPClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3HTTPClient.m; path = "Profiles for Diablo 3/Classes/D3HTTPClient.m"; sourceTree = "<group>"; };
+		945E333515DBDFBF00F41270 /* D3Artisan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Artisan.h; path = "Profiles for Diablo 3/Classes/D3Artisan.h"; sourceTree = "<group>"; };
+		945E333615DBDFBF00F41270 /* D3Artisan.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Artisan.m; path = "Profiles for Diablo 3/Classes/D3Artisan.m"; sourceTree = "<group>"; };
+		945E333715DBDFBF00F41270 /* D3Career.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Career.h; path = "Profiles for Diablo 3/Classes/D3Career.h"; sourceTree = "<group>"; };
+		945E333815DBDFBF00F41270 /* D3Career.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Career.m; path = "Profiles for Diablo 3/Classes/D3Career.m"; sourceTree = "<group>"; };
+		945E333915DBDFBF00F41270 /* D3Follower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Follower.h; path = "Profiles for Diablo 3/Classes/D3Follower.h"; sourceTree = "<group>"; };
+		945E333A15DBDFBF00F41270 /* D3Follower.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Follower.m; path = "Profiles for Diablo 3/Classes/D3Follower.m"; sourceTree = "<group>"; };
+		945E333B15DBDFBF00F41270 /* D3Hero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Hero.h; path = "Profiles for Diablo 3/Classes/D3Hero.h"; sourceTree = "<group>"; };
+		945E333C15DBDFBF00F41270 /* D3Hero.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Hero.m; path = "Profiles for Diablo 3/Classes/D3Hero.m"; sourceTree = "<group>"; };
+		945E333D15DBDFBF00F41270 /* D3Item.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Item.h; path = "Profiles for Diablo 3/Classes/D3Item.h"; sourceTree = "<group>"; };
+		945E333E15DBDFBF00F41270 /* D3Item.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Item.m; path = "Profiles for Diablo 3/Classes/D3Item.m"; sourceTree = "<group>"; };
+		945E333F15DBDFBF00F41270 /* D3Rune.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Rune.h; path = "Profiles for Diablo 3/Classes/D3Rune.h"; sourceTree = "<group>"; };
+		945E334015DBDFBF00F41270 /* D3Rune.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Rune.m; path = "Profiles for Diablo 3/Classes/D3Rune.m"; sourceTree = "<group>"; };
+		945E334115DBDFBF00F41270 /* D3Skill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Skill.h; path = "Profiles for Diablo 3/Classes/D3Skill.h"; sourceTree = "<group>"; };
+		945E334215DBDFBF00F41270 /* D3Skill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Skill.m; path = "Profiles for Diablo 3/Classes/D3Skill.m"; sourceTree = "<group>"; };
 		94EF72C015DBD556008161FE /* Profiles for Diablo 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Profiles for Diablo 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94EF72C415DBD556008161FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		94EF72C615DBD556008161FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -140,6 +164,22 @@
 		94EF72DF15DBD57D008161FE /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
+				945E333515DBDFBF00F41270 /* D3Artisan.h */,
+				945E333615DBDFBF00F41270 /* D3Artisan.m */,
+				945E333715DBDFBF00F41270 /* D3Career.h */,
+				945E333815DBDFBF00F41270 /* D3Career.m */,
+				945E333915DBDFBF00F41270 /* D3Follower.h */,
+				945E333A15DBDFBF00F41270 /* D3Follower.m */,
+				945E333B15DBDFBF00F41270 /* D3Hero.h */,
+				945E333C15DBDFBF00F41270 /* D3Hero.m */,
+				945E333D15DBDFBF00F41270 /* D3Item.h */,
+				945E333E15DBDFBF00F41270 /* D3Item.m */,
+				945E333F15DBDFBF00F41270 /* D3Rune.h */,
+				945E334015DBDFBF00F41270 /* D3Rune.m */,
+				945E334115DBDFBF00F41270 /* D3Skill.h */,
+				945E334215DBDFBF00F41270 /* D3Skill.m */,
+				9444D3C515DBED120098CFE6 /* D3HTTPClient.h */,
+				9444D3C615DBED120098CFE6 /* D3HTTPClient.m */,
 			);
 			name = Abstract;
 			sourceTree = "<group>";
@@ -300,6 +340,14 @@
 				94EF735815DBDA61008161FE /* AppDelegate.m in Sources */,
 				94EF735915DBDA63008161FE /* D3Defines.m in Sources */,
 				94EF735A15DBDA6F008161FE /* main.m in Sources */,
+				945E334315DBDFE500F41270 /* D3Artisan.m in Sources */,
+				945E334415DBDFE500F41270 /* D3Career.m in Sources */,
+				945E334515DBDFE500F41270 /* D3Follower.m in Sources */,
+				945E334615DBDFE500F41270 /* D3Hero.m in Sources */,
+				945E334715DBDFE500F41270 /* D3Item.m in Sources */,
+				945E334815DBDFE500F41270 /* D3Rune.m in Sources */,
+				945E334915DBDFE500F41270 /* D3Skill.m in Sources */,
+				9444D3E415DBF3F40098CFE6 /* D3HTTPClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +459,7 @@
 				94EF72DA15DBD556008161FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
