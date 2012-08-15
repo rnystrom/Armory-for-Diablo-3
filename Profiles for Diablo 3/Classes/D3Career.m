@@ -10,169 +10,168 @@
 
 @implementation D3Career
 
-// singleton
-static D3Career *sharedInstance = nil;
+#pragma mark - Helpers
 
-#pragma mark - Singleton methods
++ (NSString*)accountNameDivider {
+    return @"#";
+}
 
-+ (D3Career*)sharedInstance 
-{
-    if (sharedInstance == nil) {
-        sharedInstance = [[super allocWithZone:NULL] init];
+
++ (BOOL)accountNameIsValid:(NSString*)account; {
+    if ([account length] < 3) {
+        return NO;
     }
-    return sharedInstance;
+    NSString *accountDivider = [self accountNameDivider];
+    NSRange poundRange = [account rangeOfString:accountDivider];
+    return poundRange.location != NSNotFound;
 }
 
-+ (id)allocWithZone:(NSZone *)zone
-{
-    return [self sharedInstance];
+
++ (NSString*)apiParamFromAccount:(NSString*)account {
+    NSArray *splitAccount = [account componentsSeparatedByString:[D3Career accountNameDivider]];
+    NSString *accountName = splitAccount [0];
+    NSString *accountNumber = [splitAccount lastObject];
+    return [NSString stringWithFormat:@"%@/%@-%@/",kD3APIProfileParam,accountName,accountNumber];
 }
 
-- (id)copyWithZone:(NSZone*)zone
-{
-    return self;
+
+#pragma mark - Loading
+
++ (void)getCareerForAccount:(NSString *)account success:(void (^)(D3Career *career))success failure:(void (^)(NSError *error))failure {
+    [[D3HTTPClient sharedClient] getCareerWithAccount:account success:^(AFJSONRequestOperation *operation, id responseObject) {
+        NSData *jsonData = (NSData*)responseObject;
+        NSError *parsingError = nil;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&parsingError];
+        if (parsingError && failure) {
+            failure(parsingError);
+        }
+        else {
+            D3Career *career = [D3Career careerFromJSON:json];
+            if (career) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [D3HTTPClient sharedClient].career = career;
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kD3CareerNotification object:nil];
+                });
+            }
+            if (success) {
+                success(career);
+            }
+        }
+    } failure:^(AFJSONRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
 }
 
-#pragma mark - Instance methods
 
-- (id)init
-{
-    if (self = [super init]) {
-        _queue = [[NSOperationQueue alloc] init];
-    }
-    return self;
-}
+#pragma mark - Parsing
 
 // dummy data for now, ignores accountName parameter
-- (void)getAccount:(NSString*)accountName
-{
-    NSBlockOperation *operation = [[NSBlockOperation alloc] init];
-    // weak reference to prevent retain cycle
-    __weak NSBlockOperation *weakOperation = operation;
-    [operation addExecutionBlock:^{
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"career" ofType:@"json"];
-        NSError *error;
-        NSData *careerData = [NSData dataWithContentsOfFile:path];
-        if (error) {
-            NSLog(@"%@",error.localizedDescription);
-            [self errorToDelegate:error.localizedDescription];
-            return;
-        }
++ (D3Career*)careerFromJSON:(NSDictionary *)json {
+    D3Career *career = nil;
+    if ([json isKindOfClass:[NSDictionary class]]) {
+        career = [[D3Career alloc] init];
         
-        NSError *parsingError;
-        NSDictionary *careerResponseDictionary = [NSJSONSerialization JSONObjectWithData:careerData options:kNilOptions error:&parsingError];
-        if (parsingError) {
-            NSLog(@"%@",parsingError.localizedDescription);
-            [self errorToDelegate:parsingError.localizedDescription];
-            return;
-        }
-        
-        NSString *secondsString = careerResponseDictionary[@"last-update"];
+        NSString *secondsString = json[@"lastUpdated"];
         if (secondsString) {
             NSTimeInterval seconds = secondsString.doubleValue;
-            self.lastUpdated = [NSDate dateWithTimeIntervalSince1970:seconds];
+            career.lastUpdated = [NSDate dateWithTimeIntervalSince1970:seconds];
         }
+        
+        career.battleTag = json[@"battleTag"];
         
         NSMutableArray *mutArtisans = [NSMutableArray array];
-        if ([careerResponseDictionary[@"artisans"] isKindOfClass:[NSArray array]]) {
-            for (id json in careerResponseDictionary[@"artisans"]) {
-                if ([json isKindOfClass:[NSDictionary class]]) {
-                    D3Artisan *artisan = [D3Artisan artisanWithJSON:json];
-                    if (artisan) {
-                        [mutArtisans addObject:artisan];
-                    }
+        if ([json[@"artisans"] isKindOfClass:[NSArray array]]) {
+            for (id artisanJSON in (NSArray*)json[@"artisans"]) {
+                D3Artisan *artisan = [D3Artisan artisanWithJSON:json];
+                if (artisan) {
+                    [mutArtisans addObject:artisan];
                 }
             }
         }
+        career.artisans = mutArtisans;
 
         NSMutableArray *mutHCArtisans = [NSMutableArray array];
-        if ([careerResponseDictionary[@"hardcore-artisans"] isKindOfClass:[NSArray class]]) {
-            for (NSDictionary *json in careerResponseDictionary[@"hardcore-artisans"]) {
-                if ([json isKindOfClass:[NSDictionary class]]) {
-                    D3Artisan *artisan = [D3Artisan artisanWithJSON:json];
-                    if (artisan) {
-                        [mutHCArtisans addObject:artisan];
-                    }
+        if ([json[@"hardcoreArtisans"] isKindOfClass:[NSArray class]]) {
+            for (id artisanJSON in (NSArray*)json[@"hardcoreArtisans"]) {
+                D3Artisan *artisan = [D3Artisan artisanWithJSON:json];
+                if (artisan) {
+                    [mutHCArtisans addObject:artisan];
                 }
             }
         }
+        career.hardcoreArtisans = mutHCArtisans;
         
         NSMutableArray *mutHeroes = [NSMutableArray array];
-        for (NSDictionary *json in (NSArray*)careerResponseDictionary[@"heroes"]) {
-//            NSInteger heroID = ((NSNumber*)[json objectForKey:@"id"]).integerValue;
-            if ([weakOperation isCancelled]) return;
-//            D3Hero *hero = [D3Hero requestHeroFromCareer:self ID:heroID];
-            D3Hero *hero = nil;
-            if (hero) {
-                [mutHeroes addObject:hero];
+        if ([json[@"heroes"] isKindOfClass:[NSArray class]]) {
+            for (NSDictionary *heroJSON in (NSArray*)json[@"heroes"]) {
+                D3Hero *hero = [D3Hero heroFromPreviewJSON:heroJSON];
+                if (hero) {
+                    [mutHeroes addObject:hero];
+                }
             }
         }
+        career.heroes = mutHeroes;
         
         NSMutableArray *mutFallenHeroes = [NSMutableArray array];
-        if ([careerResponseDictionary[@"fallenHeroes"] isKindOfClass:[NSArray array]]) {
-            for (NSDictionary *json in (NSArray*)careerResponseDictionary[@"fallenHeroes"]) {
-                D3Hero *fallenHero = [D3Hero fallenHeroFromJSON:json];
+        if ([json[@"fallenHeroes"] isKindOfClass:[NSArray array]]) {
+            for (NSDictionary *heroJSON in (NSArray*)json[@"fallenHeroes"]) {
+                D3Hero *fallenHero = [D3Hero fallenHeroFromJSON:heroJSON];
                 if (fallenHero) {
                     [mutFallenHeroes addObject:fallenHero];
                 }
             }
         }
-        
-        NSDictionary *timeDictionary = careerResponseDictionary[@"time-played"];
-        
-        NSInteger lastPlayedID = ((NSString*)careerResponseDictionary[@"last-hero-played"]).integerValue;
-        D3Hero *lastHeroPlayed = nil;
-        for (D3Hero *hero in mutHeroes) {
-            if (hero.ID == lastPlayedID) {
-                lastHeroPlayed = hero;
-                break;
+        career.fallenHeros = mutFallenHeroes;
+                
+        NSString *lastPlayedIDString = json[@"lastHeroPlayed"];
+        if (lastPlayedIDString) {
+            NSInteger lastPlayedID = lastPlayedIDString.integerValue;
+            for (D3Hero *hero in mutHeroes) {
+                if (hero.ID == lastPlayedID) {
+                    career.lastHeroPlayed = hero;
+                    break;
+                }
             }
         }
         
-        NSDictionary *killsDictionary = careerResponseDictionary[@"kills"];
-        self.killsMonsters = ((NSString*)killsDictionary[@"monsters"]).integerValue;
-        self.killsElites = ((NSString*)killsDictionary[@"elites"]).integerValue;
-        self.killsHardcoreMonsters = ((NSString*)killsDictionary[@"hardcoreMonsters"]).integerValue;
-        
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            // set everything in the main queue because UI elements depend on them
-            self.artisans = mutArtisans;
-            self.lastHeroPlayed = lastHeroPlayed;
-            self.hardcoreArtisans = mutHCArtisans;
-            self.heroes = mutHeroes;
-            self.fallenHeros = mutFallenHeroes;
-            self.progression = careerResponseDictionary[@"progression"];
+        NSDictionary *killsDictionary = json[@"kills"];
+        if ([killsDictionary isKindOfClass:[NSDictionary class]]) {
+            NSString *killsMonstersString = json[@"monsters"];
+            NSString *killsElitesString = json[@"elites"];
+            NSString *killsHardcoreMonstersString = json[@"hardcoreMonsters"];
             
-            self.timePlayedBarbarian = ((NSString*)timeDictionary[@"barbarian"]).floatValue;
-            self.timePlayedDemonHunter = ((NSString*)timeDictionary[@"demon-hunter"]).floatValue;
-            self.timePlayedMonk = ((NSString*)timeDictionary[@"monk"]).floatValue;
-            self.timePlayedWitchDoctor = ((NSString*)timeDictionary[@"witch-doctor"]).floatValue;
-            self.timePlayedWizard = ((NSString*)timeDictionary[@"wizard"]).floatValue;
-            self.timePlayedArray = @[
-            @(self.timePlayedBarbarian),
-            @(self.timePlayedDemonHunter),
-            @(self.timePlayedMonk),
-            @(self.timePlayedWitchDoctor),
-            @(self.timePlayedWizard)
+            career.killsMonsters = killsMonstersString.integerValue;
+            career.killsElites = killsElitesString.integerValue;
+            career.killsHardcoreMonsters = killsHardcoreMonstersString.integerValue;
+        }
+        
+        NSDictionary *timeDictionary = json[@"timePlayed"];
+        if ([timeDictionary isKindOfClass:[NSDictionary class]]) {
+            NSString *timePlayedBarbarianString = timeDictionary[@"barbarian"];
+            NSString *timePlayedDemonHunterString = timeDictionary[@"demon-hunter"];
+            NSString *timePlayedMonkString = timeDictionary[@"monk"];
+            NSString *timePlayedWitchDoctorString = timeDictionary[@"witch-doctor"];
+            NSString *timePlayedWizardString = timeDictionary[@"wizard"];
+            
+            career.timePlayedBarbarian = timePlayedBarbarianString.floatValue;
+            career.timePlayedDemonHunter = timePlayedDemonHunterString.floatValue;
+            career.timePlayedMonk = timePlayedMonkString.floatValue;
+            career.timePlayedWitchDoctor = timePlayedWitchDoctorString.floatValue;
+            career.timePlayedWizard = timePlayedWizardString.floatValue;
+            
+            career.timePlayedArray = @[
+            @(career.timePlayedBarbarian),
+            @(career.timePlayedDemonHunter),
+            @(career.timePlayedMonk),
+            @(career.timePlayedWitchDoctor),
+            @(career.timePlayedWizard)
             ];
-            
-            if (self.delegate && [self.delegate respondsToSelector:@selector(careerDidLoad)]) {
-                [self.delegate careerDidLoad];
-            }
-        }];
-    }];
-    [self.queue addOperation:operation];
-}
-
-// get on the main thread and send an error to the delegate
-// space saving method
-- (void)errorToDelegate:(NSString*)error
-{
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        if (self.delegate && [self.delegate respondsToSelector:@selector(requestDidFailWithError:)]) {
-            [self.delegate requestDidFailWithError:error];
         }
-    }];
+//            career.progression = json[@"progression"];
+    }
+    return career;
 }
 
 @end

@@ -7,6 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "D3AccountView.h"
+#import "D3HeroMenuControllerViewController.h"
+
+@interface AppDelegate ()
+@property (nonatomic, strong) PSStackedViewController *stackController;
+@end
 
 @implementation AppDelegate
 
@@ -15,7 +21,23 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    D3HeroMenuControllerViewController *menuController = [[D3HeroMenuControllerViewController alloc] init];
+    self.stackController = [[PSStackedViewController alloc] initWithRootViewController:menuController];
+    self.window.rootViewController = self.stackController;
+
+    // init will be in portrait, adjust accordingly
+    CGRect windowFrame = [[UIScreen mainScreen] bounds];
+    CGFloat windowWidth = windowFrame.size.width;
+    windowFrame.size.width = windowFrame.size.height;
+    windowFrame.size.height = windowWidth;
+    D3AccountView *accountView = [[D3AccountView alloc] initWithFrame:windowFrame];
+    [self.window.rootViewController.view addSubview:accountView];
+    
     [self.window makeKeyAndVisible];
+    
+    // listen for when to remove the doors view
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedRemoveDoorsNotification:) name:kD3DoorsAnimatedOffScreenNotification object:nil];
     return YES;
 }
 
@@ -43,7 +65,15 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Notifications
+
+- (void)receivedRemoveDoorsNotification:(NSNotification*)notification {
+    UIView *view = notification.object;
+    [view removeFromSuperview];
+    view = nil;
 }
 
 @end

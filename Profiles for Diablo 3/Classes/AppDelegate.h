@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSStackedView.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong, readonly) PSStackedViewController *stackController;
 
 @end

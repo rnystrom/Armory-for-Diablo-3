@@ -6,6 +6,11 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
+@class D3Hero;
+
+typedef void (^D3HeroRequestSuccess)(D3Hero*);
+typedef void (^D3HeroRequestFailure)(NSError*);
+
 #import "D3Skill.h"
 #import "D3Artisan.h"
 #import "D3Item.h"
@@ -18,11 +23,8 @@ enum Gender {
 
 @interface D3Hero : NSObject
 
-//+ (D3Hero*)requestHeroFromCareer:(D3Career*)career ID:(NSInteger)ID;
++ (D3Hero*)heroFromPreviewJSON:(NSDictionary*)json;
 + (D3Hero*)fallenHeroFromJSON:(NSDictionary*)json;
-
-// operation queue
-@property (strong, nonatomic) NSOperationQueue *queue;
 
 @property (strong, nonatomic) NSString *name;
 @property (assign, nonatomic) NSString *gender;
@@ -30,6 +32,7 @@ enum Gender {
 @property (strong, nonatomic) NSString *progressHighestDifficulty;
 
 @property (assign, nonatomic) BOOL hardcore;
+@property (assign, nonatomic) BOOL isFullyLoaded;
 
 @property (strong, nonatomic) D3Item *head;
 @property (strong, nonatomic) D3Item *torso;
@@ -77,6 +80,9 @@ enum Gender {
 
 @property (strong, nonatomic) NSDate *lastUpdated;
 
-@property (getter = getClassImage, nonatomic) UIImage *classImage;
+@property (getter = getClassImage, nonatomic, readonly) UIImage *classImage;
+
+- (void)finishLoadingWithSuccess:(D3HeroRequestSuccess)success failure:(D3HeroRequestFailure)failure;
+- (void)parseFullJSON:(NSDictionary*)json;
 
 @end

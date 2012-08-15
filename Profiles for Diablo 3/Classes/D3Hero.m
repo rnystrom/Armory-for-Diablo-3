@@ -10,6 +10,35 @@
 
 @implementation D3Hero
 
++ (D3Hero*)heroFromPreviewJSON:(NSDictionary*)json
+{
+    D3Hero *hero = nil;
+    if ([json isKindOfClass:[NSDictionary class]]) {
+        hero = [[D3Hero alloc] init];
+        
+        hero.isFullyLoaded = NO;
+        hero.className = json[@"class"];
+        hero.gender = [json[@"gender"] isEqual:[NSNumber numberWithInt:0]] ? @"Male" : @"Female";
+        hero.name = json[@"name"];
+        
+        NSString *hardcoreString = json[@"hardcore"];
+        hero.hardcore = hardcoreString.boolValue;
+        
+        NSString *levelString = json[@"level"];
+        hero.level = levelString.integerValue;
+        
+        NSString *idString = json[@"level"];
+        hero.ID = idString.integerValue;
+        
+        NSString *secondsString = json[@"lastUpdated"];
+        if (secondsString) {
+            NSTimeInterval seconds = secondsString.doubleValue;
+            hero.lastUpdated = [NSDate dateWithTimeIntervalSince1970:seconds];
+        }
+    }
+    return hero;
+}
+
 //+ (D3Hero*)requestHeroFromCareer:(D3Career*)career ID:(NSInteger)ID
 + (D3Hero*)request
 {
@@ -209,15 +238,39 @@
     return nil;
 }
 
-#pragma mark - Instance methods
 
-- (id)init
-{
-    if (self = [super init]) {
-        _queue = [[NSOperationQueue alloc] init];
-    }
-    return self;
+#pragma mark - Loading
+
+- (void)finishLoadingWithSuccess:(D3HeroRequestSuccess)success failure:(D3HeroRequestFailure)failure {
+    [[D3HTTPClient sharedClient] getHeroWithID:self.ID success:^(AFJSONRequestOperation *operation, id responseObject) {
+        NSData *jsonData = (NSData*)responseObject;
+        NSError *parsingError = nil;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&parsingError];
+        if (parsingError && failure) {
+            failure(parsingError);
+        }
+        else {
+            [self parseFullJSON:json];
+            if (success) {
+                success(self);
+            }
+        }
+    } failure:^(AFJSONRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
 }
+
+
+#pragma mark - Parsing
+
+- (void)parseFullJSON:(NSDictionary*)json {
+    if ([json isKindOfClass:[NSDictionary class]]) {
+        self.isFullyLoaded = YES;
+    }
+}
+
 
 - (UIImage*)getClassImage
 {

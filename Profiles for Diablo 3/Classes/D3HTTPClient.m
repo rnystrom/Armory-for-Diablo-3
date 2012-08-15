@@ -18,7 +18,7 @@
 	static D3HTTPClient *sharedClient = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		sharedClient = [[self alloc] init];
+		sharedClient = [[[self class] alloc] initWithBaseURL:[NSURL URLWithString:kD3BaseURL]];
 	});
 	return sharedClient;
 }
@@ -59,17 +59,44 @@
 
 - (void)getCareerWithAccount:(NSString*)account success:(void (^)(AFJSONRequestOperation *operation, id responseObject))success failure:(void (^)(AFJSONRequestOperation *operation, NSError *error))failure {
     // fail immediately if our account name does not have a #-sign in it
-    if (NSLocationInRange(NSNotFound, [account rangeOfString:@"#"])) {
+    if (! [D3Career accountNameIsValid:account]) {
         if (failure) {
             NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
             [errorDetail setValue:@"A valid account name and number is required." forKey:NSLocalizedDescriptionKey];
             NSError *error = [[NSError alloc] initWithDomain:@"com.nystromproductions.error" code:100 userInfo:errorDetail];
             failure(NULL, error);
         }
-        else {
-            return;
-        }
     }
+    else {
+        NSString *careerPath = [D3Career apiParamFromAccount:account];
+        
+        [self getPath:careerPath parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if (success) {
+                success((AFJSONRequestOperation *)operation, responseObject);
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            if (failure) {
+                failure((AFJSONRequestOperation *)operation, error);
+            }
+        }];
+    }
+}
+
+
+#pragma mark - Hero
+
+- (void)getHeroWithID:(NSInteger)ID success:(void (^)(AFJSONRequestOperation *operation, id responseObject))success failure:(void (^)(AFJSONRequestOperation *operation, NSError *error))failure {
+    NSString *careerParam = [D3Career apiParamFromAccount:self.career.battleTag];
+    NSString *heroParam = [NSString stringWithFormat:@"%@/%@/%i",careerParam,kD3APIHeroParam,ID];
+    [[D3HTTPClient sharedClient] getPath:heroParam parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (success) {
+            success((AFJSONRequestOperation *)operation, responseObject);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure((AFJSONRequestOperation *)operation, error);
+        }
+    }];
 }
 
 @end

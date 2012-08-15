@@ -6,27 +6,22 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
+@class D3Career;
+
+typedef void (^D3CareerRequestSuccess)(D3Career*);
+typedef void (^D3CareerRequestFailure)(NSError*);
+
 #import "D3Hero.h"
-
-@protocol CareerDelegate <NSObject>
-
-@required
-
-- (void)careerDidLoad;
-- (void)requestDidFailWithError:(NSString*)error;
-
-@end
-
-static NSString * const careerRequestDid404 = @"CareerRequestDid404";
 
 @interface D3Career : NSObject
 
-@property (strong, nonatomic) NSOperationQueue *queue;
++ (D3Career*)careerFromJSON:(NSDictionary*)json;
++ (void)getCareerForAccount:(NSString*)account success:(D3CareerRequestSuccess)success failure:(D3CareerRequestFailure)failure;
++ (BOOL)accountNameIsValid:(NSString*)account;
++ (NSString*)accountNameDivider;
++ (NSString*)apiParamFromAccount:(NSString*)account;
 
-@property (weak, nonatomic) NSObject <CareerDelegate> *delegate;
-
-@property (strong, nonatomic) NSString *accountName;
-@property (strong, nonatomic) NSString *battleNetNumber;
+@property (strong, nonatomic) NSString *battleTag;
 
 @property (assign, nonatomic) D3Hero *lastHeroPlayed;
 
@@ -48,11 +43,5 @@ static NSString * const careerRequestDid404 = @"CareerRequestDid404";
 @property (strong, nonatomic) NSArray *progression;
 @property (strong, nonatomic) NSArray *heroes;
 @property (strong, nonatomic) NSArray *fallenHeros;
-
-// singleton method
-+ (id)sharedInstance;
-
-// request methods
-- (void)getAccount:(NSString*)accountName;
 
 @end

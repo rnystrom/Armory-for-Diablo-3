@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		9444D3E415DBF3F40098CFE6 /* D3HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9444D3C615DBED120098CFE6 /* D3HTTPClient.m */; };
+		9444D3F815DBF5D90098CFE6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9444D3F715DBF5D90098CFE6 /* SenTestingKit.framework */; };
+		9444D3F915DBF5D90098CFE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C415DBD556008161FE /* UIKit.framework */; };
+		9444D3FA15DBF5D90098CFE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C615DBD556008161FE /* Foundation.framework */; };
+		9444D40015DBF5D90098CFE6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9444D3FE15DBF5D90098CFE6 /* InfoPlist.strings */; };
+		9444D40315DBF5D90098CFE6 /* Profiles_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9444D40215DBF5D90098CFE6 /* Profiles_Tests.m */; };
+		944F2C1915DC3AE400D5C08A /* D3RuneEmitterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944F2C1815DC3AE400D5C08A /* D3RuneEmitterView.m */; };
+		944F2C1F15DC3DB100D5C08A /* burn.png in Resources */ = {isa = PBXBuildFile; fileRef = 944F2C1B15DC3DB100D5C08A /* burn.png */; };
+		944F2C2015DC3DB100D5C08A /* burn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 944F2C1C15DC3DB100D5C08A /* burn@2x.png */; };
+		944F2C2115DC3DB100D5C08A /* rune.png in Resources */ = {isa = PBXBuildFile; fileRef = 944F2C1D15DC3DB100D5C08A /* rune.png */; };
+		944F2C2215DC3DB100D5C08A /* rune@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 944F2C1E15DC3DB100D5C08A /* rune@2x.png */; };
+		944F2C2815DC3E8D00D5C08A /* D3HeroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 944F2C2715DC3E8D00D5C08A /* D3HeroCell.m */; };
 		945E334315DBDFE500F41270 /* D3Artisan.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E333615DBDFBF00F41270 /* D3Artisan.m */; };
 		945E334415DBDFE500F41270 /* D3Career.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E333815DBDFBF00F41270 /* D3Career.m */; };
 		945E334515DBDFE500F41270 /* D3Follower.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E333A15DBDFBF00F41270 /* D3Follower.m */; };
@@ -15,6 +26,15 @@
 		945E334715DBDFE500F41270 /* D3Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E333E15DBDFBF00F41270 /* D3Item.m */; };
 		945E334815DBDFE500F41270 /* D3Rune.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E334015DBDFBF00F41270 /* D3Rune.m */; };
 		945E334915DBDFE500F41270 /* D3Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E334215DBDFBF00F41270 /* D3Skill.m */; };
+		94ECD44615DC0300008A8BEB /* TestSemaphor.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECD44515DC0300008A8BEB /* TestSemaphor.m */; };
+		94ECD48515DC0A4E008A8BEB /* PSStackedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECD47915DC0A4E008A8BEB /* PSStackedViewController.m */; };
+		94ECD48615DC0A4E008A8BEB /* PSStackedViewGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECD47C15DC0A4E008A8BEB /* PSStackedViewGlobal.m */; };
+		94ECD48715DC0A4E008A8BEB /* PSStackedViewSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECD47E15DC0A4E008A8BEB /* PSStackedViewSegue.m */; };
+		94ECD48815DC0A4E008A8BEB /* PSSVContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECD48015DC0A4E008A8BEB /* PSSVContainerView.m */; };
+		94ECD48915DC0A4E008A8BEB /* UIView+PSSizes.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECD48215DC0A4E008A8BEB /* UIView+PSSizes.m */; };
+		94ECD48A15DC0A4E008A8BEB /* UIViewController+PSStackedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECD48415DC0A4E008A8BEB /* UIViewController+PSStackedView.m */; };
+		94ECD49115DC0B25008A8BEB /* D3HeroMenuControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECD49015DC0B25008A8BEB /* D3HeroMenuControllerViewController.m */; };
+		94ECD49515DC1B1E008A8BEB /* D3AccountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECD49415DC1B1E008A8BEB /* D3AccountView.m */; };
 		94EF72C515DBD556008161FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C415DBD556008161FE /* UIKit.framework */; };
 		94EF72C715DBD556008161FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C615DBD556008161FE /* Foundation.framework */; };
 		94EF72C915DBD556008161FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C815DBD556008161FE /* CoreGraphics.framework */; };
@@ -35,9 +55,34 @@
 		94EF735A15DBDA6F008161FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF734F15DBD9A5008161FE /* main.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9444D40815DBF6150098CFE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94EF72B715DBD556008161FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94EF72BF15DBD556008161FE;
+			remoteInfo = "Profiles for Diablo 3";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		9444D3C515DBED120098CFE6 /* D3HTTPClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3HTTPClient.h; path = "Profiles for Diablo 3/Classes/D3HTTPClient.h"; sourceTree = "<group>"; };
 		9444D3C615DBED120098CFE6 /* D3HTTPClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3HTTPClient.m; path = "Profiles for Diablo 3/Classes/D3HTTPClient.m"; sourceTree = "<group>"; };
+		9444D3F615DBF5D90098CFE6 /* Profiles-Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Profiles-Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9444D3F715DBF5D90098CFE6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		9444D3FD15DBF5D90098CFE6 /* Profiles-Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Profiles-Tests-Info.plist"; sourceTree = "<group>"; };
+		9444D3FF15DBF5D90098CFE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9444D40115DBF5D90098CFE6 /* Profiles_Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Profiles_Tests.h; sourceTree = "<group>"; };
+		9444D40215DBF5D90098CFE6 /* Profiles_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Profiles_Tests.m; sourceTree = "<group>"; };
+		9444D40415DBF5D90098CFE6 /* Profiles-Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Profiles-Tests-Prefix.pch"; sourceTree = "<group>"; };
+		944F2C1715DC3AE400D5C08A /* D3RuneEmitterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3RuneEmitterView.h; path = "Profiles for Diablo 3/Classes/D3RuneEmitterView.h"; sourceTree = "<group>"; };
+		944F2C1815DC3AE400D5C08A /* D3RuneEmitterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3RuneEmitterView.m; path = "Profiles for Diablo 3/Classes/D3RuneEmitterView.m"; sourceTree = "<group>"; };
+		944F2C1B15DC3DB100D5C08A /* burn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = burn.png; sourceTree = "<group>"; };
+		944F2C1C15DC3DB100D5C08A /* burn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "burn@2x.png"; sourceTree = "<group>"; };
+		944F2C1D15DC3DB100D5C08A /* rune.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rune.png; sourceTree = "<group>"; };
+		944F2C1E15DC3DB100D5C08A /* rune@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rune@2x.png"; sourceTree = "<group>"; };
+		944F2C2615DC3E8D00D5C08A /* D3HeroCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3HeroCell.h; path = "Profiles for Diablo 3/Classes/D3HeroCell.h"; sourceTree = "<group>"; };
+		944F2C2715DC3E8D00D5C08A /* D3HeroCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3HeroCell.m; path = "Profiles for Diablo 3/Classes/D3HeroCell.m"; sourceTree = "<group>"; };
 		945E333515DBDFBF00F41270 /* D3Artisan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Artisan.h; path = "Profiles for Diablo 3/Classes/D3Artisan.h"; sourceTree = "<group>"; };
 		945E333615DBDFBF00F41270 /* D3Artisan.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Artisan.m; path = "Profiles for Diablo 3/Classes/D3Artisan.m"; sourceTree = "<group>"; };
 		945E333715DBDFBF00F41270 /* D3Career.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Career.h; path = "Profiles for Diablo 3/Classes/D3Career.h"; sourceTree = "<group>"; };
@@ -52,6 +97,26 @@
 		945E334015DBDFBF00F41270 /* D3Rune.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Rune.m; path = "Profiles for Diablo 3/Classes/D3Rune.m"; sourceTree = "<group>"; };
 		945E334115DBDFBF00F41270 /* D3Skill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Skill.h; path = "Profiles for Diablo 3/Classes/D3Skill.h"; sourceTree = "<group>"; };
 		945E334215DBDFBF00F41270 /* D3Skill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Skill.m; path = "Profiles for Diablo 3/Classes/D3Skill.m"; sourceTree = "<group>"; };
+		94ECD44415DC0300008A8BEB /* TestSemaphor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSemaphor.h; sourceTree = "<group>"; };
+		94ECD44515DC0300008A8BEB /* TestSemaphor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSemaphor.m; sourceTree = "<group>"; };
+		94ECD47715DC0A4E008A8BEB /* PSStackedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStackedView.h; sourceTree = "<group>"; };
+		94ECD47815DC0A4E008A8BEB /* PSStackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStackedViewController.h; sourceTree = "<group>"; };
+		94ECD47915DC0A4E008A8BEB /* PSStackedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStackedViewController.m; sourceTree = "<group>"; };
+		94ECD47A15DC0A4E008A8BEB /* PSStackedViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStackedViewDelegate.h; sourceTree = "<group>"; };
+		94ECD47B15DC0A4E008A8BEB /* PSStackedViewGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStackedViewGlobal.h; sourceTree = "<group>"; };
+		94ECD47C15DC0A4E008A8BEB /* PSStackedViewGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStackedViewGlobal.m; sourceTree = "<group>"; };
+		94ECD47D15DC0A4E008A8BEB /* PSStackedViewSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStackedViewSegue.h; sourceTree = "<group>"; };
+		94ECD47E15DC0A4E008A8BEB /* PSStackedViewSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStackedViewSegue.m; sourceTree = "<group>"; };
+		94ECD47F15DC0A4E008A8BEB /* PSSVContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSVContainerView.h; sourceTree = "<group>"; };
+		94ECD48015DC0A4E008A8BEB /* PSSVContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSVContainerView.m; sourceTree = "<group>"; };
+		94ECD48115DC0A4E008A8BEB /* UIView+PSSizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PSSizes.h"; sourceTree = "<group>"; };
+		94ECD48215DC0A4E008A8BEB /* UIView+PSSizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PSSizes.m"; sourceTree = "<group>"; };
+		94ECD48315DC0A4E008A8BEB /* UIViewController+PSStackedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PSStackedView.h"; sourceTree = "<group>"; };
+		94ECD48415DC0A4E008A8BEB /* UIViewController+PSStackedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PSStackedView.m"; sourceTree = "<group>"; };
+		94ECD48F15DC0B25008A8BEB /* D3HeroMenuControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3HeroMenuControllerViewController.h; path = "Profiles for Diablo 3/Classes/D3HeroMenuControllerViewController.h"; sourceTree = "<group>"; };
+		94ECD49015DC0B25008A8BEB /* D3HeroMenuControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3HeroMenuControllerViewController.m; path = "Profiles for Diablo 3/Classes/D3HeroMenuControllerViewController.m"; sourceTree = "<group>"; };
+		94ECD49315DC1B1E008A8BEB /* D3AccountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3AccountView.h; path = "Profiles for Diablo 3/Classes/D3AccountView.h"; sourceTree = "<group>"; };
+		94ECD49415DC1B1E008A8BEB /* D3AccountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3AccountView.m; path = "Profiles for Diablo 3/Classes/D3AccountView.m"; sourceTree = "<group>"; };
 		94EF72C015DBD556008161FE /* Profiles for Diablo 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Profiles for Diablo 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94EF72C415DBD556008161FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		94EF72C615DBD556008161FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +154,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9444D3F215DBF5D90098CFE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9444D3F815DBF5D90098CFE6 /* SenTestingKit.framework in Frameworks */,
+				9444D3F915DBF5D90098CFE6 /* UIKit.framework in Frameworks */,
+				9444D3FA15DBF5D90098CFE6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		94EF72BD15DBD556008161FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -103,6 +178,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9444D3FB15DBF5D90098CFE6 /* Profiles-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				94ECD44415DC0300008A8BEB /* TestSemaphor.h */,
+				94ECD44515DC0300008A8BEB /* TestSemaphor.m */,
+				9444D40115DBF5D90098CFE6 /* Profiles_Tests.h */,
+				9444D40215DBF5D90098CFE6 /* Profiles_Tests.m */,
+				9444D3FC15DBF5D90098CFE6 /* Supporting Files */,
+			);
+			path = "Profiles-Tests";
+			sourceTree = "<group>";
+		};
+		9444D3FC15DBF5D90098CFE6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9444D3FD15DBF5D90098CFE6 /* Profiles-Tests-Info.plist */,
+				9444D3FE15DBF5D90098CFE6 /* InfoPlist.strings */,
+				9444D40415DBF5D90098CFE6 /* Profiles-Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		944F2C1A15DC3DB100D5C08A /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				944F2C1B15DC3DB100D5C08A /* burn.png */,
+				944F2C1C15DC3DB100D5C08A /* burn@2x.png */,
+				944F2C1D15DC3DB100D5C08A /* rune.png */,
+				944F2C1E15DC3DB100D5C08A /* rune@2x.png */,
+			);
+			name = Graphics;
+			path = "Profiles for Diablo 3/Resources/Graphics";
+			sourceTree = "<group>";
+		};
+		94ECD44815DC03E3008A8BEB /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				9444D3C515DBED120098CFE6 /* D3HTTPClient.h */,
+				9444D3C615DBED120098CFE6 /* D3HTTPClient.m */,
+			);
+			name = HTTP;
+			sourceTree = "<group>";
+		};
+		94ECD47615DC0A4E008A8BEB /* PSStackedView */ = {
+			isa = PBXGroup;
+			children = (
+				94ECD47715DC0A4E008A8BEB /* PSStackedView.h */,
+				94ECD47815DC0A4E008A8BEB /* PSStackedViewController.h */,
+				94ECD47915DC0A4E008A8BEB /* PSStackedViewController.m */,
+				94ECD47A15DC0A4E008A8BEB /* PSStackedViewDelegate.h */,
+				94ECD47B15DC0A4E008A8BEB /* PSStackedViewGlobal.h */,
+				94ECD47C15DC0A4E008A8BEB /* PSStackedViewGlobal.m */,
+				94ECD47D15DC0A4E008A8BEB /* PSStackedViewSegue.h */,
+				94ECD47E15DC0A4E008A8BEB /* PSStackedViewSegue.m */,
+				94ECD47F15DC0A4E008A8BEB /* PSSVContainerView.h */,
+				94ECD48015DC0A4E008A8BEB /* PSSVContainerView.m */,
+				94ECD48115DC0A4E008A8BEB /* UIView+PSSizes.h */,
+				94ECD48215DC0A4E008A8BEB /* UIView+PSSizes.m */,
+				94ECD48315DC0A4E008A8BEB /* UIViewController+PSStackedView.h */,
+				94ECD48415DC0A4E008A8BEB /* UIViewController+PSStackedView.m */,
+			);
+			name = PSStackedView;
+			path = "Profiles for Diablo 3/Vendor/PSStackedView";
+			sourceTree = "<group>";
+		};
 		94EF72B515DBD556008161FE = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +250,7 @@
 				94EF72C315DBD556008161FE /* Frameworks */,
 				94EF72FE15DBD5D7008161FE /* Other Sources */,
 				94EF72C115DBD556008161FE /* Products */,
+				9444D3FB15DBF5D90098CFE6 /* Profiles-Tests */,
 				94EF72FC15DBD5C3008161FE /* Resources */,
 				94EF72FD15DBD5CE008161FE /* Vendor */,
 			);
@@ -119,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				94EF72C015DBD556008161FE /* Profiles for Diablo 3.app */,
+				9444D3F615DBF5D90098CFE6 /* Profiles-Tests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,6 +272,7 @@
 				94EF72C415DBD556008161FE /* UIKit.framework */,
 				94EF72C615DBD556008161FE /* Foundation.framework */,
 				94EF72C815DBD556008161FE /* CoreGraphics.framework */,
+				9444D3F715DBF5D90098CFE6 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -137,6 +280,7 @@
 		94EF72DB15DBD561008161FE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				94ECD44815DC03E3008A8BEB /* HTTP */,
 				94EF72DF15DBD57D008161FE /* Abstract */,
 				94EF72F915DBD59A008161FE /* Application */,
 				94EF72FA15DBD5AA008161FE /* Categories */,
@@ -150,6 +294,12 @@
 		94EF72DC15DBD56D008161FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				944F2C1715DC3AE400D5C08A /* D3RuneEmitterView.h */,
+				944F2C1815DC3AE400D5C08A /* D3RuneEmitterView.m */,
+				94ECD49315DC1B1E008A8BEB /* D3AccountView.h */,
+				94ECD49415DC1B1E008A8BEB /* D3AccountView.m */,
+				944F2C2615DC3E8D00D5C08A /* D3HeroCell.h */,
+				944F2C2715DC3E8D00D5C08A /* D3HeroCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -157,6 +307,8 @@
 		94EF72DD15DBD571008161FE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				94ECD48F15DC0B25008A8BEB /* D3HeroMenuControllerViewController.h */,
+				94ECD49015DC0B25008A8BEB /* D3HeroMenuControllerViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -178,8 +330,6 @@
 				945E334015DBDFBF00F41270 /* D3Rune.m */,
 				945E334115DBDFBF00F41270 /* D3Skill.h */,
 				945E334215DBDFBF00F41270 /* D3Skill.m */,
-				9444D3C515DBED120098CFE6 /* D3HTTPClient.h */,
-				9444D3C615DBED120098CFE6 /* D3HTTPClient.m */,
 			);
 			name = Abstract;
 			sourceTree = "<group>";
@@ -210,6 +360,7 @@
 		94EF72FC15DBD5C3008161FE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				944F2C1A15DC3DB100D5C08A /* Graphics */,
 				94EF734C15DBD99A008161FE /* InfoPlist.strings */,
 				94EF735515DBDA04008161FE /* Profiles for Diablo 3-Info.plist */,
 			);
@@ -219,6 +370,7 @@
 		94EF72FD15DBD5CE008161FE /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				94ECD47615DC0A4E008A8BEB /* PSStackedView */,
 				94EF732815DBD954008161FE /* AFNetworking */,
 			);
 			name = Vendor;
@@ -267,6 +419,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9444D3F515DBF5D90098CFE6 /* Profiles-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9444D40515DBF5D90098CFE6 /* Build configuration list for PBXNativeTarget "Profiles-Tests" */;
+			buildPhases = (
+				9444D3F115DBF5D90098CFE6 /* Sources */,
+				9444D3F215DBF5D90098CFE6 /* Frameworks */,
+				9444D3F315DBF5D90098CFE6 /* Resources */,
+				9444D3F415DBF5D90098CFE6 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9444D40915DBF6150098CFE6 /* PBXTargetDependency */,
+			);
+			name = "Profiles-Tests";
+			productName = "Profiles-Tests";
+			productReference = 9444D3F615DBF5D90098CFE6 /* Profiles-Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		94EF72BF15DBD556008161FE /* Profiles for Diablo 3 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94EF72D815DBD556008161FE /* Build configuration list for PBXNativeTarget "Profiles for Diablo 3" */;
@@ -307,22 +478,60 @@
 			projectRoot = "";
 			targets = (
 				94EF72BF15DBD556008161FE /* Profiles for Diablo 3 */,
+				9444D3F515DBF5D90098CFE6 /* Profiles-Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9444D3F315DBF5D90098CFE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9444D40015DBF5D90098CFE6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		94EF72BE15DBD556008161FE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				94EF734E15DBD99A008161FE /* InfoPlist.strings in Resources */,
+				944F2C1F15DC3DB100D5C08A /* burn.png in Resources */,
+				944F2C2015DC3DB100D5C08A /* burn@2x.png in Resources */,
+				944F2C2115DC3DB100D5C08A /* rune.png in Resources */,
+				944F2C2215DC3DB100D5C08A /* rune@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9444D3F415DBF5D90098CFE6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		9444D3F115DBF5D90098CFE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9444D40315DBF5D90098CFE6 /* Profiles_Tests.m in Sources */,
+				94ECD44615DC0300008A8BEB /* TestSemaphor.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		94EF72BC15DBD556008161FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -348,12 +557,38 @@
 				945E334815DBDFE500F41270 /* D3Rune.m in Sources */,
 				945E334915DBDFE500F41270 /* D3Skill.m in Sources */,
 				9444D3E415DBF3F40098CFE6 /* D3HTTPClient.m in Sources */,
+				94ECD48515DC0A4E008A8BEB /* PSStackedViewController.m in Sources */,
+				94ECD48615DC0A4E008A8BEB /* PSStackedViewGlobal.m in Sources */,
+				94ECD48715DC0A4E008A8BEB /* PSStackedViewSegue.m in Sources */,
+				94ECD48815DC0A4E008A8BEB /* PSSVContainerView.m in Sources */,
+				94ECD48915DC0A4E008A8BEB /* UIView+PSSizes.m in Sources */,
+				94ECD48A15DC0A4E008A8BEB /* UIViewController+PSStackedView.m in Sources */,
+				94ECD49115DC0B25008A8BEB /* D3HeroMenuControllerViewController.m in Sources */,
+				94ECD49515DC1B1E008A8BEB /* D3AccountView.m in Sources */,
+				944F2C1915DC3AE400D5C08A /* D3RuneEmitterView.m in Sources */,
+				944F2C2815DC3E8D00D5C08A /* D3HeroCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9444D40915DBF6150098CFE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94EF72BF15DBD556008161FE /* Profiles for Diablo 3 */;
+			targetProxy = 9444D40815DBF6150098CFE6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		9444D3FE15DBF5D90098CFE6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9444D3FF15DBF5D90098CFE6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		94EF734C15DBD99A008161FE /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -365,6 +600,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9444D40615DBF5D90098CFE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Profiles for Diablo 3.app/Profiles for Diablo 3";
+				CLANG_CXX_LIBRARY = "libc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Profiles-Tests/Profiles-Tests-Prefix.pch";
+				INFOPLIST_FILE = "Profiles-Tests/Profiles-Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		9444D40715DBF5D90098CFE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Profiles for Diablo 3.app/Profiles for Diablo 3";
+				CLANG_CXX_LIBRARY = "libc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Profiles-Tests/Profiles-Tests-Prefix.pch";
+				INFOPLIST_FILE = "Profiles-Tests/Profiles-Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		94EF72D615DBD556008161FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -419,6 +692,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Profiles for Diablo 3/Profiles for Diablo 3-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "Profiles for Diablo 3/Profiles for Diablo 3-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -432,6 +706,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Profiles for Diablo 3/Profiles for Diablo 3-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "Profiles for Diablo 3/Profiles for Diablo 3-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -443,6 +718,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9444D40515DBF5D90098CFE6 /* Build configuration list for PBXNativeTarget "Profiles-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9444D40615DBF5D90098CFE6 /* Debug */,
+				9444D40715DBF5D90098CFE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		94EF72BA15DBD556008161FE /* Build configuration list for PBXProject "Profiles for Diablo 3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
