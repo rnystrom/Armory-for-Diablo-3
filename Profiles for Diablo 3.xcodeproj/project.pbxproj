@@ -10,9 +10,21 @@
 		94EF72C515DBD556008161FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C415DBD556008161FE /* UIKit.framework */; };
 		94EF72C715DBD556008161FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C615DBD556008161FE /* Foundation.framework */; };
 		94EF72C915DBD556008161FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C815DBD556008161FE /* CoreGraphics.framework */; };
-		94EF72CF15DBD556008161FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94EF72CD15DBD556008161FE /* InfoPlist.strings */; };
-		94EF72D115DBD556008161FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF72D015DBD556008161FE /* main.m */; };
-		94EF72D515DBD556008161FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF72D415DBD556008161FE /* AppDelegate.m */; };
+		94EF730015DBD614008161FE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72FF15DBD614008161FE /* QuartzCore.framework */; };
+		94EF733E15DBD954008161FE /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF732A15DBD954008161FE /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		94EF733F15DBD954008161FE /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF732C15DBD954008161FE /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		94EF734015DBD954008161FE /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF732E15DBD954008161FE /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		94EF734115DBD954008161FE /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF733015DBD954008161FE /* AFJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		94EF734215DBD954008161FE /* AFJSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF733215DBD954008161FE /* AFJSONUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		94EF734315DBD954008161FE /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF733415DBD954008161FE /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		94EF734415DBD954008161FE /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF733715DBD954008161FE /* AFPropertyListRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		94EF734515DBD954008161FE /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF733915DBD954008161FE /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		94EF734615DBD954008161FE /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF733B15DBD954008161FE /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		94EF734715DBD954008161FE /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF733D15DBD954008161FE /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		94EF734E15DBD99A008161FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94EF734C15DBD99A008161FE /* InfoPlist.strings */; };
+		94EF735815DBDA61008161FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF732515DBD920008161FE /* AppDelegate.m */; };
+		94EF735915DBDA63008161FE /* D3Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF735215DBD9AE008161FE /* D3Defines.m */; };
+		94EF735A15DBDA6F008161FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF734F15DBD9A5008161FE /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +32,36 @@
 		94EF72C415DBD556008161FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		94EF72C615DBD556008161FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94EF72C815DBD556008161FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		94EF72CC15DBD556008161FE /* Profiles for Diablo 3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Profiles for Diablo 3-Info.plist"; sourceTree = "<group>"; };
-		94EF72CE15DBD556008161FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		94EF72D015DBD556008161FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		94EF72D215DBD556008161FE /* Profiles for Diablo 3-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Profiles for Diablo 3-Prefix.pch"; sourceTree = "<group>"; };
-		94EF72D315DBD556008161FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		94EF72D415DBD556008161FE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		94EF72FF15DBD614008161FE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		94EF732415DBD920008161FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Profiles for Diablo 3/Classes/AppDelegate.h"; sourceTree = "<group>"; };
+		94EF732515DBD920008161FE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "Profiles for Diablo 3/Classes/AppDelegate.m"; sourceTree = "<group>"; };
+		94EF732915DBD954008161FE /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
+		94EF732A15DBD954008161FE /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
+		94EF732B15DBD954008161FE /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		94EF732C15DBD954008161FE /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		94EF732D15DBD954008161FE /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
+		94EF732E15DBD954008161FE /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
+		94EF732F15DBD954008161FE /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
+		94EF733015DBD954008161FE /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestOperation.m; sourceTree = "<group>"; };
+		94EF733115DBD954008161FE /* AFJSONUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONUtilities.h; sourceTree = "<group>"; };
+		94EF733215DBD954008161FE /* AFJSONUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONUtilities.m; sourceTree = "<group>"; };
+		94EF733315DBD954008161FE /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		94EF733415DBD954008161FE /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		94EF733515DBD954008161FE /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		94EF733615DBD954008161FE /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
+		94EF733715DBD954008161FE /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
+		94EF733815DBD954008161FE /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		94EF733915DBD954008161FE /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		94EF733A15DBD954008161FE /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
+		94EF733B15DBD954008161FE /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
+		94EF733C15DBD954008161FE /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		94EF733D15DBD954008161FE /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		94EF734D15DBD99A008161FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "Profiles for Diablo 3/Resources/en.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		94EF734F15DBD9A5008161FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Profiles for Diablo 3/Other Sources/main.m"; sourceTree = "<group>"; };
+		94EF735115DBD9AE008161FE /* D3Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Defines.h; path = "Profiles for Diablo 3/Other Sources/D3Defines.h"; sourceTree = "<group>"; };
+		94EF735215DBD9AE008161FE /* D3Defines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Defines.m; path = "Profiles for Diablo 3/Other Sources/D3Defines.m"; sourceTree = "<group>"; };
+		94EF735515DBDA04008161FE /* Profiles for Diablo 3-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Profiles for Diablo 3-Info.plist"; path = "Profiles for Diablo 3/Profiles for Diablo 3-Info.plist"; sourceTree = "<group>"; };
+		94EF735715DBDA08008161FE /* Profiles for Diablo 3-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Profiles for Diablo 3-Prefix.pch"; path = "Profiles for Diablo 3/Profiles for Diablo 3-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94EF730015DBD614008161FE /* QuartzCore.framework in Frameworks */,
 				94EF72C515DBD556008161FE /* UIKit.framework in Frameworks */,
 				94EF72C715DBD556008161FE /* Foundation.framework in Frameworks */,
 				94EF72C915DBD556008161FE /* CoreGraphics.framework in Frameworks */,
@@ -45,9 +82,12 @@
 		94EF72B515DBD556008161FE = {
 			isa = PBXGroup;
 			children = (
-				94EF72CA15DBD556008161FE /* Profiles for Diablo 3 */,
+				94EF72DB15DBD561008161FE /* Classes */,
 				94EF72C315DBD556008161FE /* Frameworks */,
+				94EF72FE15DBD5D7008161FE /* Other Sources */,
 				94EF72C115DBD556008161FE /* Products */,
+				94EF72FC15DBD5C3008161FE /* Resources */,
+				94EF72FD15DBD5CE008161FE /* Vendor */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +102,7 @@
 		94EF72C315DBD556008161FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				94EF72FF15DBD614008161FE /* QuartzCore.framework */,
 				94EF72C415DBD556008161FE /* UIKit.framework */,
 				94EF72C615DBD556008161FE /* Foundation.framework */,
 				94EF72C815DBD556008161FE /* CoreGraphics.framework */,
@@ -69,25 +110,118 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		94EF72CA15DBD556008161FE /* Profiles for Diablo 3 */ = {
+		94EF72DB15DBD561008161FE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				94EF72D315DBD556008161FE /* AppDelegate.h */,
-				94EF72D415DBD556008161FE /* AppDelegate.m */,
-				94EF72CB15DBD556008161FE /* Supporting Files */,
+				94EF72DF15DBD57D008161FE /* Abstract */,
+				94EF72F915DBD59A008161FE /* Application */,
+				94EF72FA15DBD5AA008161FE /* Categories */,
+				94EF72FB15DBD5B4008161FE /* Misc */,
+				94EF72DD15DBD571008161FE /* ViewControllers */,
+				94EF72DC15DBD56D008161FE /* Views */,
 			);
-			path = "Profiles for Diablo 3";
+			name = Classes;
 			sourceTree = "<group>";
 		};
-		94EF72CB15DBD556008161FE /* Supporting Files */ = {
+		94EF72DC15DBD56D008161FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				94EF72CC15DBD556008161FE /* Profiles for Diablo 3-Info.plist */,
-				94EF72CD15DBD556008161FE /* InfoPlist.strings */,
-				94EF72D015DBD556008161FE /* main.m */,
-				94EF72D215DBD556008161FE /* Profiles for Diablo 3-Prefix.pch */,
 			);
-			name = "Supporting Files";
+			name = Views;
+			sourceTree = "<group>";
+		};
+		94EF72DD15DBD571008161FE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		94EF72DF15DBD57D008161FE /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		94EF72F915DBD59A008161FE /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				94EF732415DBD920008161FE /* AppDelegate.h */,
+				94EF732515DBD920008161FE /* AppDelegate.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		94EF72FA15DBD5AA008161FE /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		94EF72FB15DBD5B4008161FE /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		94EF72FC15DBD5C3008161FE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				94EF734C15DBD99A008161FE /* InfoPlist.strings */,
+				94EF735515DBDA04008161FE /* Profiles for Diablo 3-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		94EF72FD15DBD5CE008161FE /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				94EF732815DBD954008161FE /* AFNetworking */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		94EF72FE15DBD5D7008161FE /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				94EF735115DBD9AE008161FE /* D3Defines.h */,
+				94EF735215DBD9AE008161FE /* D3Defines.m */,
+				94EF734F15DBD9A5008161FE /* main.m */,
+				94EF735715DBDA08008161FE /* Profiles for Diablo 3-Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		94EF732815DBD954008161FE /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				94EF732915DBD954008161FE /* AFHTTPClient.h */,
+				94EF732A15DBD954008161FE /* AFHTTPClient.m */,
+				94EF732B15DBD954008161FE /* AFHTTPRequestOperation.h */,
+				94EF732C15DBD954008161FE /* AFHTTPRequestOperation.m */,
+				94EF732D15DBD954008161FE /* AFImageRequestOperation.h */,
+				94EF732E15DBD954008161FE /* AFImageRequestOperation.m */,
+				94EF732F15DBD954008161FE /* AFJSONRequestOperation.h */,
+				94EF733015DBD954008161FE /* AFJSONRequestOperation.m */,
+				94EF733115DBD954008161FE /* AFJSONUtilities.h */,
+				94EF733215DBD954008161FE /* AFJSONUtilities.m */,
+				94EF733315DBD954008161FE /* AFNetworkActivityIndicatorManager.h */,
+				94EF733415DBD954008161FE /* AFNetworkActivityIndicatorManager.m */,
+				94EF733515DBD954008161FE /* AFNetworking.h */,
+				94EF733615DBD954008161FE /* AFPropertyListRequestOperation.h */,
+				94EF733715DBD954008161FE /* AFPropertyListRequestOperation.m */,
+				94EF733815DBD954008161FE /* AFURLConnectionOperation.h */,
+				94EF733915DBD954008161FE /* AFURLConnectionOperation.m */,
+				94EF733A15DBD954008161FE /* AFXMLRequestOperation.h */,
+				94EF733B15DBD954008161FE /* AFXMLRequestOperation.m */,
+				94EF733C15DBD954008161FE /* UIImageView+AFNetworking.h */,
+				94EF733D15DBD954008161FE /* UIImageView+AFNetworking.m */,
+			);
+			name = AFNetworking;
+			path = "Profiles for Diablo 3/Vendor/AFNetworking";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,6 +250,7 @@
 		94EF72B715DBD556008161FE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = D3;
 				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "Ryan Nystrom";
 			};
@@ -141,7 +276,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94EF72CF15DBD556008161FE /* InfoPlist.strings in Resources */,
+				94EF734E15DBD99A008161FE /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,18 +287,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94EF72D115DBD556008161FE /* main.m in Sources */,
-				94EF72D515DBD556008161FE /* AppDelegate.m in Sources */,
+				94EF733E15DBD954008161FE /* AFHTTPClient.m in Sources */,
+				94EF733F15DBD954008161FE /* AFHTTPRequestOperation.m in Sources */,
+				94EF734015DBD954008161FE /* AFImageRequestOperation.m in Sources */,
+				94EF734115DBD954008161FE /* AFJSONRequestOperation.m in Sources */,
+				94EF734215DBD954008161FE /* AFJSONUtilities.m in Sources */,
+				94EF734315DBD954008161FE /* AFNetworkActivityIndicatorManager.m in Sources */,
+				94EF734415DBD954008161FE /* AFPropertyListRequestOperation.m in Sources */,
+				94EF734515DBD954008161FE /* AFURLConnectionOperation.m in Sources */,
+				94EF734615DBD954008161FE /* AFXMLRequestOperation.m in Sources */,
+				94EF734715DBD954008161FE /* UIImageView+AFNetworking.m in Sources */,
+				94EF735815DBDA61008161FE /* AppDelegate.m in Sources */,
+				94EF735915DBDA63008161FE /* D3Defines.m in Sources */,
+				94EF735A15DBDA6F008161FE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		94EF72CD15DBD556008161FE /* InfoPlist.strings */ = {
+		94EF734C15DBD99A008161FE /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				94EF72CE15DBD556008161FE /* en */,
+				94EF734D15DBD99A008161FE /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -226,7 +372,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Profiles for Diablo 3/Profiles for Diablo 3-Prefix.pch";
 				INFOPLIST_FILE = "Profiles for Diablo 3/Profiles for Diablo 3-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -237,7 +385,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Profiles for Diablo 3/Profiles for Diablo 3-Prefix.pch";
 				INFOPLIST_FILE = "Profiles for Diablo 3/Profiles for Diablo 3-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
