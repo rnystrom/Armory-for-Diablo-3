@@ -1,0 +1,268 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		94EF72C515DBD556008161FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C415DBD556008161FE /* UIKit.framework */; };
+		94EF72C715DBD556008161FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C615DBD556008161FE /* Foundation.framework */; };
+		94EF72C915DBD556008161FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C815DBD556008161FE /* CoreGraphics.framework */; };
+		94EF72CF15DBD556008161FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94EF72CD15DBD556008161FE /* InfoPlist.strings */; };
+		94EF72D115DBD556008161FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF72D015DBD556008161FE /* main.m */; };
+		94EF72D515DBD556008161FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF72D415DBD556008161FE /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		94EF72C015DBD556008161FE /* Profiles for Diablo 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Profiles for Diablo 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94EF72C415DBD556008161FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		94EF72C615DBD556008161FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		94EF72C815DBD556008161FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		94EF72CC15DBD556008161FE /* Profiles for Diablo 3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Profiles for Diablo 3-Info.plist"; sourceTree = "<group>"; };
+		94EF72CE15DBD556008161FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		94EF72D015DBD556008161FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		94EF72D215DBD556008161FE /* Profiles for Diablo 3-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Profiles for Diablo 3-Prefix.pch"; sourceTree = "<group>"; };
+		94EF72D315DBD556008161FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		94EF72D415DBD556008161FE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		94EF72BD15DBD556008161FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94EF72C515DBD556008161FE /* UIKit.framework in Frameworks */,
+				94EF72C715DBD556008161FE /* Foundation.framework in Frameworks */,
+				94EF72C915DBD556008161FE /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		94EF72B515DBD556008161FE = {
+			isa = PBXGroup;
+			children = (
+				94EF72CA15DBD556008161FE /* Profiles for Diablo 3 */,
+				94EF72C315DBD556008161FE /* Frameworks */,
+				94EF72C115DBD556008161FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		94EF72C115DBD556008161FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				94EF72C015DBD556008161FE /* Profiles for Diablo 3.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		94EF72C315DBD556008161FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94EF72C415DBD556008161FE /* UIKit.framework */,
+				94EF72C615DBD556008161FE /* Foundation.framework */,
+				94EF72C815DBD556008161FE /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		94EF72CA15DBD556008161FE /* Profiles for Diablo 3 */ = {
+			isa = PBXGroup;
+			children = (
+				94EF72D315DBD556008161FE /* AppDelegate.h */,
+				94EF72D415DBD556008161FE /* AppDelegate.m */,
+				94EF72CB15DBD556008161FE /* Supporting Files */,
+			);
+			path = "Profiles for Diablo 3";
+			sourceTree = "<group>";
+		};
+		94EF72CB15DBD556008161FE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				94EF72CC15DBD556008161FE /* Profiles for Diablo 3-Info.plist */,
+				94EF72CD15DBD556008161FE /* InfoPlist.strings */,
+				94EF72D015DBD556008161FE /* main.m */,
+				94EF72D215DBD556008161FE /* Profiles for Diablo 3-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		94EF72BF15DBD556008161FE /* Profiles for Diablo 3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94EF72D815DBD556008161FE /* Build configuration list for PBXNativeTarget "Profiles for Diablo 3" */;
+			buildPhases = (
+				94EF72BC15DBD556008161FE /* Sources */,
+				94EF72BD15DBD556008161FE /* Frameworks */,
+				94EF72BE15DBD556008161FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Profiles for Diablo 3";
+			productName = "Profiles for Diablo 3";
+			productReference = 94EF72C015DBD556008161FE /* Profiles for Diablo 3.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		94EF72B715DBD556008161FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Ryan Nystrom";
+			};
+			buildConfigurationList = 94EF72BA15DBD556008161FE /* Build configuration list for PBXProject "Profiles for Diablo 3" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 94EF72B515DBD556008161FE;
+			productRefGroup = 94EF72C115DBD556008161FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				94EF72BF15DBD556008161FE /* Profiles for Diablo 3 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		94EF72BE15DBD556008161FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94EF72CF15DBD556008161FE /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		94EF72BC15DBD556008161FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94EF72D115DBD556008161FE /* main.m in Sources */,
+				94EF72D515DBD556008161FE /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		94EF72CD15DBD556008161FE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94EF72CE15DBD556008161FE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		94EF72D615DBD556008161FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		94EF72D715DBD556008161FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		94EF72D915DBD556008161FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Profiles for Diablo 3/Profiles for Diablo 3-Prefix.pch";
+				INFOPLIST_FILE = "Profiles for Diablo 3/Profiles for Diablo 3-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		94EF72DA15DBD556008161FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Profiles for Diablo 3/Profiles for Diablo 3-Prefix.pch";
+				INFOPLIST_FILE = "Profiles for Diablo 3/Profiles for Diablo 3-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		94EF72BA15DBD556008161FE /* Build configuration list for PBXProject "Profiles for Diablo 3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94EF72D615DBD556008161FE /* Debug */,
+				94EF72D715DBD556008161FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94EF72D815DBD556008161FE /* Build configuration list for PBXNativeTarget "Profiles for Diablo 3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94EF72D915DBD556008161FE /* Debug */,
+				94EF72DA15DBD556008161FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 94EF72B715DBD556008161FE /* Project object */;
+}
