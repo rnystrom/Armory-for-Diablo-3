@@ -80,9 +80,8 @@ enum Gender {
 
 @property (strong, nonatomic) NSDate *lastUpdated;
 
-@property (getter = getClassImage, nonatomic, readonly) UIImage *classImage;
-
 - (void)finishLoadingWithSuccess:(D3HeroRequestSuccess)success failure:(D3HeroRequestFailure)failure;
 - (void)parseFullJSON:(NSDictionary*)json;
+- (NSString*)itemRequestString;
 
 @end

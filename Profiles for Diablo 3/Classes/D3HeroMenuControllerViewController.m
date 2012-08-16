@@ -8,8 +8,12 @@
 
 #import "D3HeroMenuControllerViewController.h"
 #import "D3HeroCell.h"
+#import "PSStackedViewController.h"
+#import "AppDelegate.h"
+#import "D3HeroViewController.h"
 
 @interface D3HeroMenuControllerViewController ()
+@property (strong, nonatomic) UITableView *menuView;
 @property (weak, nonatomic) NSArray *heroes;
 @end
 
@@ -18,7 +22,7 @@
 #pragma mark - NSObject
 
 - (id)init {
-    if (self = [super initWithStyle:UITableViewStylePlain]) {
+    if (self = [super init]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedCareerReadyNotification:) name:kD3CareerNotification object:nil];
     }
     return self;
@@ -29,6 +33,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
+    self.menuView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kD3MenuWidth, screenFrame.size.height) style:UITableViewStylePlain];
+    self.menuView.dataSource = self;
+    self.menuView.delegate = self;
+    [self.view addSubview:self.menuView];
+    [self.menuView reloadData];
 }
 
 
@@ -67,6 +78,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // TODO: unselect cells, disable connections for items
+    D3HeroCell *cell = (D3HeroCell*)[tableView cellForRowAtIndexPath:indexPath];
+    if (! cell.selected) {
+        cell.selected = YES;
+        
+        D3Hero *selectedHero = self.heroes[indexPath.row];
+        D3HeroViewController *viewController = [[D3HeroViewController alloc] init];
+        viewController.hero = selectedHero;
+        
+        [kAppDelegate.stackController popToRootViewControllerAnimated:YES];
+        [kAppDelegate.stackController pushViewController:viewController fromViewController:nil animated:YES];
+    }
 }
 
 
@@ -76,7 +100,7 @@
     D3Career *career = [D3HTTPClient sharedClient].career;
     if ([career isKindOfClass:[D3Career class]]) {
         self.heroes = career.heroes;
-        [self.tableView reloadData];
+        [self.menuView reloadData];
     }
 }
 

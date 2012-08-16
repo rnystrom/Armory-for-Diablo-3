@@ -1,5 +1,5 @@
 //
-//  D3HeroMenuControllerViewController.h
+//  D3ItemButton.h
 //  Profiles for Diablo 3
 //
 //  Created by Ryan Nystrom on 8/15/12.
@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface D3HeroMenuControllerViewController : UIViewController
-<UITableViewDataSource, UITableViewDelegate>
+@interface D3ItemButton : UIButton
+
+@property (weak, nonatomic) D3Item *item;
 
 @end

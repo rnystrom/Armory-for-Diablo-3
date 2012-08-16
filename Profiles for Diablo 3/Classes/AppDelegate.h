@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "PSStackedView.h"
 
+#define kAppDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

@@ -44,6 +44,9 @@
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters {
 	NSMutableURLRequest *request = [super requestWithMethod:method path:path parameters:parameters];
     [request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
+#ifdef D3_LOGGING_MODE
+    NSLog(@"%@",request.URL);
+#endif
 	return request;
 }
 
@@ -98,5 +101,6 @@
         }
     }];
 }
+
 
 @end

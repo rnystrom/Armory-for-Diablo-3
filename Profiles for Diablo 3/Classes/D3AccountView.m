@@ -44,8 +44,9 @@
         CGFloat textFieldButtonPadding = 22.0f;
         self.accountTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, kD3AccountTextFieldWidth, kD3AccountTextFieldHeight)];
         [self.accountTextField setBackgroundColor:[UIColor whiteColor]];
-        self.accountTextField.placeholder = @"AccountName#1234";
+        self.accountTextField.placeholder = @"Battletag#1234";
         self.accountTextField.delegate = self;
+        self.accountTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         
         self.enterAccountButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         self.enterAccountButton.frame = CGRectMake(0, 0, kD3AccountButtonWidth, kD3AccountButtonHeight);
@@ -94,7 +95,6 @@
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             [activityIndicator stopAnimating];
             [activityIndicator removeFromSuperview];
-            NSLog(@"%i",[career.heroes count]);
             [self spinRune];
         });
     } failure:^(NSError *error) {

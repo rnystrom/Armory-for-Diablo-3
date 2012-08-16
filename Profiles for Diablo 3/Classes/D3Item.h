@@ -6,52 +6,38 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
-enum ItemType {
-    ItemTypeHead = 0,
-    ItemTypeShoulders = 1,
-    ItemTypeNeck = 2,
-    ItemTypeHands = 3,
-    ItemTypeBracers = 4,
-    ItemTypeLeftFinger = 5,
-    ItemTypeRightFinger = 6,
-    ItemTypeWaist = 7,
-    ItemTypeLegs = 8,
-    ItemTypeMainHand = 9,
-    ItemTypeOffHand = 10,
-    ItemTypeFeet = 11,
-    ItemTypeTorso = 12
-};
-
-enum ItemGeneralType {
-    ItemGeneralTypeWeapon = 0,
-    ItemGeneralTypeArmor = 1,
-    ItemGeneralTypeTrinket = 2
-};
+#import "AFImageRequestOperation.h"
 
 @class D3Item;
 
-// used in to load and set the button image
-@protocol ItemButtonDelegate <NSObject>
+typedef void (^D3ItemImageRequestSuccess)(NSURLRequest*, NSHTTPURLResponse*, UIImage*);
+typedef void (^D3ItemImageRequestFailure)(NSURLRequest*, NSHTTPURLResponse*, NSError*);
 
-@required
-- (void)itemImageDidLoad:(UIImage*)image;
+enum D3ItemType {
+    D3ItemTypeHead = 0,
+    D3ItemTypeShoulders = 1,
+    D3ItemTypeNeck = 2,
+    D3ItemTypeHands = 3,
+    D3ItemTypeBracers = 4,
+    D3ItemTypeLeftFinger = 5,
+    D3ItemTypeRightFinger = 6,
+    D3ItemTypeWaist = 7,
+    D3ItemTypeLegs = 8,
+    D3ItemTypeMainHand = 9,
+    D3ItemTypeOffHand = 10,
+    D3ItemTypeFeet = 11,
+    D3ItemTypeTorso = 12
+};
 
-@end
-
-// used to load tooltip info
-@protocol ItemTooltipDelegate <NSObject>
-
-@required
-- (void)itemTooltipDidLoad:(D3Item*)item;
-
-@end
+enum D3ItemGeneralType {
+    D3ItemGeneralTypeWeapon = 0,
+    D3ItemGeneralTypeArmor = 1,
+    D3ItemGeneralTypeTrinket = 2
+};
 
 @interface D3Item : NSObject
 
 + (D3Item*)itemFromJSON:(NSDictionary*)json withType:(NSInteger)type;
-
-// REMOVE WHEN API IS LIVE
-@property (strong, nonatomic) NSString *fileName;
 
 @property (strong, nonatomic) NSOperationQueue *queue;
 
@@ -81,12 +67,6 @@ enum ItemGeneralType {
 
 @property (strong, nonatomic) UIImage *icon;
 
-@property (weak, nonatomic) NSObject <ItemButtonDelegate> *delegate;
-@property (weak, nonatomic) NSObject <ItemTooltipDelegate> *tooltipDelegate;
-
-//@property (assign, nonatomic) BOOL isArmor;
-
-//- (void)requestImageWithHero:(D3Hero*)hero;
-- (void)requestTooltip;
+- (AFImageRequestOperation*)requestForItemIconWithHeroType:(NSString*)heroType imageProcessingBlock:(UIImage* (^)(UIImage *image))imageProcessingBlock success:(D3ItemImageRequestSuccess)success failure:(D3ItemImageRequestFailure)failure;
 
 @end
