@@ -27,19 +27,3 @@ extern NSString * const kD3LastHeroPlayedNotification;
 extern NSString * const kD3DoorsAnimatedOffScreenNotification;
 extern NSString * const kD3DoorsHeroNotification;
 extern NSString * const kD3DoorsItemNotification;
-
-extern CGFloat const kD3SystemAnimationDuration;
-extern CGFloat const kD3RuneSpinDuration;
-extern CGFloat const kD3DoorsOpenDuration;
-
-extern CGFloat const kD3AccountTextFieldWidth;
-extern CGFloat const kD3AccountTextFieldHeight;
-extern CGFloat const kD3AccountButtonWidth;
-extern CGFloat const kD3AccountButtonHeight;
-extern CGFloat const kD3MenuWidth;
-extern CGFloat const kD3CardWidth;
-extern CGFloat const kD3Grid1;
-extern CGFloat const kD3Grid2;
-extern CGFloat const kD3Grid3;
-extern CGFloat const kD3Grid4;
-extern CGFloat const kD3Grid5;

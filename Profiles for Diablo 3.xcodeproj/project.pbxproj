@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8689BAE915E3282400492A08 /* barbarian.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BADF15E3282400492A08 /* barbarian.png */; };
+		8689BAEA15E3282400492A08 /* barbarian@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE015E3282400492A08 /* barbarian@2x.png */; };
+		8689BAEB15E3282400492A08 /* demon-hunter.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE115E3282400492A08 /* demon-hunter.png */; };
+		8689BAEC15E3282400492A08 /* demon-hunter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE215E3282400492A08 /* demon-hunter@2x.png */; };
+		8689BAED15E3282400492A08 /* monk.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE315E3282400492A08 /* monk.png */; };
+		8689BAEE15E3282400492A08 /* monk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE415E3282400492A08 /* monk@2x.png */; };
+		8689BAEF15E3282400492A08 /* witch-doctor.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE515E3282400492A08 /* witch-doctor.png */; };
+		8689BAF015E3282400492A08 /* witch-doctor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE615E3282400492A08 /* witch-doctor@2x.png */; };
+		8689BAF115E3282400492A08 /* wizard.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE715E3282400492A08 /* wizard.png */; };
+		8689BAF215E3282400492A08 /* wizard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE815E3282400492A08 /* wizard@2x.png */; };
 		943A123915E1B13400F03406 /* D3SkillDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A123815E1B13400F03406 /* D3SkillDetailViewController.m */; };
 		943A124115E1C8FA00F03406 /* D3StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A124015E1C8FA00F03406 /* D3StatsViewController.m */; };
 		9444D3E415DBF3F40098CFE6 /* D3HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9444D3C615DBED120098CFE6 /* D3HTTPClient.m */; };
@@ -81,6 +91,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8689BADF15E3282400492A08 /* barbarian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barbarian.png; sourceTree = "<group>"; };
+		8689BAE015E3282400492A08 /* barbarian@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbarian@2x.png"; sourceTree = "<group>"; };
+		8689BAE115E3282400492A08 /* demon-hunter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demon-hunter.png"; sourceTree = "<group>"; };
+		8689BAE215E3282400492A08 /* demon-hunter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demon-hunter@2x.png"; sourceTree = "<group>"; };
+		8689BAE315E3282400492A08 /* monk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monk.png; sourceTree = "<group>"; };
+		8689BAE415E3282400492A08 /* monk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monk@2x.png"; sourceTree = "<group>"; };
+		8689BAE515E3282400492A08 /* witch-doctor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "witch-doctor.png"; sourceTree = "<group>"; };
+		8689BAE615E3282400492A08 /* witch-doctor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "witch-doctor@2x.png"; sourceTree = "<group>"; };
+		8689BAE715E3282400492A08 /* wizard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wizard.png; sourceTree = "<group>"; };
+		8689BAE815E3282400492A08 /* wizard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wizard@2x.png"; sourceTree = "<group>"; };
 		943A123715E1B13400F03406 /* D3SkillDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3SkillDetailViewController.h; path = "Profiles for Diablo 3/Classes/D3SkillDetailViewController.h"; sourceTree = "<group>"; };
 		943A123815E1B13400F03406 /* D3SkillDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3SkillDetailViewController.m; path = "Profiles for Diablo 3/Classes/D3SkillDetailViewController.m"; sourceTree = "<group>"; };
 		943A123F15E1C8FA00F03406 /* D3StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3StatsViewController.h; path = "Profiles for Diablo 3/Classes/D3StatsViewController.h"; sourceTree = "<group>"; };
@@ -256,6 +276,16 @@
 		944F2C1A15DC3DB100D5C08A /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				8689BADF15E3282400492A08 /* barbarian.png */,
+				8689BAE015E3282400492A08 /* barbarian@2x.png */,
+				8689BAE115E3282400492A08 /* demon-hunter.png */,
+				8689BAE215E3282400492A08 /* demon-hunter@2x.png */,
+				8689BAE315E3282400492A08 /* monk.png */,
+				8689BAE415E3282400492A08 /* monk@2x.png */,
+				8689BAE515E3282400492A08 /* witch-doctor.png */,
+				8689BAE615E3282400492A08 /* witch-doctor@2x.png */,
+				8689BAE715E3282400492A08 /* wizard.png */,
+				8689BAE815E3282400492A08 /* wizard@2x.png */,
 				944F2C1B15DC3DB100D5C08A /* burn.png */,
 				944F2C1C15DC3DB100D5C08A /* burn@2x.png */,
 				944F2C1D15DC3DB100D5C08A /* rune.png */,
@@ -575,6 +605,16 @@
 				944F2C2215DC3DB100D5C08A /* rune@2x.png in Resources */,
 				9447C1B915E03C600084BE3F /* Exocet.ttf in Resources */,
 				9447C1BA15E03C600084BE3F /* ExocetBold.ttf in Resources */,
+				8689BAE915E3282400492A08 /* barbarian.png in Resources */,
+				8689BAEA15E3282400492A08 /* barbarian@2x.png in Resources */,
+				8689BAEB15E3282400492A08 /* demon-hunter.png in Resources */,
+				8689BAEC15E3282400492A08 /* demon-hunter@2x.png in Resources */,
+				8689BAED15E3282400492A08 /* monk.png in Resources */,
+				8689BAEE15E3282400492A08 /* monk@2x.png in Resources */,
+				8689BAEF15E3282400492A08 /* witch-doctor.png in Resources */,
+				8689BAF015E3282400492A08 /* witch-doctor@2x.png in Resources */,
+				8689BAF115E3282400492A08 /* wizard.png in Resources */,
+				8689BAF215E3282400492A08 /* wizard@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,10 +8,34 @@
 
 #import "D3Theme.h"
 
+#pragma mark - Font Sizes
+
+CGFloat const kD3TinyFontSize = 12.0f;
 CGFloat const kD3SmallFontSize = 16.0f;
 CGFloat const kD3MediumFontSize = 22.0f;
 CGFloat const kD3LargeFontSize = 33.0f;
 CGFloat const kD3TitleFontSize = 66.0f;
+
+#pragma mark - Sizes
+
+CGFloat const kD3Grid1 = 32.0f;
+CGFloat const kD3Grid2 = kD3Grid1 * 2.0f;
+CGFloat const kD3Grid3 = kD3Grid1 * 3.0f;
+CGFloat const kD3Grid4 = kD3Grid1 * 4.0f;
+CGFloat const kD3Grid5 = kD3Grid1 * 5.0f;
+CGFloat const kD3AccountTextFieldWidth = 176.0f;
+CGFloat const kD3AccountTextFieldHeight = 44.0f;
+CGFloat const kD3AccountButtonWidth = 132.0f;
+CGFloat const kD3AccountButtonHeight = kD3AccountTextFieldHeight;
+CGFloat const kD3MenuWidth = kD3Grid4;
+CGFloat const kD3MenuHeight = kD3Grid4;
+CGFloat const kD3CardWidth = (1024.0f - kD3MenuWidth) / 2.0f;
+
+#pragma mark - Animations
+
+CGFloat const kD3SystemAnimationDuration = 0.25f;
+CGFloat const kD3RuneSpinDuration = 1.0f;
+CGFloat const kD3DoorsOpenDuration = 1.0f;
 
 @implementation D3Theme
 

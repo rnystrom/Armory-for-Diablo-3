@@ -24,6 +24,7 @@
     
     D3HeroMenuControllerViewController *menuController = [[D3HeroMenuControllerViewController alloc] init];
     self.stackController = [[PSStackedViewController alloc] initWithRootViewController:menuController];
+    self.stackController.largeLeftInset = kD3MenuWidth;
     self.window.rootViewController = self.stackController;
 
     // init will be in portrait, adjust accordingly

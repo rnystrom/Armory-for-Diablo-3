@@ -11,7 +11,7 @@
 
 enum D3HeroCellType {
     D3HeroCellTypeLogout,
-    D3HeroCellTypeAccount,
+//    D3HeroCellTypeAccount,
     D3HeroCellTypeHero
 };
 

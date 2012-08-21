@@ -18,13 +18,16 @@
 @property (weak, nonatomic) NSArray *heroes;
 @end
 
-@implementation D3HeroMenuControllerViewController
+@implementation D3HeroMenuControllerViewController {
+    BOOL isShowingHero;
+}
 
 #pragma mark - NSObject
 
 - (id)init {
     if (self = [super init]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedCareerReadyNotification:) name:kD3CareerNotification object:nil];
+        isShowingHero = NO;
     }
     return self;
 }
@@ -35,8 +38,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    CGRect screenFrame = [[UIScreen mainScreen] applicationFrame];
-    self.menuView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kD3MenuWidth, screenFrame.size.height) style:UITableViewStylePlain];
+    CGSize screenSize = [UIApplication currentSize];
+    self.menuView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kD3MenuWidth, screenSize.height) style:UITableViewStyleGrouped];
     self.menuView.dataSource = self;
     self.menuView.delegate = self;
     [self.view addSubview:self.menuView];
@@ -56,11 +59,13 @@
 }
 
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return kD3Grid2;
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if ([self.heroes count] > 0) {
-        return [self.heroes count] + 2;
-    }
-    return 0;
+    return [self.heroes count] + 1;
 }
 
 
@@ -72,16 +77,21 @@
         cell = [[D3HeroCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    if (indexPath.row == [self.heroes count] + 1) {
+    if (indexPath.row == [self.heroes count] && indexPath.row != 0) {
         cell.cellType = D3HeroCellTypeLogout;
     }
-    else if (indexPath.row == [self.heroes count]) {
-        cell.cellType = D3HeroCellTypeAccount;
+//    else if (indexPath.row == [self.heroes count]) {
+//        cell.cellType = D3HeroCellTypeAccount;
+//    }
+    else if (indexPath.row < [self.heroes count]) {
+        // if we are here we have at least 1 hero, load it into the stack
+        D3Hero *hero = self.heroes[indexPath.row];
+        if (! isShowingHero) {
+            [self tableView:self.menuView didSelectRowAtIndexPath:indexPath];
+            isShowingHero = YES;
+        }
+        cell.hero = hero;
     }
-    else {
-        cell.hero = self.heroes[indexPath.row];
-    }
-    
     return cell;
 }
 
@@ -89,11 +99,17 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.menuView.visibleCells enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isMemberOfClass:[UITableViewCell class]]) {
+            UITableViewCell *cell = (UITableViewCell*)obj;
+            [cell setSelected:NO animated:NO];
+        }
+    }];
     
     // TODO: unselect cells, disable connections for items
     D3HeroCell *cell = (D3HeroCell*)[tableView cellForRowAtIndexPath:indexPath];
-    if (cell.cellType == D3HeroCellTypeLogout) {
+    if (cell.cellType == D3HeroCellTypeLogout && indexPath.row != 0) {
+        [cell setSelected:NO animated:NO];
         CGRect windowFrame = [[UIScreen mainScreen] bounds];
         CGFloat windowWidth = windowFrame.size.width;
         windowFrame.size.width = windowFrame.size.height;
@@ -101,10 +117,11 @@
         D3AccountView *accountView = [[D3AccountView alloc] initWithFrame:windowFrame];
         [kAppDelegate.window.rootViewController.view addSubview:accountView];
     }
-    else if (cell.cellType == D3HeroCellTypeAccount) {
-        
-    }
+//    else if (cell.cellType == D3HeroCellTypeAccount) {
+//        
+//    }
     else if (cell.hero.isFullyLoaded) {
+        [cell setSelected:YES animated:YES];
         D3Hero *selectedHero = self.heroes[indexPath.row];
         D3HeroViewController *viewController = [[D3HeroViewController alloc] init];
         viewController.hero = selectedHero;
