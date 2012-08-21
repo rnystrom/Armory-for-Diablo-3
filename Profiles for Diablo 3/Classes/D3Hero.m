@@ -49,20 +49,15 @@
 #pragma mark - Loading
 
 - (void)finishLoadingWithSuccess:(void (^)(D3Hero *hero))success failure:(void (^)(NSError *error))failure {
-    [[D3HTTPClient sharedClient] getHeroWithID:self.ID success:^(AFJSONRequestOperation *operation, id responseObject) {
-        NSData *jsonData = (NSData*)responseObject;
-        NSError *parsingError = nil;
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&parsingError];
-        if (parsingError && failure) {
-            failure(parsingError);
+    NSString *careerParam = [D3Career apiParamFromBattletag:[D3HTTPClient sharedClient].career.battletag];
+    NSString *heroPath = [NSString stringWithFormat:@"%@%@/%i",careerParam,kD3APIHeroParam,self.ID];
+    [[D3HTTPClient sharedClient] getJSONPath:heroPath parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *json) {
+        self.isFullyLoaded = YES;
+        [self parseFullJSON:json];
+        if (success) {
+            success(self);
         }
-        else {
-            [self parseFullJSON:json];
-            if (success) {
-                success(self);
-            }
-        }
-    } failure:^(AFJSONRequestOperation *operation, NSError *error) {
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (failure) {
             failure(error);
         }
@@ -76,21 +71,21 @@
     if ([json isKindOfClass:[NSDictionary class]]) {
         NSDictionary *itemsDictionary = json[@"items"];
         if ([itemsDictionary isKindOfClass:[NSDictionary class]]) {
-            self.head = [D3Item itemFromJSON:itemsDictionary[@"head"] withType:D3ItemGeneralTypeArmor];
-            self.torso = [D3Item itemFromJSON:itemsDictionary[@"torso"] withType:D3ItemGeneralTypeArmor];
-            self.feet = [D3Item itemFromJSON:itemsDictionary[@"feet"] withType:D3ItemGeneralTypeArmor];
-            self.hands = [D3Item itemFromJSON:itemsDictionary[@"hands"] withType:D3ItemGeneralTypeArmor];
-            self.shoulders = [D3Item itemFromJSON:itemsDictionary[@"shoulders"] withType:D3ItemGeneralTypeArmor];
-            self.legs = [D3Item itemFromJSON:itemsDictionary[@"legs"] withType:D3ItemGeneralTypeArmor];
-            self.bracers = [D3Item itemFromJSON:itemsDictionary[@"bracers"] withType:D3ItemGeneralTypeArmor];
-            self.waist = [D3Item itemFromJSON:itemsDictionary[@"waist"] withType:D3ItemGeneralTypeArmor];
+            self.head = [D3Item itemFromPreviewJSON:itemsDictionary[@"head"] withType:D3ItemGeneralTypeArmor];
+            self.torso = [D3Item itemFromPreviewJSON:itemsDictionary[@"torso"] withType:D3ItemGeneralTypeArmor];
+            self.feet = [D3Item itemFromPreviewJSON:itemsDictionary[@"feet"] withType:D3ItemGeneralTypeArmor];
+            self.hands = [D3Item itemFromPreviewJSON:itemsDictionary[@"hands"] withType:D3ItemGeneralTypeArmor];
+            self.shoulders = [D3Item itemFromPreviewJSON:itemsDictionary[@"shoulders"] withType:D3ItemGeneralTypeArmor];
+            self.legs = [D3Item itemFromPreviewJSON:itemsDictionary[@"legs"] withType:D3ItemGeneralTypeArmor];
+            self.bracers = [D3Item itemFromPreviewJSON:itemsDictionary[@"bracers"] withType:D3ItemGeneralTypeArmor];
+            self.waist = [D3Item itemFromPreviewJSON:itemsDictionary[@"waist"] withType:D3ItemGeneralTypeArmor];
             
-            self.rightFinger = [D3Item itemFromJSON:itemsDictionary[@"rightFinger"] withType:D3ItemGeneralTypeTrinket];
-            self.leftFinger = [D3Item itemFromJSON:itemsDictionary[@"leftFinger"] withType:D3ItemGeneralTypeTrinket];
-            self.neck = [D3Item itemFromJSON:itemsDictionary[@"neck"] withType:D3ItemGeneralTypeTrinket];
+            self.rightFinger = [D3Item itemFromPreviewJSON:itemsDictionary[@"rightFinger"] withType:D3ItemGeneralTypeTrinket];
+            self.leftFinger = [D3Item itemFromPreviewJSON:itemsDictionary[@"leftFinger"] withType:D3ItemGeneralTypeTrinket];
+            self.neck = [D3Item itemFromPreviewJSON:itemsDictionary[@"neck"] withType:D3ItemGeneralTypeTrinket];
             
-            self.mainHand = [D3Item itemFromJSON:itemsDictionary[@"mainHand"] withType:D3ItemGeneralTypeWeapon];
-            self.offHand = [D3Item itemFromJSON:itemsDictionary[@"offHand"] withType:D3ItemGeneralTypeWeapon];
+            self.mainHand = [D3Item itemFromPreviewJSON:itemsDictionary[@"mainHand"] withType:D3ItemGeneralTypeWeapon];
+            self.offHand = [D3Item itemFromPreviewJSON:itemsDictionary[@"offHand"] withType:D3ItemGeneralTypeWeapon];
             
             self.itemsArray = @[
             self.head,
@@ -132,7 +127,44 @@
             self.lightningResist = ((NSString*)statsDictionary[@"lightningResist"]).integerValue;
             self.poisonResist = ((NSString*)statsDictionary[@"poisonResist"]).integerValue;
             self.arcaneResist = ((NSString*)statsDictionary[@"arcaneResist"]).integerValue;
+            self.physicalResist = ((NSString*)statsDictionary[@"physicalResist"]).integerValue;
             self.damage = ((NSString*)statsDictionary[@"damage"]).floatValue;
+        }
+        
+        NSDictionary *skillsDictionary = json[@"skills"];
+        if ([skillsDictionary isKindOfClass:[NSDictionary class]]) {
+            NSArray *activeArray = skillsDictionary[@"active"];
+            NSArray *passiveArray = skillsDictionary[@"passive"];
+            
+            NSMutableArray *mutActives = [NSMutableArray array];
+            NSMutableArray *mutPassives = [NSMutableArray array];
+            
+            if ([activeArray isKindOfClass:[NSArray class]]) {
+                [activeArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    if ([obj isKindOfClass:[NSDictionary class]]) {
+                        NSDictionary *activeJSON = (NSDictionary*)obj;
+                        D3Skill *skill = [D3Skill activeSkillFromJSON:activeJSON];
+                        if (skill) {
+                            [mutActives addObject:skill];
+                        }
+                    }
+                }];
+            }
+            
+            if ([passiveArray isKindOfClass:[NSArray class]]) {
+                [passiveArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    if ([obj isKindOfClass:[NSDictionary class]]) {
+                        NSDictionary *passiveJSON = (NSDictionary*)obj;
+                        D3Skill *skill = [D3Skill passiveSkillFromJSON:passiveJSON];
+                        if (skill) {
+                            [mutPassives addObject:skill];
+                        }
+                    }
+                }];
+            }
+            
+            self.activeSkills = mutActives;
+            self.passiveSkills = mutPassives;
         }
         
         NSDictionary *progressDictionary = json[@"progress"];

@@ -18,6 +18,7 @@ extern NSString * const kD3BaseURL;
 extern NSString * const kD3MediaURL;
 extern NSString * const kD3APIProfileParam;
 extern NSString * const kD3APIHeroParam;
+extern NSString * const kD3DataParam;
 extern NSString * const kD3ItemParam;
 extern NSString * const kD3SkillParam;
 

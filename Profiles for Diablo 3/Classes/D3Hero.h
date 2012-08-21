@@ -15,13 +15,14 @@ typedef void (^D3HeroRequestFailure)(NSError*);
 #import "D3Artisan.h"
 #import "D3Item.h"
 #import "D3Follower.h"
+#import "D3Object.h"
 
 enum Gender {
     GenderMale = 0,
     GenderFemale = 1
 };
 
-@interface D3Hero : NSObject
+@interface D3Hero : D3Object
 
 + (D3Hero*)heroFromPreviewJSON:(NSDictionary*)json;
 + (D3Hero*)fallenHeroFromJSON:(NSDictionary*)json;
@@ -32,7 +33,6 @@ enum Gender {
 @property (strong, nonatomic) NSString *progressHighestDifficulty;
 
 @property (assign, nonatomic) BOOL hardcore;
-@property (assign, nonatomic) BOOL isFullyLoaded;
 
 @property (strong, nonatomic) D3Item *head;
 @property (strong, nonatomic) D3Item *torso;
@@ -72,6 +72,7 @@ enum Gender {
 @property (assign, nonatomic) NSInteger lightningResist;
 @property (assign, nonatomic) NSInteger poisonResist;
 @property (assign, nonatomic) NSInteger arcaneResist;
+@property (assign, nonatomic) NSInteger physicalResist;
 
 @property (assign, nonatomic) CGFloat damageIncrease;
 @property (assign, nonatomic) CGFloat damageReduction;
@@ -81,7 +82,6 @@ enum Gender {
 @property (strong, nonatomic) NSDate *lastUpdated;
 
 - (void)finishLoadingWithSuccess:(D3HeroRequestSuccess)success failure:(D3HeroRequestFailure)failure;
-- (void)parseFullJSON:(NSDictionary*)json;
 - (NSString*)itemRequestString;
 
 @end

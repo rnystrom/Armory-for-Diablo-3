@@ -47,6 +47,7 @@
         self.accountTextField.placeholder = @"Battletag#1234";
         self.accountTextField.delegate = self;
         self.accountTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        self.accountTextField.clearButtonMode = UITextFieldViewModeAlways;
         
         self.enterAccountButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         self.enterAccountButton.frame = CGRectMake(0, 0, kD3AccountButtonWidth, kD3AccountButtonHeight);
@@ -90,15 +91,25 @@
     [activityIndicator startAnimating];
     
     NSString *account = self.accountTextField.text;
-    [D3Career getCareerForAccount:account success:^(D3Career *career) {
+    [D3Career getCareerForBattletag:account success:^(D3Career *career) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-            [activityIndicator stopAnimating];
-            [activityIndicator removeFromSuperview];
-            [self spinRune];
+            if (! career || [career.heroes count] == 0) {
+                UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No heroes found for account." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [av show];
+                [activityIndicator stopAnimating];
+                [activityIndicator removeFromSuperview];
+                self.enterAccountButton.hidden = NO;
+            }
+            else {
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                [activityIndicator stopAnimating];
+                [activityIndicator removeFromSuperview];
+                [self spinRune];
+            }
         });
     } failure:^(NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [av show];
             [activityIndicator stopAnimating];
@@ -145,6 +156,7 @@
                      completion:^(BOOL finished){
                          if (finished) {
                              dispatch_async(dispatch_get_main_queue(), ^{
+                                 // this tells the system that we are done
                                  [[NSNotificationCenter defaultCenter] postNotificationName:kD3DoorsAnimatedOffScreenNotification object:self];
                              });
                          }

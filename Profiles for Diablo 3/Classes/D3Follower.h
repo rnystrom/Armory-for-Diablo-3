@@ -6,7 +6,9 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
-@interface D3Follower : NSObject
+#import "D3Object.h"
+
+@interface D3Follower : D3Object
 
 + (D3Follower*)followerFromJSON:(NSDictionary*)json;
 

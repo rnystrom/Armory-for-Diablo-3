@@ -11,6 +11,7 @@
 #import "PSStackedViewController.h"
 #import "AppDelegate.h"
 #import "D3HeroViewController.h"
+#import "D3AccountView.h"
 
 @interface D3HeroMenuControllerViewController ()
 @property (strong, nonatomic) UITableView *menuView;
@@ -56,7 +57,10 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.heroes count];
+    if ([self.heroes count] > 0) {
+        return [self.heroes count] + 2;
+    }
+    return 0;
 }
 
 
@@ -68,7 +72,15 @@
         cell = [[D3HeroCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-	cell.hero = self.heroes[indexPath.row];
+    if (indexPath.row == [self.heroes count] + 1) {
+        cell.cellType = D3HeroCellTypeLogout;
+    }
+    else if (indexPath.row == [self.heroes count]) {
+        cell.cellType = D3HeroCellTypeAccount;
+    }
+    else {
+        cell.hero = self.heroes[indexPath.row];
+    }
     
     return cell;
 }
@@ -81,9 +93,18 @@
     
     // TODO: unselect cells, disable connections for items
     D3HeroCell *cell = (D3HeroCell*)[tableView cellForRowAtIndexPath:indexPath];
-    if (! cell.selected) {
-        cell.selected = YES;
+    if (cell.cellType == D3HeroCellTypeLogout) {
+        CGRect windowFrame = [[UIScreen mainScreen] bounds];
+        CGFloat windowWidth = windowFrame.size.width;
+        windowFrame.size.width = windowFrame.size.height;
+        windowFrame.size.height = windowWidth;
+        D3AccountView *accountView = [[D3AccountView alloc] initWithFrame:windowFrame];
+        [kAppDelegate.window.rootViewController.view addSubview:accountView];
+    }
+    else if (cell.cellType == D3HeroCellTypeAccount) {
         
+    }
+    else if (cell.hero.isFullyLoaded) {
         D3Hero *selectedHero = self.heroes[indexPath.row];
         D3HeroViewController *viewController = [[D3HeroViewController alloc] init];
         viewController.hero = selectedHero;
@@ -97,11 +118,10 @@
 #pragma mark - Notifications
 
 - (void)receivedCareerReadyNotification:(NSNotification*)notification {
+    [kAppDelegate.stackController popToRootViewControllerAnimated:YES];
     D3Career *career = [D3HTTPClient sharedClient].career;
-    if ([career isKindOfClass:[D3Career class]]) {
-        self.heroes = career.heroes;
-        [self.menuView reloadData];
-    }
+    self.heroes = career.heroes;
+    [self.menuView reloadData];
 }
 
 @end

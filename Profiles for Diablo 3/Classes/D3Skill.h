@@ -6,25 +6,11 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
+#import "AFImageRequestOperation.h"
 #import "D3Rune.h"
+#import "D3Object.h"
 
-@class D3Skill;
-
-@protocol SkillButtonDelegate <NSObject>
-
-@required
--(void)skillImageDidLoad:(UIImage*)image;
-
-@end
-
-@protocol SkillTooltipDelegate <NSObject>
-
-@required
--(void)skillTooltipDidLoad:(D3Skill*)skill;
-
-@end
-
-@interface D3Skill : NSObject
+@interface D3Skill : D3Object
 
 + (D3Skill*)activeSkillFromJSON:(NSDictionary*)json;
 + (D3Skill*)passiveSkillFromJSON:(NSDictionary*)json;
@@ -39,16 +25,14 @@
 @property (strong, nonatomic) NSString *slug;
 @property (strong, nonatomic) NSString *tooltipParams;
 
+@property (assign, nonatomic) NSInteger level;
+
 @property (strong, nonatomic) D3Rune *rune;
 
 @property (assign, nonatomic) BOOL isActive;
 
 @property (strong, nonatomic) UIImage *icon;
 
-@property (weak, nonatomic) NSObject <SkillButtonDelegate> *delegate;
-@property (weak, nonatomic) NSObject <SkillTooltipDelegate> *tooltipDelegate;
-
-- (void)requestTooltip;
-//- (void)requestImage;
+- (AFImageRequestOperation*)requestIconWithImageProcessingBlock:(UIImage* (^)(UIImage *image))imageProcessingBlock success:(void (^)(NSURLRequest*, NSHTTPURLResponse*, UIImage*))success failure:(void (^)(NSURLRequest*, NSHTTPURLResponse*, NSError*))failure;
 
 @end

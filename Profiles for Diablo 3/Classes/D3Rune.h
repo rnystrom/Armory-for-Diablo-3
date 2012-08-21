@@ -6,7 +6,9 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
-@interface D3Rune : NSObject
+#import "D3Object.h"
+
+@interface D3Rune : D3Object
 
 + (D3Rune*)runeFromJSON:(NSDictionary *)json;
 

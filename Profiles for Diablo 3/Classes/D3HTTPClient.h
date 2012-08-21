@@ -19,7 +19,6 @@ typedef void (^D3HTTPClientFailure)(AFJSONRequestOperation *operation, NSError *
 
 @property (strong, nonatomic) D3Career *career;
 
-- (void)getCareerWithAccount:(NSString*)account success:(D3HTTPClientSuccess)success failure:(D3HTTPClientFailure)failure;
-- (void)getHeroWithID:(NSInteger)ID success:(D3HTTPClientSuccess)success failure:(D3HTTPClientFailure)failure;
+- (void)getJSONPath:(NSString *)path parameters:(NSDictionary *)parameters success:(void (^)(AFHTTPRequestOperation *, NSDictionary*))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure;
 
 @end

@@ -12,62 +12,73 @@
 
 #pragma mark - Helpers
 
-+ (NSString*)accountNameDivider {
++ (NSString*)battletagDivider {
     return @"#";
 }
 
 
-+ (BOOL)accountNameIsValid:(NSString*)account; {
-    if ([account length] < 3) {
++ (BOOL)battletagIsValid:(NSString*)battletag; {
+    if ([battletag length] < 3) {
         return NO;
     }
-    NSString *accountDivider = [self accountNameDivider];
-    NSRange poundRange = [account rangeOfString:accountDivider];
+    NSString *battletagDivider = [self battletagDivider];
+    NSRange poundRange = [battletag rangeOfString:battletagDivider];
     return poundRange.location != NSNotFound;
 }
 
 
-+ (NSString*)apiParamFromAccount:(NSString*)account {
-    NSArray *splitAccount = [account componentsSeparatedByString:[D3Career accountNameDivider]];
-    NSString *accountName = splitAccount [0];
-    NSString *accountNumber = [splitAccount lastObject];
-    return [NSString stringWithFormat:@"%@/%@-%@/",kD3APIProfileParam,accountName,accountNumber];
++ (NSString*)apiParamFromBattletag:(NSString*)battletag {
+    NSArray *splitbattletag = [battletag componentsSeparatedByString:[D3Career battletagDivider]];
+    NSString *battletagName = splitbattletag [0];
+    NSString *battletagNumber = [splitbattletag lastObject];
+    return [NSString stringWithFormat:@"%@/%@-%@/",kD3APIProfileParam,battletagName,battletagNumber];
 }
 
 
 #pragma mark - Loading
 
-+ (void)getCareerForAccount:(NSString *)account success:(void (^)(D3Career *career))success failure:(void (^)(NSError *error))failure {
-    [[D3HTTPClient sharedClient] getCareerWithAccount:account success:^(AFJSONRequestOperation *operation, id responseObject) {
-        NSData *jsonData = (NSData*)responseObject;
-        NSError *parsingError = nil;
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&parsingError];
-        if (parsingError && failure) {
-            failure(parsingError);
-        }
-        else {
-            D3Career *career = [D3Career careerFromJSON:json];
-            if (career) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [D3HTTPClient sharedClient].career = career;
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kD3CareerNotification object:nil];
-                });
-            }
-            if (success) {
-                success(career);
-            }
-        }
-    } failure:^(AFJSONRequestOperation *operation, NSError *error) {
++ (void)getCareerForBattletag:(NSString *)battletag success:(void (^)(D3Career *career))success failure:(void (^)(NSError *error))failure {
+    if (! [D3Career battletagIsValid:battletag]) {
         if (failure) {
+            NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+            [errorDetail setValue:@"A valid battletag name and number is required." forKey:NSLocalizedDescriptionKey];
+            NSError *error = [[NSError alloc] initWithDomain:@"com.nystromproductions.error" code:100 userInfo:errorDetail];
             failure(error);
         }
-    }];
+    }
+    else {
+        NSString *careerPath = [D3Career apiParamFromBattletag:battletag];
+        [[D3HTTPClient sharedClient] getJSONPath:careerPath parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *json) {
+            if ([json objectForKey:@"code"]) {
+                NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+                [errorDetail setValue:[NSString stringWithFormat:@"Battletag %@ could not be found.",battletag] forKey:NSLocalizedDescriptionKey];
+                NSError *error = [[NSError alloc] initWithDomain:@"com.nystromproductions.error" code:100 userInfo:errorDetail];
+                failure(error);
+            }
+            else {
+                D3Career *career = [D3Career careerFromJSON:json];
+                if (career) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [D3HTTPClient sharedClient].career = career;
+                        [[NSNotificationCenter defaultCenter] postNotificationName:kD3CareerNotification object:nil];
+                    });
+                }
+                if (success) {
+                    success(career);
+                }
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            if (failure) {
+                failure(error);
+            }
+        }];
+    }
 }
 
 
 #pragma mark - Parsing
 
-// dummy data for now, ignores accountName parameter
+// dummy data for now, ignores battletagName parameter
 + (D3Career*)careerFromJSON:(NSDictionary *)json {
     D3Career *career = nil;
     if ([json isKindOfClass:[NSDictionary class]]) {
@@ -79,7 +90,7 @@
             career.lastUpdated = [NSDate dateWithTimeIntervalSince1970:seconds];
         }
         
-        career.battleTag = json[@"battleTag"];
+        career.battletag = json[@"battleTag"];
         
         NSMutableArray *mutArtisans = [NSMutableArray array];
         if ([json[@"artisans"] isKindOfClass:[NSArray array]]) {

@@ -1,17 +1,17 @@
 //
-//  D3HeroViewController.h
+//  D3ItemViewController.h
 //  Profiles for Diablo 3
 //
-//  Created by Ryan Nystrom on 8/15/12.
+//  Created by Ryan Nystrom on 8/16/12.
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
 #import "D3CardViewController.h"
 #import "PSStackedViewDelegate.h"
 
-@interface D3HeroViewController : D3CardViewController
+@interface D3ItemViewController : D3CardViewController
 <PSStackedViewDelegate>
 
-@property (weak, nonatomic) D3Hero *hero;
+@property (weak, nonatomic) D3Item *item;
 
 @end

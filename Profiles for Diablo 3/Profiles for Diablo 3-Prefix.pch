@@ -15,5 +15,7 @@
     #import "D3Defines.h"
     #import "D3HTTPClient.h"
     #import "UIApplication+AppDimensions.h"
+    #import "UILabel+AutoSize.h"
+    #import "D3Theme.h"
 
 #endif

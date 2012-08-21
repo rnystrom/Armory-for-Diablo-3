@@ -6,22 +6,23 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
+#import "D3Hero.h"
+#import "D3Object.h"
+
 @class D3Career;
 
 typedef void (^D3CareerRequestSuccess)(D3Career*);
 typedef void (^D3CareerRequestFailure)(NSError*);
 
-#import "D3Hero.h"
-
-@interface D3Career : NSObject
+@interface D3Career : D3Object
 
 + (D3Career*)careerFromJSON:(NSDictionary*)json;
-+ (void)getCareerForAccount:(NSString*)account success:(D3CareerRequestSuccess)success failure:(D3CareerRequestFailure)failure;
-+ (BOOL)accountNameIsValid:(NSString*)account;
-+ (NSString*)accountNameDivider;
-+ (NSString*)apiParamFromAccount:(NSString*)account;
++ (void)getCareerForBattletag:(NSString*)battletag success:(D3CareerRequestSuccess)success failure:(D3CareerRequestFailure)failure;
++ (BOOL)battletagIsValid:(NSString*)battletag;
++ (NSString*)battletagDivider;
++ (NSString*)apiParamFromBattletag:(NSString*)battletag;
 
-@property (strong, nonatomic) NSString *battleTag;
+@property (strong, nonatomic) NSString *battletag;
 
 @property (assign, nonatomic) D3Hero *lastHeroPlayed;
 

@@ -13,6 +13,7 @@
 NSString * const kD3BaseURL = @"http://us.battle.net/api/d3";
 NSString * const kD3APIProfileParam = @"profile";
 NSString * const kD3APIHeroParam = @"hero";
+NSString * const kD3DataParam = @"data";
 NSString * const kD3MediaURL = @"http://us.media.blizzard.com/d3/icons";
 NSString * const kD3ItemParam = @"items/large";
 NSString * const kD3SkillParam = @"skills/64";

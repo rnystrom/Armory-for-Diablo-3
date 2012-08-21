@@ -6,7 +6,9 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
-@interface D3Artisan : NSObject
+#import "D3Object.h"
+
+@interface D3Artisan : D3Object
 
 + (D3Artisan*)artisanWithJSON:(NSDictionary*)json;
 

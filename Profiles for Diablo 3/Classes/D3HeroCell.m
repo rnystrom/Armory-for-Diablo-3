@@ -19,10 +19,10 @@
     return self;
 }
 
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
 
@@ -31,6 +31,8 @@
 
 - (void)setHero:(D3Hero *)hero {
     _hero = hero;
+    self.cellType = D3HeroCellTypeHero;
+    
     if (! hero.isFullyLoaded) {
         UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [self.contentView addSubview:activityIndicator];
@@ -47,5 +49,17 @@
     }
     self.textLabel.text = hero.name;
 }
+
+
+- (void)setCellType:(enum D3HeroCellType)cellType {
+    _cellType = cellType;
+    if (cellType == D3HeroCellTypeAccount) {
+        self.textLabel.text = @"Account";
+    }
+    else if (cellType == D3HeroCellTypeLogout) {
+        self.textLabel.text = @"Logout";
+    }
+}
+
 
 @end

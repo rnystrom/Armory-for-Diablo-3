@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "D3ViewController.h"
 
-@interface D3HeroMenuControllerViewController : UIViewController
+@interface D3HeroMenuControllerViewController : D3ViewController
 <UITableViewDataSource, UITableViewDelegate>
 
 @end
