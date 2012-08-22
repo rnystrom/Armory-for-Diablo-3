@@ -7,16 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8689BAE915E3282400492A08 /* barbarian.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BADF15E3282400492A08 /* barbarian.png */; };
-		8689BAEA15E3282400492A08 /* barbarian@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE015E3282400492A08 /* barbarian@2x.png */; };
-		8689BAEB15E3282400492A08 /* demon-hunter.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE115E3282400492A08 /* demon-hunter.png */; };
-		8689BAEC15E3282400492A08 /* demon-hunter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE215E3282400492A08 /* demon-hunter@2x.png */; };
-		8689BAED15E3282400492A08 /* monk.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE315E3282400492A08 /* monk.png */; };
-		8689BAEE15E3282400492A08 /* monk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE415E3282400492A08 /* monk@2x.png */; };
-		8689BAEF15E3282400492A08 /* witch-doctor.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE515E3282400492A08 /* witch-doctor.png */; };
-		8689BAF015E3282400492A08 /* witch-doctor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE615E3282400492A08 /* witch-doctor@2x.png */; };
-		8689BAF115E3282400492A08 /* wizard.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE715E3282400492A08 /* wizard.png */; };
-		8689BAF215E3282400492A08 /* wizard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8689BAE815E3282400492A08 /* wizard@2x.png */; };
+		8664321415E450D800F53138 /* burn.png in Resources */ = {isa = PBXBuildFile; fileRef = 866431FB15E450D800F53138 /* burn.png */; };
+		8664321515E450D800F53138 /* burn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 866431FC15E450D800F53138 /* burn@2x.png */; };
+		8664321615E450D800F53138 /* barbarian-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 866431FE15E450D800F53138 /* barbarian-selected.png */; };
+		8664321715E450D800F53138 /* barbarian-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 866431FF15E450D800F53138 /* barbarian-selected@2x.png */; };
+		8664321815E450D800F53138 /* barbarian.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664320015E450D800F53138 /* barbarian.png */; };
+		8664321915E450D800F53138 /* barbarian@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664320115E450D800F53138 /* barbarian@2x.png */; };
+		8664321A15E450D800F53138 /* demon-hunter-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664320215E450D800F53138 /* demon-hunter-selected.png */; };
+		8664321B15E450D800F53138 /* demon-hunter-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664320315E450D800F53138 /* demon-hunter-selected@2x.png */; };
+		8664321C15E450D800F53138 /* demon-hunter.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664320415E450D800F53138 /* demon-hunter.png */; };
+		8664321D15E450D800F53138 /* demon-hunter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664320515E450D800F53138 /* demon-hunter@2x.png */; };
+		8664321E15E450D800F53138 /* monk-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664320615E450D800F53138 /* monk-selected.png */; };
+		8664321F15E450D800F53138 /* monk-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664320715E450D800F53138 /* monk-selected@2x.png */; };
+		8664322015E450D800F53138 /* monk.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664320815E450D800F53138 /* monk.png */; };
+		8664322115E450D800F53138 /* monk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664320915E450D800F53138 /* monk@2x.png */; };
+		8664322215E450D800F53138 /* witch-doctor-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664320A15E450D800F53138 /* witch-doctor-selected.png */; };
+		8664322315E450D800F53138 /* witch-doctor-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664320B15E450D800F53138 /* witch-doctor-selected@2x.png */; };
+		8664322415E450D800F53138 /* witch-doctor.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664320C15E450D800F53138 /* witch-doctor.png */; };
+		8664322515E450D800F53138 /* witch-doctor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664320D15E450D800F53138 /* witch-doctor@2x.png */; };
+		8664322615E450D800F53138 /* wizard-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664320E15E450D800F53138 /* wizard-selected.png */; };
+		8664322715E450D800F53138 /* wizard-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664320F15E450D800F53138 /* wizard-selected@2x.png */; };
+		8664322815E450D800F53138 /* wizard.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664321015E450D800F53138 /* wizard.png */; };
+		8664322915E450D800F53138 /* wizard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664321115E450D800F53138 /* wizard@2x.png */; };
+		8664322A15E450D800F53138 /* rune.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664321215E450D800F53138 /* rune.png */; };
+		8664322B15E450D800F53138 /* rune@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664321315E450D800F53138 /* rune@2x.png */; };
+		8675D70515E520520006B42F /* D3LogoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8675D70415E520520006B42F /* D3LogoutCell.m */; };
+		86A2269215E462F900971A53 /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A2269015E462F900971A53 /* texture.png */; };
+		86A2269315E462F900971A53 /* texture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A2269115E462F900971A53 /* texture@2x.png */; };
+		86A2269A15E4666300971A53 /* D3TexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A2269915E4666300971A53 /* D3TexturedView.m */; };
+		86A226A015E48FC900971A53 /* off.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A2269E15E48FC900971A53 /* off.png */; };
+		86A226A115E48FC900971A53 /* off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A2269F15E48FC900971A53 /* off@2x.png */; };
+		86A226A415E492F100971A53 /* block-shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A226A215E492F100971A53 /* block-shadow.png */; };
+		86A226A515E492F100971A53 /* block-shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A226A315E492F100971A53 /* block-shadow@2x.png */; };
 		943A123915E1B13400F03406 /* D3SkillDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A123815E1B13400F03406 /* D3SkillDetailViewController.m */; };
 		943A124115E1C8FA00F03406 /* D3StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A124015E1C8FA00F03406 /* D3StatsViewController.m */; };
 		9444D3E415DBF3F40098CFE6 /* D3HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9444D3C615DBED120098CFE6 /* D3HTTPClient.m */; };
@@ -36,10 +58,6 @@
 		944C195115DE8D3200B57C52 /* D3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 944C195015DE8D3200B57C52 /* D3ViewController.m */; };
 		944C195415DE999C00B57C52 /* D3Object.m in Sources */ = {isa = PBXBuildFile; fileRef = 944C195315DE999C00B57C52 /* D3Object.m */; };
 		944F2C1915DC3AE400D5C08A /* D3RuneEmitterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944F2C1815DC3AE400D5C08A /* D3RuneEmitterView.m */; };
-		944F2C1F15DC3DB100D5C08A /* burn.png in Resources */ = {isa = PBXBuildFile; fileRef = 944F2C1B15DC3DB100D5C08A /* burn.png */; };
-		944F2C2015DC3DB100D5C08A /* burn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 944F2C1C15DC3DB100D5C08A /* burn@2x.png */; };
-		944F2C2115DC3DB100D5C08A /* rune.png in Resources */ = {isa = PBXBuildFile; fileRef = 944F2C1D15DC3DB100D5C08A /* rune.png */; };
-		944F2C2215DC3DB100D5C08A /* rune@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 944F2C1E15DC3DB100D5C08A /* rune@2x.png */; };
 		944F2C2815DC3E8D00D5C08A /* D3HeroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 944F2C2715DC3E8D00D5C08A /* D3HeroCell.m */; };
 		945E334315DBDFE500F41270 /* D3Artisan.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E333615DBDFBF00F41270 /* D3Artisan.m */; };
 		945E334415DBDFE500F41270 /* D3Career.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E333815DBDFBF00F41270 /* D3Career.m */; };
@@ -91,16 +109,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8689BADF15E3282400492A08 /* barbarian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barbarian.png; sourceTree = "<group>"; };
-		8689BAE015E3282400492A08 /* barbarian@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbarian@2x.png"; sourceTree = "<group>"; };
-		8689BAE115E3282400492A08 /* demon-hunter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demon-hunter.png"; sourceTree = "<group>"; };
-		8689BAE215E3282400492A08 /* demon-hunter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demon-hunter@2x.png"; sourceTree = "<group>"; };
-		8689BAE315E3282400492A08 /* monk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monk.png; sourceTree = "<group>"; };
-		8689BAE415E3282400492A08 /* monk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monk@2x.png"; sourceTree = "<group>"; };
-		8689BAE515E3282400492A08 /* witch-doctor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "witch-doctor.png"; sourceTree = "<group>"; };
-		8689BAE615E3282400492A08 /* witch-doctor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "witch-doctor@2x.png"; sourceTree = "<group>"; };
-		8689BAE715E3282400492A08 /* wizard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wizard.png; sourceTree = "<group>"; };
-		8689BAE815E3282400492A08 /* wizard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wizard@2x.png"; sourceTree = "<group>"; };
+		866431FB15E450D800F53138 /* burn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = burn.png; sourceTree = "<group>"; };
+		866431FC15E450D800F53138 /* burn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "burn@2x.png"; sourceTree = "<group>"; };
+		866431FE15E450D800F53138 /* barbarian-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbarian-selected.png"; sourceTree = "<group>"; };
+		866431FF15E450D800F53138 /* barbarian-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbarian-selected@2x.png"; sourceTree = "<group>"; };
+		8664320015E450D800F53138 /* barbarian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barbarian.png; sourceTree = "<group>"; };
+		8664320115E450D800F53138 /* barbarian@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbarian@2x.png"; sourceTree = "<group>"; };
+		8664320215E450D800F53138 /* demon-hunter-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demon-hunter-selected.png"; sourceTree = "<group>"; };
+		8664320315E450D800F53138 /* demon-hunter-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demon-hunter-selected@2x.png"; sourceTree = "<group>"; };
+		8664320415E450D800F53138 /* demon-hunter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demon-hunter.png"; sourceTree = "<group>"; };
+		8664320515E450D800F53138 /* demon-hunter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demon-hunter@2x.png"; sourceTree = "<group>"; };
+		8664320615E450D800F53138 /* monk-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monk-selected.png"; sourceTree = "<group>"; };
+		8664320715E450D800F53138 /* monk-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monk-selected@2x.png"; sourceTree = "<group>"; };
+		8664320815E450D800F53138 /* monk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monk.png; sourceTree = "<group>"; };
+		8664320915E450D800F53138 /* monk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monk@2x.png"; sourceTree = "<group>"; };
+		8664320A15E450D800F53138 /* witch-doctor-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "witch-doctor-selected.png"; sourceTree = "<group>"; };
+		8664320B15E450D800F53138 /* witch-doctor-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "witch-doctor-selected@2x.png"; sourceTree = "<group>"; };
+		8664320C15E450D800F53138 /* witch-doctor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "witch-doctor.png"; sourceTree = "<group>"; };
+		8664320D15E450D800F53138 /* witch-doctor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "witch-doctor@2x.png"; sourceTree = "<group>"; };
+		8664320E15E450D800F53138 /* wizard-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wizard-selected.png"; sourceTree = "<group>"; };
+		8664320F15E450D800F53138 /* wizard-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wizard-selected@2x.png"; sourceTree = "<group>"; };
+		8664321015E450D800F53138 /* wizard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wizard.png; sourceTree = "<group>"; };
+		8664321115E450D800F53138 /* wizard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wizard@2x.png"; sourceTree = "<group>"; };
+		8664321215E450D800F53138 /* rune.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rune.png; sourceTree = "<group>"; };
+		8664321315E450D800F53138 /* rune@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rune@2x.png"; sourceTree = "<group>"; };
+		8675D70315E520520006B42F /* D3LogoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3LogoutCell.h; path = "Profiles for Diablo 3/Classes/D3LogoutCell.h"; sourceTree = "<group>"; };
+		8675D70415E520520006B42F /* D3LogoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3LogoutCell.m; path = "Profiles for Diablo 3/Classes/D3LogoutCell.m"; sourceTree = "<group>"; };
+		86A2269015E462F900971A53 /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
+		86A2269115E462F900971A53 /* texture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "texture@2x.png"; sourceTree = "<group>"; };
+		86A2269815E4666300971A53 /* D3TexturedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3TexturedView.h; path = "Profiles for Diablo 3/Classes/D3TexturedView.h"; sourceTree = "<group>"; };
+		86A2269915E4666300971A53 /* D3TexturedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3TexturedView.m; path = "Profiles for Diablo 3/Classes/D3TexturedView.m"; sourceTree = "<group>"; };
+		86A2269E15E48FC900971A53 /* off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = off.png; sourceTree = "<group>"; };
+		86A2269F15E48FC900971A53 /* off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "off@2x.png"; sourceTree = "<group>"; };
+		86A226A215E492F100971A53 /* block-shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block-shadow.png"; sourceTree = "<group>"; };
+		86A226A315E492F100971A53 /* block-shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block-shadow@2x.png"; sourceTree = "<group>"; };
 		943A123715E1B13400F03406 /* D3SkillDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3SkillDetailViewController.h; path = "Profiles for Diablo 3/Classes/D3SkillDetailViewController.h"; sourceTree = "<group>"; };
 		943A123815E1B13400F03406 /* D3SkillDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3SkillDetailViewController.m; path = "Profiles for Diablo 3/Classes/D3SkillDetailViewController.m"; sourceTree = "<group>"; };
 		943A123F15E1C8FA00F03406 /* D3StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3StatsViewController.h; path = "Profiles for Diablo 3/Classes/D3StatsViewController.h"; sourceTree = "<group>"; };
@@ -134,10 +176,6 @@
 		944C195315DE999C00B57C52 /* D3Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3Object.m; path = "Profiles for Diablo 3/Classes/D3Object.m"; sourceTree = "<group>"; };
 		944F2C1715DC3AE400D5C08A /* D3RuneEmitterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3RuneEmitterView.h; path = "Profiles for Diablo 3/Classes/D3RuneEmitterView.h"; sourceTree = "<group>"; };
 		944F2C1815DC3AE400D5C08A /* D3RuneEmitterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3RuneEmitterView.m; path = "Profiles for Diablo 3/Classes/D3RuneEmitterView.m"; sourceTree = "<group>"; };
-		944F2C1B15DC3DB100D5C08A /* burn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = burn.png; sourceTree = "<group>"; };
-		944F2C1C15DC3DB100D5C08A /* burn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "burn@2x.png"; sourceTree = "<group>"; };
-		944F2C1D15DC3DB100D5C08A /* rune.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rune.png; sourceTree = "<group>"; };
-		944F2C1E15DC3DB100D5C08A /* rune@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rune@2x.png"; sourceTree = "<group>"; };
 		944F2C2615DC3E8D00D5C08A /* D3HeroCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3HeroCell.h; path = "Profiles for Diablo 3/Classes/D3HeroCell.h"; sourceTree = "<group>"; };
 		944F2C2715DC3E8D00D5C08A /* D3HeroCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3HeroCell.m; path = "Profiles for Diablo 3/Classes/D3HeroCell.m"; sourceTree = "<group>"; };
 		945E333515DBDFBF00F41270 /* D3Artisan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Artisan.h; path = "Profiles for Diablo 3/Classes/D3Artisan.h"; sourceTree = "<group>"; };
@@ -241,6 +279,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		866431FA15E450D800F53138 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				86A226A215E492F100971A53 /* block-shadow.png */,
+				86A226A315E492F100971A53 /* block-shadow@2x.png */,
+				86A2269E15E48FC900971A53 /* off.png */,
+				86A2269F15E48FC900971A53 /* off@2x.png */,
+				86A2269015E462F900971A53 /* texture.png */,
+				86A2269115E462F900971A53 /* texture@2x.png */,
+				866431FB15E450D800F53138 /* burn.png */,
+				866431FC15E450D800F53138 /* burn@2x.png */,
+				866431FD15E450D800F53138 /* icons */,
+				8664321215E450D800F53138 /* rune.png */,
+				8664321315E450D800F53138 /* rune@2x.png */,
+			);
+			name = Graphics;
+			path = "Profiles for Diablo 3/Resources/Graphics";
+			sourceTree = "<group>";
+		};
+		866431FD15E450D800F53138 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				866431FE15E450D800F53138 /* barbarian-selected.png */,
+				866431FF15E450D800F53138 /* barbarian-selected@2x.png */,
+				8664320015E450D800F53138 /* barbarian.png */,
+				8664320115E450D800F53138 /* barbarian@2x.png */,
+				8664320215E450D800F53138 /* demon-hunter-selected.png */,
+				8664320315E450D800F53138 /* demon-hunter-selected@2x.png */,
+				8664320415E450D800F53138 /* demon-hunter.png */,
+				8664320515E450D800F53138 /* demon-hunter@2x.png */,
+				8664320615E450D800F53138 /* monk-selected.png */,
+				8664320715E450D800F53138 /* monk-selected@2x.png */,
+				8664320815E450D800F53138 /* monk.png */,
+				8664320915E450D800F53138 /* monk@2x.png */,
+				8664320A15E450D800F53138 /* witch-doctor-selected.png */,
+				8664320B15E450D800F53138 /* witch-doctor-selected@2x.png */,
+				8664320C15E450D800F53138 /* witch-doctor.png */,
+				8664320D15E450D800F53138 /* witch-doctor@2x.png */,
+				8664320E15E450D800F53138 /* wizard-selected.png */,
+				8664320F15E450D800F53138 /* wizard-selected@2x.png */,
+				8664321015E450D800F53138 /* wizard.png */,
+				8664321115E450D800F53138 /* wizard@2x.png */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
 		9444D3FB15DBF5D90098CFE6 /* Profiles-Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,28 +355,6 @@
 			);
 			name = Fonts;
 			path = "Profiles for Diablo 3/Resources/Fonts";
-			sourceTree = "<group>";
-		};
-		944F2C1A15DC3DB100D5C08A /* Graphics */ = {
-			isa = PBXGroup;
-			children = (
-				8689BADF15E3282400492A08 /* barbarian.png */,
-				8689BAE015E3282400492A08 /* barbarian@2x.png */,
-				8689BAE115E3282400492A08 /* demon-hunter.png */,
-				8689BAE215E3282400492A08 /* demon-hunter@2x.png */,
-				8689BAE315E3282400492A08 /* monk.png */,
-				8689BAE415E3282400492A08 /* monk@2x.png */,
-				8689BAE515E3282400492A08 /* witch-doctor.png */,
-				8689BAE615E3282400492A08 /* witch-doctor@2x.png */,
-				8689BAE715E3282400492A08 /* wizard.png */,
-				8689BAE815E3282400492A08 /* wizard@2x.png */,
-				944F2C1B15DC3DB100D5C08A /* burn.png */,
-				944F2C1C15DC3DB100D5C08A /* burn@2x.png */,
-				944F2C1D15DC3DB100D5C08A /* rune.png */,
-				944F2C1E15DC3DB100D5C08A /* rune@2x.png */,
-			);
-			name = Graphics;
-			path = "Profiles for Diablo 3/Resources/Graphics";
 			sourceTree = "<group>";
 		};
 		94ECD47615DC0A4E008A8BEB /* PSStackedView */ = {
@@ -367,16 +429,20 @@
 		94EF72DC15DBD56D008161FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				944F2C1715DC3AE400D5C08A /* D3RuneEmitterView.h */,
-				944F2C1815DC3AE400D5C08A /* D3RuneEmitterView.m */,
+				8675D70315E520520006B42F /* D3LogoutCell.h */,
+				8675D70415E520520006B42F /* D3LogoutCell.m */,
 				94ECD49315DC1B1E008A8BEB /* D3AccountView.h */,
 				94ECD49415DC1B1E008A8BEB /* D3AccountView.m */,
 				944F2C2615DC3E8D00D5C08A /* D3HeroCell.h */,
 				944F2C2715DC3E8D00D5C08A /* D3HeroCell.m */,
 				9483F36015DC9A050065E2C1 /* D3ItemButton.h */,
 				9483F36115DC9A050065E2C1 /* D3ItemButton.m */,
+				944F2C1715DC3AE400D5C08A /* D3RuneEmitterView.h */,
+				944F2C1815DC3AE400D5C08A /* D3RuneEmitterView.m */,
 				9447C1D015E0803C0084BE3F /* D3SkillButton.h */,
 				9447C1D115E0803C0084BE3F /* D3SkillButton.m */,
+				86A2269815E4666300971A53 /* D3TexturedView.h */,
+				86A2269915E4666300971A53 /* D3TexturedView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -461,8 +527,8 @@
 		94EF72FC15DBD5C3008161FE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				866431FA15E450D800F53138 /* Graphics */,
 				9447C1B615E03C600084BE3F /* Fonts */,
-				944F2C1A15DC3DB100D5C08A /* Graphics */,
 				94EF734C15DBD99A008161FE /* InfoPlist.strings */,
 				94EF735515DBDA04008161FE /* Profiles for Diablo 3-Info.plist */,
 			);
@@ -599,22 +665,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				94EF734E15DBD99A008161FE /* InfoPlist.strings in Resources */,
-				944F2C1F15DC3DB100D5C08A /* burn.png in Resources */,
-				944F2C2015DC3DB100D5C08A /* burn@2x.png in Resources */,
-				944F2C2115DC3DB100D5C08A /* rune.png in Resources */,
-				944F2C2215DC3DB100D5C08A /* rune@2x.png in Resources */,
 				9447C1B915E03C600084BE3F /* Exocet.ttf in Resources */,
 				9447C1BA15E03C600084BE3F /* ExocetBold.ttf in Resources */,
-				8689BAE915E3282400492A08 /* barbarian.png in Resources */,
-				8689BAEA15E3282400492A08 /* barbarian@2x.png in Resources */,
-				8689BAEB15E3282400492A08 /* demon-hunter.png in Resources */,
-				8689BAEC15E3282400492A08 /* demon-hunter@2x.png in Resources */,
-				8689BAED15E3282400492A08 /* monk.png in Resources */,
-				8689BAEE15E3282400492A08 /* monk@2x.png in Resources */,
-				8689BAEF15E3282400492A08 /* witch-doctor.png in Resources */,
-				8689BAF015E3282400492A08 /* witch-doctor@2x.png in Resources */,
-				8689BAF115E3282400492A08 /* wizard.png in Resources */,
-				8689BAF215E3282400492A08 /* wizard@2x.png in Resources */,
+				8664321415E450D800F53138 /* burn.png in Resources */,
+				8664321515E450D800F53138 /* burn@2x.png in Resources */,
+				8664321615E450D800F53138 /* barbarian-selected.png in Resources */,
+				8664321715E450D800F53138 /* barbarian-selected@2x.png in Resources */,
+				8664321815E450D800F53138 /* barbarian.png in Resources */,
+				8664321915E450D800F53138 /* barbarian@2x.png in Resources */,
+				8664321A15E450D800F53138 /* demon-hunter-selected.png in Resources */,
+				8664321B15E450D800F53138 /* demon-hunter-selected@2x.png in Resources */,
+				8664321C15E450D800F53138 /* demon-hunter.png in Resources */,
+				8664321D15E450D800F53138 /* demon-hunter@2x.png in Resources */,
+				8664321E15E450D800F53138 /* monk-selected.png in Resources */,
+				8664321F15E450D800F53138 /* monk-selected@2x.png in Resources */,
+				8664322015E450D800F53138 /* monk.png in Resources */,
+				8664322115E450D800F53138 /* monk@2x.png in Resources */,
+				8664322215E450D800F53138 /* witch-doctor-selected.png in Resources */,
+				8664322315E450D800F53138 /* witch-doctor-selected@2x.png in Resources */,
+				8664322415E450D800F53138 /* witch-doctor.png in Resources */,
+				8664322515E450D800F53138 /* witch-doctor@2x.png in Resources */,
+				8664322615E450D800F53138 /* wizard-selected.png in Resources */,
+				8664322715E450D800F53138 /* wizard-selected@2x.png in Resources */,
+				8664322815E450D800F53138 /* wizard.png in Resources */,
+				8664322915E450D800F53138 /* wizard@2x.png in Resources */,
+				8664322A15E450D800F53138 /* rune.png in Resources */,
+				8664322B15E450D800F53138 /* rune@2x.png in Resources */,
+				86A2269215E462F900971A53 /* texture.png in Resources */,
+				86A2269315E462F900971A53 /* texture@2x.png in Resources */,
+				86A226A015E48FC900971A53 /* off.png in Resources */,
+				86A226A115E48FC900971A53 /* off@2x.png in Resources */,
+				86A226A415E492F100971A53 /* block-shadow.png in Resources */,
+				86A226A515E492F100971A53 /* block-shadow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,6 +776,8 @@
 				9447C1D215E0803C0084BE3F /* D3SkillButton.m in Sources */,
 				943A123915E1B13400F03406 /* D3SkillDetailViewController.m in Sources */,
 				943A124115E1C8FA00F03406 /* D3StatsViewController.m in Sources */,
+				86A2269A15E4666300971A53 /* D3TexturedView.m in Sources */,
+				8675D70515E520520006B42F /* D3LogoutCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

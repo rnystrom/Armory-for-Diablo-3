@@ -22,6 +22,14 @@
         item.iconString = json[@"icon"];
         item.tooltipParams = json[@"tooltipParams"];
         item.itemType = type;
+        
+        NSDictionary *type = json[@"type"];
+        if ([type isKindOfClass:[NSDictionary class]]) {
+            item.typeString = type[@"id"];
+            
+            NSNumber *twoHanded = type[@"twoHanded"];
+            item.isTwoHand = twoHanded.boolValue;
+        }
     }
     return item;
 }
@@ -70,15 +78,15 @@
 - (UIColor*)displayColorFromDictionary {
     if (self.colorString) {
         return @{
-        @"white"    : [UIColor whiteColor],
-        @"blue"     : [UIColor blueColor],
-        @"yellow"   : [UIColor yellowColor],
-        @"orange"   : [UIColor orangeColor],
-        @"green"    : [UIColor greenColor],
-        @"null"     : [UIColor redColor]
+        @"white"    : [D3Theme whiteItemColor],
+        @"blue"     : [D3Theme blueItemColor],
+        @"yellow"   : [D3Theme yellowItemColor],
+        @"orange"   : [D3Theme orangeItemColor],
+        @"green"    : [D3Theme greenItemColor],
+        @"null"     : [D3Theme redItemColor]
         }[self.colorString];
     }
-    return [UIColor redColor];
+    return [D3Theme redItemColor];
 }
 
 
@@ -150,11 +158,11 @@
 #pragma mark - Loading
 
 // return a request so we can batch all of the items into one burst
-- (AFImageRequestOperation*)requestForItemIconWithHeroType:(NSString*)heroType imageProcessingBlock:(UIImage* (^)(UIImage *image))imageProcessingBlock success:(void (^)(NSURLRequest*, NSHTTPURLResponse*, UIImage*))success failure:(void (^)(NSURLRequest*, NSHTTPURLResponse*, NSError*))failure {
+- (AFImageRequestOperation*)requestForItemIconWithImageProcessingBlock:(UIImage* (^)(UIImage *image))imageProcessingBlock success:(void (^)(NSURLRequest*, NSHTTPURLResponse*, UIImage*))success failure:(void (^)(NSURLRequest*, NSHTTPURLResponse*, NSError*))failure {
     if (! self.iconString) {
         return nil;
     }
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@_%@.png",kD3MediaURL,kD3ItemParam,self.iconString,heroType];
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@.png",kD3MediaURL,kD3ItemParam,self.iconString];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     return [AFImageRequestOperation imageRequestOperationWithRequest:request imageProcessingBlock:imageProcessingBlock success:success failure:failure];
@@ -239,11 +247,6 @@
             }];
             self.setItems = mutItems;
             self.setBonuses = set[@"ranks"];
-        }
-        
-        NSDictionary *type = json[@"type"];
-        if ([type isKindOfClass:[NSDictionary class]]) {
-            self.typeString = type[@"id"];
         }
     }
 }

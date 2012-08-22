@@ -9,15 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "D3Hero.h"
 
-enum D3HeroCellType {
-    D3HeroCellTypeLogout,
-//    D3HeroCellTypeAccount,
-    D3HeroCellTypeHero
-};
+extern CGFloat const kD3CellFadedAlpha;
 
 @interface D3HeroCell : UITableViewCell
 
 @property (weak, nonatomic) D3Hero *hero;
-@property (assign, nonatomic) enum D3HeroCellType cellType;
+
+- (void)setupView;
 
 @end

@@ -49,22 +49,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.width = kD3CardWidth;
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = [D3Theme foregroundColor];
     
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, kD3Grid1 / 4.0f, self.view.width, 0)];
-    [self.titleLabel setFont:[D3Theme exocetLargeWithBold:NO]];
-    [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.titleLabel setBackgroundColor:[UIColor clearColor]];
-    [self.titleLabel setAdjustsFontSizeToFitWidth:YES];
+    // placeholder text so we can autosize the labels
+    self.titleLabel = [D3Theme labelWithFrame:CGRectMake(0, kD3Grid1 / 4.0f, self.view.width, 0)
+                                         font:[D3Theme exocetLargeWithBold:NO]
+                                         text:@"PLACEHOLDER"];
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.adjustsFontSizeToFitWidth = YES;
     [self.view addSubview:self.titleLabel];
     
-    self.subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, kD3Grid1 / 4.0f, self.view.width, 0)];
-    [self.subtitleLabel setFont:[D3Theme systemSmallFontWithBold:NO]];
-    [self.subtitleLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.subtitleLabel setBackgroundColor:[UIColor clearColor]];
-    [self.subtitleLabel setAdjustsFontSizeToFitWidth:YES];
+    self.subtitleLabel = [D3Theme labelWithFrame:CGRectMake(0, kD3Grid1 / 4.0f, self.view.width, 0)
+                                            font:[D3Theme systemSmallFontWithBold:NO]
+                                            text:@"60 Placeholder"];
+    self.subtitleLabel.textAlignment = NSTextAlignmentCenter;
+    self.subtitleLabel.adjustsFontSizeToFitWidth = YES;
     [self.view addSubview:self.subtitleLabel];
+    
+    // initializing positions here because the buttons are dependent on subtitleLabel's origin.y
+    CGRect subtitleFrame = self.subtitleLabel.frame;
+    subtitleFrame.origin.y = self.titleLabel.bottom;
+    self.subtitleLabel.frame = subtitleFrame;
     
     [self setupGearButtons];
     
@@ -115,56 +120,49 @@
 #pragma mark - Helpers
 
 - (void)setupGearButtons {
-    self.headButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid3)];
-    self.shouldersButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid3)];
-    self.neckButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid1, kD3Grid1)];
-    self.handsButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid3)];
-    self.bracersButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid3)];
-    self.leftFingerButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid1, kD3Grid1)];
-    self.rightFingerButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid1, kD3Grid1)];
-    self.waistButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid1)];
-    self.legsButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid3)];
-    self.mainHandButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid3 * 1.5f)];
-    self.offHandButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid3 * 1.5f)];
-    self.feetButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid3)];
-    self.torsoButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2 * 1.5f, kD3Grid3 * 1.5f)];
+    self.headButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid4)];
+    self.shouldersButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid4)];
+    self.neckButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid2)];
+    self.handsButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid4)];
+    self.bracersButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid4)];
+    self.leftFingerButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid2)];
+    self.rightFingerButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid2)];
+    self.waistButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid2)];
+    self.legsButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid4)];
+    self.mainHandButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid4)];
+    self.offHandButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid4)];
+    self.feetButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2, kD3Grid4)];
+    self.torsoButton = [[D3ItemButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid2 * 1.5f, kD3Grid4 * 1.5f)];
     
-    CGFloat screenHeight = [UIApplication currentSize].height;
     CGFloat center = self.view.frame.size.width / 2.0f;
-    CGFloat minPadding = kD3Grid1 / 4.0f;
-    CGFloat shoulderOffset = kD3Grid3 / 2.0f + kD3Grid2 / 2.0f;
-    CGFloat leftShoulderCenter = center - shoulderOffset - minPadding;
-    CGFloat rightShoulderCenter = center + shoulderOffset + minPadding;
+    CGFloat minPadding = 3.0f;
+    CGFloat shoulderOffset = (self.torsoButton.width + self.shouldersButton.width) / 2.0f;
+    CGFloat leftShoulderCenter = center - shoulderOffset - kD3Grid1;
+    CGFloat rightShoulderCenter = center + shoulderOffset + kD3Grid1;
     
-    // waist & below
-    self.waistButton.center = CGPointMake(center, screenHeight / 2.0f);
-    CGFloat runningItemHeight = self.waistButton.center.y + self.waistButton.frame.size.height / 2.0f;
-    self.legsButton.center = CGPointMake(center, runningItemHeight += self.legsButton.frame.size.height / 2.0f + minPadding);
-    self.feetButton.center = CGPointMake(center, runningItemHeight += self.legsButton.frame.size.height + minPadding);
-    
-    // above waist
-    runningItemHeight = self.waistButton.frame.origin.y - self.waistButton.frame.size.height / 2.0f;
-    self.torsoButton.center = CGPointMake(center, runningItemHeight -= self.torsoButton.frame.size.height / 2.0f - minPadding);
-    self.headButton.center = CGPointMake(center, runningItemHeight -= self.torsoButton.frame.size.height - minPadding);
+    // center items
+    self.headButton.center = CGPointMake(center, self.subtitleLabel.bottom + self.headButton.height / 2.0f + minPadding);
+    self.torsoButton.center = CGPointMake(center, self.headButton.bottom + self.torsoButton.height / 2.0f + minPadding);
+    self.waistButton.center = CGPointMake(center, self.torsoButton.bottom + self.waistButton.height / 2.0f + minPadding);
+    self.legsButton.center = CGPointMake(center, self.waistButton.bottom + self.legsButton.height / 2.0f + minPadding);
+    self.feetButton.center = CGPointMake(center, self.legsButton.bottom + self.feetButton.height / 2.0f + minPadding);
     
     // "shoulder" items
     self.shouldersButton.center = CGPointMake(leftShoulderCenter, self.torsoButton.frame.origin.y);
     self.neckButton.center = CGPointMake(rightShoulderCenter, self.torsoButton.frame.origin.y);
     
     // offset items
-    CGFloat torsoBottomY = self.torsoButton.frame.origin.y + self.torsoButton.size.height;
     CGFloat leftOffset = self.shouldersButton.frame.origin.x;
     CGFloat rightOffset = self.neckButton.frame.origin.x + self.neckButton.frame.size.width;
     
-    self.handsButton.center = CGPointMake(leftOffset, torsoBottomY);
-    self.bracersButton.center = CGPointMake(rightOffset, torsoBottomY);
+    self.handsButton.center = CGPointMake(leftOffset, self.torsoButton.bottom);
+    self.bracersButton.center = CGPointMake(rightOffset, self.torsoButton.bottom);
     
     // adjust weapons to match bottoms with boots
-    CGFloat bootsBottomY = self.feetButton.frame.origin.y + self.feetButton.size.height;
     CGRect mhFrame = self.mainHandButton.frame;
     CGRect ohFrame = self.offHandButton.frame;
-    mhFrame.origin.y = bootsBottomY - mhFrame.size.height;
-    ohFrame.origin.y = bootsBottomY - ohFrame.size.height;
+    mhFrame.origin.y = self.feetButton.bottom - mhFrame.size.height;
+    ohFrame.origin.y = self.feetButton.bottom - ohFrame.size.height;
     mhFrame.origin.x = leftOffset - mhFrame.size.width / 2.0f;
     ohFrame.origin.x = rightOffset - ohFrame.size.width / 2.0f;
     self.mainHandButton.frame = mhFrame;
@@ -203,12 +201,11 @@
     [self.titleLabel setText:[self.hero.name uppercaseString]];
     [self.titleLabel autoHeight];
     
-    NSString *subtitleString = [NSString stringWithFormat:@"%i %@",self.hero.level, [self.hero.className capitalizedString]];
+    NSString *subtitleString = [NSString stringWithFormat:@"%i %@",self.hero.level, [self.hero formattedClassName]];
     CGRect subtitleFrame = self.subtitleLabel.frame;
-    subtitleFrame.origin.y = self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height;
-    [self.subtitleLabel setFrame:subtitleFrame];
-    [self.subtitleLabel setText:subtitleString];
-    [self.subtitleLabel autoHeight];
+    subtitleFrame.origin.y = self.titleLabel.bottom;
+    self.subtitleLabel.frame = subtitleFrame;
+    self.subtitleLabel.text = subtitleString;
     
     NSMutableArray *mutOperations = [NSMutableArray array];
     [self.itemButtons enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -219,8 +216,9 @@
                 // button background logic in [D3ItemButton setItem:...];
                 button.item = correspondingItem;
                 
-                AFImageRequestOperation *operation = [correspondingItem requestForItemIconWithHeroType:self.hero.itemRequestString imageProcessingBlock:NULL success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                AFImageRequestOperation *operation = [correspondingItem requestForItemIconWithImageProcessingBlock:NULL success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                     dispatch_async(dispatch_get_main_queue(), ^{
+                        button.item.icon = image;
                         [button setBackgroundImage:image forState:UIControlStateNormal];
                     });
                 } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
@@ -240,6 +238,14 @@
         if ([[operations filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"isCancelled == NO"]] count] > 0) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                
+                if (self.hero.mainHand.isTwoHand) {
+                    [self.offHandButton setBackgroundImage:self.hero.mainHand.icon forState:UIControlStateNormal];
+                    self.offHandButton.alpha = 0.5f;
+                }
+                else {
+                    self.offHandButton.alpha = 1.0f;
+                }
             });
         }
     }];

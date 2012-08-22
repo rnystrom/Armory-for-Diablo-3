@@ -228,9 +228,11 @@
 
 #pragma mark - Getters
 
-- (NSString*)itemRequestString {
-    NSString *heroTypeItemParam = [[NSString stringWithFormat:@"%@_%@",[self.className lowercaseString],[self.gender lowercaseString]] stringByReplacingOccurrencesOfString:@"-" withString:@""];
-    return heroTypeItemParam;
+- (NSString*)formattedClassName {
+    if (self.className) {
+        return [[self.className capitalizedString] stringByReplacingOccurrencesOfString:@"-" withString:@" "];
+    }
+    return nil;
 }
 
 

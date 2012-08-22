@@ -76,8 +76,9 @@ enum D3ItemGeneralType {
 @property (strong, nonatomic) UIImage *icon;
 
 @property (assign, nonatomic) BOOL isPartOfSet;
+@property (assign, nonatomic) BOOL isTwoHand;
 
-- (AFImageRequestOperation*)requestForItemIconWithHeroType:(NSString*)heroType imageProcessingBlock:(UIImage* (^)(UIImage *image))imageProcessingBlock success:(D3ItemImageRequestSuccess)success failure:(D3ItemImageRequestFailure)failure;
+- (AFImageRequestOperation*)requestForItemIconWithImageProcessingBlock:(UIImage* (^)(UIImage *image))imageProcessingBlock success:(D3ItemImageRequestSuccess)success failure:(D3ItemImageRequestFailure)failure;
 - (void)finishLoadingWithSuccess:(D3ItemRequestSuccess)success failure:(D3ItemRequestFailure)failure;
 - (NSString*)setItemsFormattedString;
 - (NSString*)setBonusesFormattedString;
