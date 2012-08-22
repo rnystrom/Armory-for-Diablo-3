@@ -12,8 +12,7 @@
 
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-    #import "D3Defines.h"
-    #import "D3HTTPClient.h"
+    #import <D3Kit/D3Kit.h>
     #import "UIApplication+AppDimensions.h"
     #import "UILabel+AutoSize.h"
     #import "D3Theme.h"

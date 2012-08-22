@@ -41,7 +41,6 @@
 		86A226A515E492F100971A53 /* block-shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A226A315E492F100971A53 /* block-shadow@2x.png */; };
 		943A123915E1B13400F03406 /* D3SkillDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A123815E1B13400F03406 /* D3SkillDetailViewController.m */; };
 		943A124115E1C8FA00F03406 /* D3StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A124015E1C8FA00F03406 /* D3StatsViewController.m */; };
-		9444D3E415DBF3F40098CFE6 /* D3HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9444D3C615DBED120098CFE6 /* D3HTTPClient.m */; };
 		9444D3F815DBF5D90098CFE6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9444D3F715DBF5D90098CFE6 /* SenTestingKit.framework */; };
 		9444D3F915DBF5D90098CFE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C415DBD556008161FE /* UIKit.framework */; };
 		9444D3FA15DBF5D90098CFE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C615DBD556008161FE /* Foundation.framework */; };
@@ -56,16 +55,8 @@
 		9447C1D215E0803C0084BE3F /* D3SkillButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9447C1D115E0803C0084BE3F /* D3SkillButton.m */; };
 		944C194A15DDD93400B57C52 /* D3ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 944C194915DDD93400B57C52 /* D3ItemViewController.m */; };
 		944C195115DE8D3200B57C52 /* D3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 944C195015DE8D3200B57C52 /* D3ViewController.m */; };
-		944C195415DE999C00B57C52 /* D3Object.m in Sources */ = {isa = PBXBuildFile; fileRef = 944C195315DE999C00B57C52 /* D3Object.m */; };
 		944F2C1915DC3AE400D5C08A /* D3RuneEmitterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944F2C1815DC3AE400D5C08A /* D3RuneEmitterView.m */; };
 		944F2C2815DC3E8D00D5C08A /* D3HeroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 944F2C2715DC3E8D00D5C08A /* D3HeroCell.m */; };
-		945E334315DBDFE500F41270 /* D3Artisan.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E333615DBDFBF00F41270 /* D3Artisan.m */; };
-		945E334415DBDFE500F41270 /* D3Career.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E333815DBDFBF00F41270 /* D3Career.m */; };
-		945E334515DBDFE500F41270 /* D3Follower.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E333A15DBDFBF00F41270 /* D3Follower.m */; };
-		945E334615DBDFE500F41270 /* D3Hero.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E333C15DBDFBF00F41270 /* D3Hero.m */; };
-		945E334715DBDFE500F41270 /* D3Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E333E15DBDFBF00F41270 /* D3Item.m */; };
-		945E334815DBDFE500F41270 /* D3Rune.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E334015DBDFBF00F41270 /* D3Rune.m */; };
-		945E334915DBDFE500F41270 /* D3Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E334215DBDFBF00F41270 /* D3Skill.m */; };
 		9483F35B15DC90390065E2C1 /* D3HeroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9483F35A15DC90390065E2C1 /* D3HeroViewController.m */; };
 		9483F36215DC9A050065E2C1 /* D3ItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9483F36115DC9A050065E2C1 /* D3ItemButton.m */; };
 		94AB663115DD4E8500E285EA /* UIApplication+AppDimensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AB663015DD4E8500E285EA /* UIApplication+AppDimensions.m */; };
@@ -82,23 +73,19 @@
 		94EF72C715DBD556008161FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C615DBD556008161FE /* Foundation.framework */; };
 		94EF72C915DBD556008161FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C815DBD556008161FE /* CoreGraphics.framework */; };
 		94EF730015DBD614008161FE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72FF15DBD614008161FE /* QuartzCore.framework */; };
-		94EF733E15DBD954008161FE /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF732A15DBD954008161FE /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		94EF733F15DBD954008161FE /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF732C15DBD954008161FE /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		94EF734015DBD954008161FE /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF732E15DBD954008161FE /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		94EF734115DBD954008161FE /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF733015DBD954008161FE /* AFJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		94EF734215DBD954008161FE /* AFJSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF733215DBD954008161FE /* AFJSONUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		94EF734315DBD954008161FE /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF733415DBD954008161FE /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		94EF734415DBD954008161FE /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF733715DBD954008161FE /* AFPropertyListRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		94EF734515DBD954008161FE /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF733915DBD954008161FE /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		94EF734615DBD954008161FE /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF733B15DBD954008161FE /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		94EF734715DBD954008161FE /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF733D15DBD954008161FE /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		94EF734E15DBD99A008161FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94EF734C15DBD99A008161FE /* InfoPlist.strings */; };
 		94EF735815DBDA61008161FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF732515DBD920008161FE /* AppDelegate.m */; };
-		94EF735915DBDA63008161FE /* D3Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF735215DBD9AE008161FE /* D3Defines.m */; };
 		94EF735A15DBDA6F008161FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF734F15DBD9A5008161FE /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8675D79B15E555B90006B42F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8675D79415E555B90006B42F /* D3Kit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8675D73415E54A3A0006B42F;
+			remoteInfo = D3Kit;
+		};
 		9444D40815DBF6150098CFE6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 94EF72B715DBD556008161FE /* Project object */;
@@ -135,6 +122,7 @@
 		8664321315E450D800F53138 /* rune@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rune@2x.png"; sourceTree = "<group>"; };
 		8675D70315E520520006B42F /* D3LogoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3LogoutCell.h; path = "Profiles for Diablo 3/Classes/D3LogoutCell.h"; sourceTree = "<group>"; };
 		8675D70415E520520006B42F /* D3LogoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3LogoutCell.m; path = "Profiles for Diablo 3/Classes/D3LogoutCell.m"; sourceTree = "<group>"; };
+		8675D79415E555B90006B42F /* D3Kit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = D3Kit.xcodeproj; path = D3Kit/D3Kit.xcodeproj; sourceTree = "<group>"; };
 		86A2269015E462F900971A53 /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
 		86A2269115E462F900971A53 /* texture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "texture@2x.png"; sourceTree = "<group>"; };
 		86A2269815E4666300971A53 /* D3TexturedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3TexturedView.h; path = "Profiles for Diablo 3/Classes/D3TexturedView.h"; sourceTree = "<group>"; };
@@ -147,8 +135,6 @@
 		943A123815E1B13400F03406 /* D3SkillDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3SkillDetailViewController.m; path = "Profiles for Diablo 3/Classes/D3SkillDetailViewController.m"; sourceTree = "<group>"; };
 		943A123F15E1C8FA00F03406 /* D3StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3StatsViewController.h; path = "Profiles for Diablo 3/Classes/D3StatsViewController.h"; sourceTree = "<group>"; };
 		943A124015E1C8FA00F03406 /* D3StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3StatsViewController.m; path = "Profiles for Diablo 3/Classes/D3StatsViewController.m"; sourceTree = "<group>"; };
-		9444D3C515DBED120098CFE6 /* D3HTTPClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3HTTPClient.h; path = "Profiles for Diablo 3/Classes/D3HTTPClient.h"; sourceTree = "<group>"; };
-		9444D3C615DBED120098CFE6 /* D3HTTPClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3HTTPClient.m; path = "Profiles for Diablo 3/Classes/D3HTTPClient.m"; sourceTree = "<group>"; };
 		9444D3F615DBF5D90098CFE6 /* Profiles-Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Profiles-Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9444D3F715DBF5D90098CFE6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		9444D3FD15DBF5D90098CFE6 /* Profiles-Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Profiles-Tests-Info.plist"; sourceTree = "<group>"; };
@@ -172,26 +158,10 @@
 		944C194915DDD93400B57C52 /* D3ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3ItemViewController.m; path = "Profiles for Diablo 3/Classes/D3ItemViewController.m"; sourceTree = "<group>"; };
 		944C194F15DE8D3200B57C52 /* D3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3ViewController.h; path = "Profiles for Diablo 3/Classes/D3ViewController.h"; sourceTree = "<group>"; };
 		944C195015DE8D3200B57C52 /* D3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3ViewController.m; path = "Profiles for Diablo 3/Classes/D3ViewController.m"; sourceTree = "<group>"; };
-		944C195215DE999C00B57C52 /* D3Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3Object.h; path = "Profiles for Diablo 3/Classes/D3Object.h"; sourceTree = "<group>"; };
-		944C195315DE999C00B57C52 /* D3Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3Object.m; path = "Profiles for Diablo 3/Classes/D3Object.m"; sourceTree = "<group>"; };
 		944F2C1715DC3AE400D5C08A /* D3RuneEmitterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3RuneEmitterView.h; path = "Profiles for Diablo 3/Classes/D3RuneEmitterView.h"; sourceTree = "<group>"; };
 		944F2C1815DC3AE400D5C08A /* D3RuneEmitterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3RuneEmitterView.m; path = "Profiles for Diablo 3/Classes/D3RuneEmitterView.m"; sourceTree = "<group>"; };
 		944F2C2615DC3E8D00D5C08A /* D3HeroCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3HeroCell.h; path = "Profiles for Diablo 3/Classes/D3HeroCell.h"; sourceTree = "<group>"; };
 		944F2C2715DC3E8D00D5C08A /* D3HeroCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3HeroCell.m; path = "Profiles for Diablo 3/Classes/D3HeroCell.m"; sourceTree = "<group>"; };
-		945E333515DBDFBF00F41270 /* D3Artisan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Artisan.h; path = "Profiles for Diablo 3/Classes/D3Artisan.h"; sourceTree = "<group>"; };
-		945E333615DBDFBF00F41270 /* D3Artisan.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Artisan.m; path = "Profiles for Diablo 3/Classes/D3Artisan.m"; sourceTree = "<group>"; };
-		945E333715DBDFBF00F41270 /* D3Career.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Career.h; path = "Profiles for Diablo 3/Classes/D3Career.h"; sourceTree = "<group>"; };
-		945E333815DBDFBF00F41270 /* D3Career.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Career.m; path = "Profiles for Diablo 3/Classes/D3Career.m"; sourceTree = "<group>"; };
-		945E333915DBDFBF00F41270 /* D3Follower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Follower.h; path = "Profiles for Diablo 3/Classes/D3Follower.h"; sourceTree = "<group>"; };
-		945E333A15DBDFBF00F41270 /* D3Follower.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Follower.m; path = "Profiles for Diablo 3/Classes/D3Follower.m"; sourceTree = "<group>"; };
-		945E333B15DBDFBF00F41270 /* D3Hero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Hero.h; path = "Profiles for Diablo 3/Classes/D3Hero.h"; sourceTree = "<group>"; };
-		945E333C15DBDFBF00F41270 /* D3Hero.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Hero.m; path = "Profiles for Diablo 3/Classes/D3Hero.m"; sourceTree = "<group>"; };
-		945E333D15DBDFBF00F41270 /* D3Item.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Item.h; path = "Profiles for Diablo 3/Classes/D3Item.h"; sourceTree = "<group>"; };
-		945E333E15DBDFBF00F41270 /* D3Item.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Item.m; path = "Profiles for Diablo 3/Classes/D3Item.m"; sourceTree = "<group>"; };
-		945E333F15DBDFBF00F41270 /* D3Rune.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Rune.h; path = "Profiles for Diablo 3/Classes/D3Rune.h"; sourceTree = "<group>"; };
-		945E334015DBDFBF00F41270 /* D3Rune.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Rune.m; path = "Profiles for Diablo 3/Classes/D3Rune.m"; sourceTree = "<group>"; };
-		945E334115DBDFBF00F41270 /* D3Skill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Skill.h; path = "Profiles for Diablo 3/Classes/D3Skill.h"; sourceTree = "<group>"; };
-		945E334215DBDFBF00F41270 /* D3Skill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Skill.m; path = "Profiles for Diablo 3/Classes/D3Skill.m"; sourceTree = "<group>"; };
 		9483F35915DC90390065E2C1 /* D3HeroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3HeroViewController.h; path = "Profiles for Diablo 3/Classes/D3HeroViewController.h"; sourceTree = "<group>"; };
 		9483F35A15DC90390065E2C1 /* D3HeroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3HeroViewController.m; path = "Profiles for Diablo 3/Classes/D3HeroViewController.m"; sourceTree = "<group>"; };
 		9483F36015DC9A050065E2C1 /* D3ItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3ItemButton.h; path = "Profiles for Diablo 3/Classes/D3ItemButton.h"; sourceTree = "<group>"; };
@@ -225,31 +195,8 @@
 		94EF72FF15DBD614008161FE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		94EF732415DBD920008161FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Profiles for Diablo 3/Classes/AppDelegate.h"; sourceTree = "<group>"; };
 		94EF732515DBD920008161FE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "Profiles for Diablo 3/Classes/AppDelegate.m"; sourceTree = "<group>"; };
-		94EF732915DBD954008161FE /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
-		94EF732A15DBD954008161FE /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
-		94EF732B15DBD954008161FE /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
-		94EF732C15DBD954008161FE /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
-		94EF732D15DBD954008161FE /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
-		94EF732E15DBD954008161FE /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
-		94EF732F15DBD954008161FE /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
-		94EF733015DBD954008161FE /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestOperation.m; sourceTree = "<group>"; };
-		94EF733115DBD954008161FE /* AFJSONUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONUtilities.h; sourceTree = "<group>"; };
-		94EF733215DBD954008161FE /* AFJSONUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONUtilities.m; sourceTree = "<group>"; };
-		94EF733315DBD954008161FE /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
-		94EF733415DBD954008161FE /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
-		94EF733515DBD954008161FE /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
-		94EF733615DBD954008161FE /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
-		94EF733715DBD954008161FE /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
-		94EF733815DBD954008161FE /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
-		94EF733915DBD954008161FE /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
-		94EF733A15DBD954008161FE /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
-		94EF733B15DBD954008161FE /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
-		94EF733C15DBD954008161FE /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
-		94EF733D15DBD954008161FE /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		94EF734D15DBD99A008161FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "Profiles for Diablo 3/Resources/en.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		94EF734F15DBD9A5008161FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Profiles for Diablo 3/Other Sources/main.m"; sourceTree = "<group>"; };
-		94EF735115DBD9AE008161FE /* D3Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = D3Defines.h; path = "Profiles for Diablo 3/Other Sources/D3Defines.h"; sourceTree = "<group>"; };
-		94EF735215DBD9AE008161FE /* D3Defines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = D3Defines.m; path = "Profiles for Diablo 3/Other Sources/D3Defines.m"; sourceTree = "<group>"; };
 		94EF735515DBDA04008161FE /* Profiles for Diablo 3-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Profiles for Diablo 3-Info.plist"; path = "Profiles for Diablo 3/Profiles for Diablo 3-Info.plist"; sourceTree = "<group>"; };
 		94EF735715DBDA08008161FE /* Profiles for Diablo 3-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Profiles for Diablo 3-Prefix.pch"; path = "Profiles for Diablo 3/Profiles for Diablo 3-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -325,6 +272,14 @@
 			path = icons;
 			sourceTree = "<group>";
 		};
+		8675D79515E555B90006B42F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8675D79C15E555B90006B42F /* libD3Kit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		9444D3FB15DBF5D90098CFE6 /* Profiles-Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +337,7 @@
 		94EF72B515DBD556008161FE = {
 			isa = PBXGroup;
 			children = (
+				8675D79415E555B90006B42F /* D3Kit.xcodeproj */,
 				94EF72DB15DBD561008161FE /* Classes */,
 				94EF72C315DBD556008161FE /* Frameworks */,
 				94EF72FE15DBD5D7008161FE /* Other Sources */,
@@ -416,7 +372,6 @@
 		94EF72DB15DBD561008161FE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				94EF72DF15DBD57D008161FE /* Abstract */,
 				94EF72F915DBD59A008161FE /* Application */,
 				94EF72FA15DBD5AA008161FE /* Categories */,
 				94EF72FB15DBD5B4008161FE /* Misc */,
@@ -470,29 +425,6 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		94EF72DF15DBD57D008161FE /* Abstract */ = {
-			isa = PBXGroup;
-			children = (
-				945E333515DBDFBF00F41270 /* D3Artisan.h */,
-				945E333615DBDFBF00F41270 /* D3Artisan.m */,
-				945E333715DBDFBF00F41270 /* D3Career.h */,
-				945E333815DBDFBF00F41270 /* D3Career.m */,
-				945E333915DBDFBF00F41270 /* D3Follower.h */,
-				945E333A15DBDFBF00F41270 /* D3Follower.m */,
-				945E333B15DBDFBF00F41270 /* D3Hero.h */,
-				945E333C15DBDFBF00F41270 /* D3Hero.m */,
-				945E333D15DBDFBF00F41270 /* D3Item.h */,
-				945E333E15DBDFBF00F41270 /* D3Item.m */,
-				945E333F15DBDFBF00F41270 /* D3Rune.h */,
-				945E334015DBDFBF00F41270 /* D3Rune.m */,
-				945E334115DBDFBF00F41270 /* D3Skill.h */,
-				945E334215DBDFBF00F41270 /* D3Skill.m */,
-				944C195215DE999C00B57C52 /* D3Object.h */,
-				944C195315DE999C00B57C52 /* D3Object.m */,
-			);
-			name = Abstract;
-			sourceTree = "<group>";
-		};
 		94EF72F915DBD59A008161FE /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,8 +448,6 @@
 		94EF72FB15DBD5B4008161FE /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				9444D3C515DBED120098CFE6 /* D3HTTPClient.h */,
-				9444D3C615DBED120098CFE6 /* D3HTTPClient.m */,
 				9447C1C015E03CD50084BE3F /* D3Theme.h */,
 				9447C1C115E03CD50084BE3F /* D3Theme.m */,
 			);
@@ -539,7 +469,6 @@
 			isa = PBXGroup;
 			children = (
 				94ECD47615DC0A4E008A8BEB /* PSStackedView */,
-				94EF732815DBD954008161FE /* AFNetworking */,
 			);
 			name = Vendor;
 			sourceTree = "<group>";
@@ -547,41 +476,10 @@
 		94EF72FE15DBD5D7008161FE /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				94EF735115DBD9AE008161FE /* D3Defines.h */,
-				94EF735215DBD9AE008161FE /* D3Defines.m */,
 				94EF734F15DBD9A5008161FE /* main.m */,
 				94EF735715DBDA08008161FE /* Profiles for Diablo 3-Prefix.pch */,
 			);
 			name = "Other Sources";
-			sourceTree = "<group>";
-		};
-		94EF732815DBD954008161FE /* AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				94EF732915DBD954008161FE /* AFHTTPClient.h */,
-				94EF732A15DBD954008161FE /* AFHTTPClient.m */,
-				94EF732B15DBD954008161FE /* AFHTTPRequestOperation.h */,
-				94EF732C15DBD954008161FE /* AFHTTPRequestOperation.m */,
-				94EF732D15DBD954008161FE /* AFImageRequestOperation.h */,
-				94EF732E15DBD954008161FE /* AFImageRequestOperation.m */,
-				94EF732F15DBD954008161FE /* AFJSONRequestOperation.h */,
-				94EF733015DBD954008161FE /* AFJSONRequestOperation.m */,
-				94EF733115DBD954008161FE /* AFJSONUtilities.h */,
-				94EF733215DBD954008161FE /* AFJSONUtilities.m */,
-				94EF733315DBD954008161FE /* AFNetworkActivityIndicatorManager.h */,
-				94EF733415DBD954008161FE /* AFNetworkActivityIndicatorManager.m */,
-				94EF733515DBD954008161FE /* AFNetworking.h */,
-				94EF733615DBD954008161FE /* AFPropertyListRequestOperation.h */,
-				94EF733715DBD954008161FE /* AFPropertyListRequestOperation.m */,
-				94EF733815DBD954008161FE /* AFURLConnectionOperation.h */,
-				94EF733915DBD954008161FE /* AFURLConnectionOperation.m */,
-				94EF733A15DBD954008161FE /* AFXMLRequestOperation.h */,
-				94EF733B15DBD954008161FE /* AFXMLRequestOperation.m */,
-				94EF733C15DBD954008161FE /* UIImageView+AFNetworking.h */,
-				94EF733D15DBD954008161FE /* UIImageView+AFNetworking.m */,
-			);
-			name = AFNetworking;
-			path = "Profiles for Diablo 3/Vendor/AFNetworking";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -643,6 +541,12 @@
 			mainGroup = 94EF72B515DBD556008161FE;
 			productRefGroup = 94EF72C115DBD556008161FE /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8675D79515E555B90006B42F /* Products */;
+					ProjectRef = 8675D79415E555B90006B42F /* D3Kit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				94EF72BF15DBD556008161FE /* D3 Profiles */,
@@ -650,6 +554,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8675D79C15E555B90006B42F /* libD3Kit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libD3Kit.a;
+			remoteRef = 8675D79B15E555B90006B42F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9444D3F315DBF5D90098CFE6 /* Resources */ = {
@@ -732,27 +646,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94EF733E15DBD954008161FE /* AFHTTPClient.m in Sources */,
-				94EF733F15DBD954008161FE /* AFHTTPRequestOperation.m in Sources */,
-				94EF734015DBD954008161FE /* AFImageRequestOperation.m in Sources */,
-				94EF734115DBD954008161FE /* AFJSONRequestOperation.m in Sources */,
-				94EF734215DBD954008161FE /* AFJSONUtilities.m in Sources */,
-				94EF734315DBD954008161FE /* AFNetworkActivityIndicatorManager.m in Sources */,
-				94EF734415DBD954008161FE /* AFPropertyListRequestOperation.m in Sources */,
-				94EF734515DBD954008161FE /* AFURLConnectionOperation.m in Sources */,
-				94EF734615DBD954008161FE /* AFXMLRequestOperation.m in Sources */,
-				94EF734715DBD954008161FE /* UIImageView+AFNetworking.m in Sources */,
 				94EF735815DBDA61008161FE /* AppDelegate.m in Sources */,
-				94EF735915DBDA63008161FE /* D3Defines.m in Sources */,
 				94EF735A15DBDA6F008161FE /* main.m in Sources */,
-				945E334315DBDFE500F41270 /* D3Artisan.m in Sources */,
-				945E334415DBDFE500F41270 /* D3Career.m in Sources */,
-				945E334515DBDFE500F41270 /* D3Follower.m in Sources */,
-				945E334615DBDFE500F41270 /* D3Hero.m in Sources */,
-				945E334715DBDFE500F41270 /* D3Item.m in Sources */,
-				945E334815DBDFE500F41270 /* D3Rune.m in Sources */,
-				945E334915DBDFE500F41270 /* D3Skill.m in Sources */,
-				9444D3E415DBF3F40098CFE6 /* D3HTTPClient.m in Sources */,
 				94ECD48515DC0A4E008A8BEB /* PSStackedViewController.m in Sources */,
 				94ECD48615DC0A4E008A8BEB /* PSStackedViewGlobal.m in Sources */,
 				94ECD48715DC0A4E008A8BEB /* PSStackedViewSegue.m in Sources */,
@@ -768,7 +663,6 @@
 				94AB663115DD4E8500E285EA /* UIApplication+AppDimensions.m in Sources */,
 				944C194A15DDD93400B57C52 /* D3ItemViewController.m in Sources */,
 				944C195115DE8D3200B57C52 /* D3ViewController.m in Sources */,
-				944C195415DE999C00B57C52 /* D3Object.m in Sources */,
 				9447C1C215E03CD50084BE3F /* D3Theme.m in Sources */,
 				9447C1C515E03D970084BE3F /* UILabel+AutoSize.m in Sources */,
 				9447C1C815E0787C0084BE3F /* D3CardViewController.m in Sources */,
@@ -901,13 +795,16 @@
 		94EF72D915DBD556008161FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Profiles for Diablo 3/Profiles for Diablo 3-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/D3Kit\"/**";
 				INFOPLIST_FILE = "Profiles for Diablo 3/Profiles for Diablo 3-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -919,13 +816,16 @@
 		94EF72DA15DBD556008161FE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Profiles for Diablo 3/Profiles for Diablo 3-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/D3Kit\"/**";
 				INFOPLIST_FILE = "Profiles for Diablo 3/Profiles for Diablo 3-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

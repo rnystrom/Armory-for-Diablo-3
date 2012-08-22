@@ -1,0 +1,3 @@
+[submodule "D3Kit"]
+	path = D3Kit
+	url = git@github.com:rnystrom/D3Kit.git
