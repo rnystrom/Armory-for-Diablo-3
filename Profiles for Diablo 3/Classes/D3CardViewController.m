@@ -14,29 +14,16 @@
 
 @implementation D3CardViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.view.width = kD3CardWidth;
     
+    self.texturedView = [[D3TexturedView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height)];
+    [self.view addSubview:self.texturedView];
+    
     CALayer *layer = self.view.layer;
     layer.cornerRadius = 5.0f;
-    
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end

@@ -8,7 +8,10 @@
 
 #import "D3ViewController.h"
 #import "PSStackedView.h"
+#import "D3TexturedView.h"
 
 @interface D3CardViewController : D3ViewController
+
+@property (strong, nonatomic) D3TexturedView *texturedView;
 
 @end

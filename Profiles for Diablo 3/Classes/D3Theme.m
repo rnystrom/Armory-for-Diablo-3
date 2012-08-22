@@ -7,6 +7,7 @@
 //
 
 #import "D3Theme.h"
+#import <QuartzCore/QuartzCore.h>
 
 #pragma mark - Font Sizes
 
@@ -124,5 +125,78 @@ CGFloat const kD3DoorsOpenDuration = 1.0f;
 + (UIFont*)titleLargeFontWithBold:(BOOL)isBold {
     return [self titleFontWithSize:kD3LargeFontSize bold:isBold];
 }
+
+#pragma mark - Colors
+
++ (UIColor*)backgroundColor {
+    return [UIColor colorWithRed:36.0f / 255.0f green:36.0f / 255.0f blue:37.0f / 255.0f alpha:1.0f];
+}
+
+
++ (UIColor*)midgroundColor {
+    return [UIColor colorWithRed:61.0f / 255.0f green:63.0f / 255.0f blue:65.0f / 255.0f alpha:1.0f];
+}
+
+
++ (UIColor*)foregroundColor {
+    return [UIColor colorWithRed:79.0f / 255.0f green:81.0f / 255.0f blue:83.0f / 255.0f alpha:1.0f];
+}
+
+
++ (UIColor*)borderColor {
+//    return [UIColor colorWithRed:79.0f / 255.0f green:81.0f / 255.0f blue:83.0f / 255.0f alpha:1.0f];
+    return [UIColor blackColor];
+}
+
+
++ (UIColor*)textColor {
+    return [UIColor colorWithRed:250.0f / 255.0f green:250.0f / 255.0f blue:251.0f / 255.0f alpha:1.0f];
+}
+
+
++ (UIColor*)yellowItemColor {
+    return [UIColor colorWithRed:166.0f / 255.0f green:162.0f / 255.0f blue:48.0f / 255.0f alpha:1.0f];
+}
+
+
++ (UIColor*)blueItemColor {
+    return [UIColor colorWithRed:68.0f / 255.0f green:118.0f / 255.0f blue:136.0f / 255.0f alpha:1.0f];
+}
+
+
++ (UIColor*)orangeItemColor {
+    return [UIColor colorWithRed:211.0f / 255.0f green:168.0f / 255.0f blue:85.0f / 255.0f alpha:1.0f];
+}
+
+
++ (UIColor*)greenItemColor {
+    return [UIColor colorWithRed:119.0f / 255.0f green:166.0f / 255.0f blue:64.0f / 255.0f alpha:1.0f];
+}
+
+
++ (UIColor*)whiteItemColor {
+    return [UIColor colorWithRed:238.0f / 255.0f green:227.0f / 255.0f blue:217.0f / 255.0f alpha:1.0f];
+}
+
+
++ (UIColor*)redItemColor {
+    return [UIColor colorWithRed:136.0f / 255.0f green:69.0f / 255.0f blue:69.0f / 255.0f alpha:1.0f];
+}
+
+
+#pragma mark - Labels
+
++ (UILabel*)labelWithFrame:(CGRect)frame font:(UIFont*)font text:(NSString *)text {
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.font = font;
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [D3Theme textColor];
+    label.text = text;
+    label.shadowColor = [UIColor blackColor];
+    label.shadowOffset = CGSizeMake(0, 1.0f);
+    [label autoHeight];
+    return label;
+}
+
 
 @end

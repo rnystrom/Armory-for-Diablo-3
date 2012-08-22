@@ -44,4 +44,18 @@ extern CGFloat const kD3DoorsOpenDuration;
 + (UIFont*)titleMediumFontWithBold:(BOOL)isBold;
 + (UIFont*)titleLargeFontWithBold:(BOOL)isBold;
 
++ (UIColor*)backgroundColor;
++ (UIColor*)midgroundColor;
++ (UIColor*)foregroundColor;
++ (UIColor*)borderColor;
++ (UIColor*)textColor;
++ (UIColor*)yellowItemColor;
++ (UIColor*)blueItemColor;
++ (UIColor*)orangeItemColor;
++ (UIColor*)greenItemColor;
++ (UIColor*)whiteItemColor;
++ (UIColor*)redItemColor;
+
++ (UILabel*)labelWithFrame:(CGRect)frame font:(UIFont*)font text:(NSString*)text;
+
 @end

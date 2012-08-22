@@ -35,6 +35,8 @@
     D3AccountView *accountView = [[D3AccountView alloc] initWithFrame:windowFrame];
     [self.window.rootViewController.view addSubview:accountView];
     
+    self.window.backgroundColor = [D3Theme backgroundColor];
+    
     [self.window makeKeyAndVisible];
     
     // listen for when to remove the doors view

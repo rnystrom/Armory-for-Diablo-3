@@ -82,6 +82,6 @@ enum Gender {
 @property (strong, nonatomic) NSDate *lastUpdated;
 
 - (void)finishLoadingWithSuccess:(D3HeroRequestSuccess)success failure:(D3HeroRequestFailure)failure;
-- (NSString*)itemRequestString;
+- (NSString*)formattedClassName;
 
 @end

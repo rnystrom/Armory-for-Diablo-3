@@ -42,8 +42,18 @@
     self.menuView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kD3MenuWidth, screenSize.height) style:UITableViewStyleGrouped];
     self.menuView.dataSource = self;
     self.menuView.delegate = self;
+    self.menuView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.menuView.separatorColor = [D3Theme borderColor];
     [self.view addSubview:self.menuView];
     [self.menuView reloadData];
+    
+    // hack to change background color
+    self.menuView.backgroundView = nil;
+    self.menuView.backgroundView = [[UIView alloc] init];
+    self.menuView.backgroundColor = [D3Theme foregroundColor];
+    
+    UIColor *textureColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"texture"]];
+    self.view.backgroundColor = textureColor;
 }
 
 
@@ -75,23 +85,40 @@
     D3HeroCell *cell = (D3HeroCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[D3HeroCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     if (indexPath.row == [self.heroes count] && indexPath.row != 0) {
         cell.cellType = D3HeroCellTypeLogout;
     }
-//    else if (indexPath.row == [self.heroes count]) {
-//        cell.cellType = D3HeroCellTypeAccount;
-//    }
     else if (indexPath.row < [self.heroes count]) {
-        // if we are here we have at least 1 hero, load it into the stack
         D3Hero *hero = self.heroes[indexPath.row];
-        if (! isShowingHero) {
-            [self tableView:self.menuView didSelectRowAtIndexPath:indexPath];
-            isShowingHero = YES;
-        }
         cell.hero = hero;
+        if (! hero.isFullyLoaded) {
+            UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            [cell.contentView addSubview:activityIndicator];
+            [activityIndicator startAnimating];
+            
+            [hero finishLoadingWithSuccess:^(D3Hero *hero) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [activityIndicator stopAnimating];
+                    [activityIndicator removeFromSuperview];
+                    [cell setupView];
+                });
+            } failure:^(NSError *error) {
+                
+            }];
+        }
+        else {
+            [cell setupView];
+        }
     }
+    
+//    if (indexPath.row < [self.heroes count]) {
+//        // if we are here we have at least 1 hero, load it into the stack
+//        D3Hero *hero = self.heroes[indexPath.row];
+//        cell.hero = hero;
+//    }
     return cell;
 }
 
@@ -117,9 +144,6 @@
         D3AccountView *accountView = [[D3AccountView alloc] initWithFrame:windowFrame];
         [kAppDelegate.window.rootViewController.view addSubview:accountView];
     }
-//    else if (cell.cellType == D3HeroCellTypeAccount) {
-//        
-//    }
     else if (cell.hero.isFullyLoaded) {
         [cell setSelected:YES animated:YES];
         D3Hero *selectedHero = self.heroes[indexPath.row];

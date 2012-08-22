@@ -49,21 +49,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.width = kD3CardWidth;
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = [D3Theme foregroundColor];
     
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, kD3Grid1 / 4.0f, self.view.width, 0)];
-    [self.titleLabel setFont:[D3Theme exocetLargeWithBold:NO]];
-    [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.titleLabel setBackgroundColor:[UIColor clearColor]];
-    [self.titleLabel setAdjustsFontSizeToFitWidth:YES];
+    self.titleLabel = [D3Theme labelWithFrame:CGRectMake(0, kD3Grid1 / 4.0f, self.view.width, 0) font:[D3Theme exocetLargeWithBold:NO] text:nil];
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.adjustsFontSizeToFitWidth = YES;
     [self.view addSubview:self.titleLabel];
     
-    self.subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, kD3Grid1 / 4.0f, self.view.width, 0)];
-    [self.subtitleLabel setFont:[D3Theme systemSmallFontWithBold:NO]];
-    [self.subtitleLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.subtitleLabel setBackgroundColor:[UIColor clearColor]];
-    [self.subtitleLabel setAdjustsFontSizeToFitWidth:YES];
+    self.subtitleLabel = [D3Theme labelWithFrame:CGRectMake(0, kD3Grid1 / 4.0f, self.view.width, 0) font:[D3Theme systemSmallFontWithBold:NO] text:nil];
+    self.subtitleLabel.textAlignment = NSTextAlignmentCenter;
+    self.subtitleLabel.adjustsFontSizeToFitWidth = YES;
     [self.view addSubview:self.subtitleLabel];
     
     [self setupGearButtons];
@@ -206,8 +201,8 @@
     NSString *subtitleString = [NSString stringWithFormat:@"%i %@",self.hero.level, [self.hero.className capitalizedString]];
     CGRect subtitleFrame = self.subtitleLabel.frame;
     subtitleFrame.origin.y = self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height;
-    [self.subtitleLabel setFrame:subtitleFrame];
-    [self.subtitleLabel setText:subtitleString];
+    self.subtitleLabel.frame = subtitleFrame;
+    self.subtitleLabel.text = subtitleString;
     [self.subtitleLabel autoHeight];
     
     NSMutableArray *mutOperations = [NSMutableArray array];
@@ -219,7 +214,7 @@
                 // button background logic in [D3ItemButton setItem:...];
                 button.item = correspondingItem;
                 
-                AFImageRequestOperation *operation = [correspondingItem requestForItemIconWithHeroType:self.hero.itemRequestString imageProcessingBlock:NULL success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                AFImageRequestOperation *operation = [correspondingItem requestForItemIconWithImageProcessingBlock:NULL success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [button setBackgroundImage:image forState:UIControlStateNormal];
                     });

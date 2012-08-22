@@ -7,86 +7,131 @@
 //
 
 #import "D3HeroCell.h"
-#import <QuartzCore/QuartzCore.h>
 
-CGFloat const kFadedAlpha = 0.25f;
+CGFloat const kD3CellFadedAlpha = 0.5f;
 
 @interface D3HeroCell ()
 
 @property (strong, nonatomic) UIImageView *iconView;
 @property (strong, nonatomic) UILabel *nameLabel;
 @property (strong, nonatomic) UILabel *subtitleLabel;
+@property (strong, nonatomic) UIImageView *shadowView;
 
 @end
 
 @implementation D3HeroCell
 
-@synthesize selected = _selected;
-
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        self.backgroundColor = [D3Theme midgroundColor];
     }
     return self;
 }
 
 
-- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
-    // override, do not do blue background
-}
+//- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+//    [super setHighlighted:highlighted animated:animated];
+//    if (highlighted) {
+//        self.contentView.alpha = 1.0f;
+//    }
+//    else if (! self.selected) {
+//        self.contentView.alpha = kD3CellFadedAlpha;
+//    }
+//}
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     // override, do not do blue background
-    _selected = selected;
+    [super setSelected:selected animated:animated];
+    
+    NSString *imageName = nil;
     if (selected) {
         self.contentView.alpha = 1.0f;
+        self.backgroundColor = [D3Theme backgroundColor];
+        imageName = [NSString stringWithFormat:@"%@-selected",self.hero.className];
+        
+        if (!self.shadowView) {
+            UIImage *shadowImage = [UIImage imageNamed:@"block-shadow"];
+            shadowImage = [shadowImage stretchableImageWithLeftCapWidth:floorf(shadowImage.size.width / 2.0f) topCapHeight:floorf(shadowImage.size.height / 2.0f)];
+            self.shadowView.image = shadowImage;
+            self.shadowView.contentMode = UIViewContentModeScaleToFill;
+            self.shadowView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            self.shadowView.frame = self.contentView.bounds;
+            [self.contentView addSubview:self.shadowView];
+        }
+        self.shadowView.hidden = NO;
     }
     else {
-        self.contentView.alpha = kFadedAlpha;
+        self.backgroundColor = [D3Theme midgroundColor];
+        self.contentView.alpha = kD3CellFadedAlpha;
+        imageName = self.hero.className;
+        self.shadowView.hidden = YES;
     }
+    UIImage *image = [UIImage imageNamed:imageName];
+    self.iconView.image = image;
 }
 
 
 #pragma mark - Helpers
 
 - (void)setupView {
-    CGRect frame = self.contentView.frame;
-    UIImage *classImage = [UIImage imageNamed:self.hero.className];
-    self.iconView = [[UIImageView alloc] initWithImage:classImage];
+    if (self.cellType == D3HeroCellTypeHero) {
+        CGRect frame = self.contentView.frame;
+        CGFloat itemPadding = -2.0f;
+        if (! self.iconView && self.hero.className) {
+            UIImage *classImage = [UIImage imageNamed:self.hero.className];
+            self.iconView = [[UIImageView alloc] initWithImage:classImage];
+            
+            CGFloat iconScale = frame.size.height / self.iconView.frame.size.height;
+            CGFloat resizeScale = 0.6f;
+            CGFloat iconHeight = iconScale * self.iconView.frame.size.height * resizeScale;
+            CGFloat iconWidth = iconScale * self.iconView.frame.size.width * resizeScale;
+            
+            self.iconView.frame = CGRectMake(0, 0, iconWidth, iconHeight);
+            self.iconView.center = CGPointMake(frame.size.width / 2.0f, frame.size.height / 2.0f - kD3Grid1 / 2.5f);
+            [self.contentView addSubview:self.iconView];
+        }
+        if (! self.nameLabel) {
+            self.nameLabel = [D3Theme labelWithFrame:CGRectMake(0, 0, frame.size.width, 0)
+                                                font:[D3Theme systemFontSize:kD3TinyFontSize serif:NO bold:YES italic:NO]
+                                                text:[self.hero.name uppercaseString]];
+            self.nameLabel.textAlignment = NSTextAlignmentCenter;
+            self.nameLabel.center = CGPointMake(frame.size.width / 2.0f,
+                                                self.iconView.frame.size.height + self.iconView.frame.origin.y + self.nameLabel.frame.size.height / 2.0f + itemPadding);
+            [self.contentView addSubview:self.nameLabel];
+        }
+        if (! self.subtitleLabel) {
+            self.subtitleLabel = [D3Theme labelWithFrame:CGRectMake(0, 0, frame.size.width, 0)
+                                                    font:[D3Theme systemFontSize:kD3TinyFontSize serif:NO bold:NO italic:NO]
+                                                    text:[NSString stringWithFormat:@"%i %@",self.hero.level,[self.hero formattedClassName]]];
+            self.subtitleLabel.textAlignment = NSTextAlignmentCenter;
+            self.subtitleLabel.center = CGPointMake(frame.size.width / 2.0f,
+                                                    self.nameLabel.frame.size.height + self.nameLabel.frame.origin.y + self.subtitleLabel.frame.size.height / 2.0f + itemPadding);
+            [self.contentView addSubview:self.subtitleLabel];
+        }
+    }
+    else {
+        CGRect frame = self.contentView.frame;
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"off"]];
+        imageView.center = CGPointMake(frame.size.width / 2.0f, frame.size.height / 2.0f - kD3Grid1 / 3.0f);
+        [self.contentView addSubview:imageView];
+        
+        UILabel *label = [D3Theme labelWithFrame:CGRectMake(0, 0, frame.size.width, 0) font:[D3Theme systemFontSize:kD3TinyFontSize serif:NO bold:YES italic:NO] text:@"SIGN OUT"];
+        label.center = CGPointMake(frame.size.width / 2.0f, imageView.frame.size.height + imageView.frame.origin.y + 4.0f);
+        label.textAlignment = NSTextAlignmentCenter;
+        [self.contentView addSubview:label];
+    }
     
-    CGFloat iconScale = frame.size.height / self.iconView.frame.size.height;
-    CGFloat resizeScale = 0.5f;
-    CGFloat iconHeight = iconScale * self.iconView.frame.size.height * resizeScale;
-    CGFloat iconWidth = iconScale * self.iconView.frame.size.width * resizeScale;
-    CGFloat itemPadding = 0.0f;
-    
-    self.iconView.frame = CGRectMake(0, 0, iconWidth, iconHeight);
-    self.iconView.center = CGPointMake(frame.size.width / 2.0f, frame.size.height / 2.0f - kD3Grid1 / 2.0f);
-    [self.contentView addSubview:self.iconView];
-    
-    self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 0)];
-    self.nameLabel.text = [self.hero.name uppercaseString];
-    self.nameLabel.font = [D3Theme systemFontSize:kD3TinyFontSize serif:NO bold:YES italic:NO];
-    self.nameLabel.textAlignment = NSTextAlignmentCenter;
-    self.nameLabel.backgroundColor = [UIColor clearColor];
-    [self.nameLabel autoHeight];
-    self.nameLabel.center = CGPointMake(frame.size.width / 2.0f, self.iconView.frame.size.height + self.iconView.frame.origin.y + self.nameLabel.frame.size.height / 2.0f + itemPadding);
-    [self.contentView addSubview:self.nameLabel];
-    
-    self.subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 0)];
-    self.subtitleLabel.text = [NSString stringWithFormat:@"%i %@",self.hero.level, [self.hero.className capitalizedString]];
-    self.subtitleLabel.font = [D3Theme systemFontSize:kD3TinyFontSize serif:NO bold:NO italic:NO];
-    self.subtitleLabel.textAlignment = NSTextAlignmentCenter;
-    self.subtitleLabel.backgroundColor = [UIColor clearColor];
-    [self.subtitleLabel autoHeight];
-    self.subtitleLabel.center = CGPointMake(frame.size.width / 2.0f, self.nameLabel.frame.size.height + self.nameLabel.frame.origin.y + self.subtitleLabel.frame.size.height / 2.0f + itemPadding);
-    [self.contentView addSubview:self.subtitleLabel];
-    
-    self.contentView.alpha = kFadedAlpha;
+    if (self.isSelected) {
+        self.contentView.alpha = 1.0f;
+    }
+    else {
+        self.contentView.alpha = kD3CellFadedAlpha;
+    }
 }
 
 
@@ -95,33 +140,6 @@ CGFloat const kFadedAlpha = 0.25f;
 - (void)setHero:(D3Hero *)hero {
     _hero = hero;
     self.cellType = D3HeroCellTypeHero;
-    
-    if (! hero.isFullyLoaded) {
-        UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        [self.contentView addSubview:activityIndicator];
-        [activityIndicator startAnimating];
-        
-        [hero finishLoadingWithSuccess:^(D3Hero *hero) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [activityIndicator stopAnimating];
-                [activityIndicator removeFromSuperview];
-                [self setupView];
-            });
-        } failure:^(NSError *error) {
-            
-        }];
-    }
-    else {
-        [self setupView];
-    }
-}
-
-
-- (void)setCellType:(enum D3HeroCellType)cellType {
-    _cellType = cellType;
-    if (cellType == D3HeroCellTypeLogout) {
-        self.textLabel.text = @"Logout";
-    }
 }
 
 
