@@ -24,8 +24,6 @@
 @property (strong, nonatomic) UILabel *setBonusesLabel;
 @property (strong, nonatomic) UILabel *typeLabel;
 
-@property (strong, nonatomic) UIImageView *iconView;
-
 @property (strong, nonatomic) NSArray *labelsArray;
 
 @end
@@ -53,13 +51,6 @@
     CGSize frameSize = self.view.frame.size;
     
     CGFloat padding = kD3Grid1;
-    
-    self.iconView = [[UIImageView alloc] initWithImage:self.item.icon];
-    [self.iconView setBackgroundColor:self.item.displayColor];
-    CGRect iconFrame = self.iconView.frame;
-    iconFrame.origin = CGPointMake(padding, 2.0f * padding);
-    [self.iconView setFrame:iconFrame];
-    [self.view addSubview:self.iconView];
     
     CGFloat rightofImageY = padding;
     
@@ -164,17 +155,17 @@
         
         CGRect labelFrame = label.frame;
         labelFrame.size.height = labelFrame.size.height;
-        if (label == self.titleLabel) {
-            CGRect iconFrame = self.iconView.frame;
-            iconFrame.origin.y = labelFrame.size.height + labelFrame.origin.y;
-            [self.iconView setFrame:iconFrame];
-        }
-        if (label == self.valueLabel) {
-            runningY = self.iconView.frame.origin.y;
-        }
-        if (label == self.attributesLabel && runningY < (self.iconView.frame.size.height + self.iconView.frame.origin.y)) {
-            runningY = self.iconView.frame.size.height + self.iconView.frame.origin.y + padding;
-        }
+//        if (label == self.titleLabel) {
+//            CGRect iconFrame = self.iconView.frame;
+//            iconFrame.origin.y = labelFrame.size.height + labelFrame.origin.y;
+//            [self.iconView setFrame:iconFrame];
+//        }
+//        if (label == self.valueLabel) {
+//            runningY = self.iconView.frame.origin.y;
+//        }
+//        if (label == self.attributesLabel && runningY < (self.iconView.frame.size.height + self.iconView.frame.origin.y)) {
+//            runningY = self.iconView.frame.size.height + self.iconView.frame.origin.y + padding;
+//        }
         labelFrame.origin.y = runningY;
         runningY += labelFrame.size.height + padding;
         [label setFrame:labelFrame];

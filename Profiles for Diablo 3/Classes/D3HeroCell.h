@@ -11,15 +11,9 @@
 
 extern CGFloat const kD3CellFadedAlpha;
 
-enum D3HeroCellType {
-    D3HeroCellTypeLogout,
-    D3HeroCellTypeHero
-};
-
 @interface D3HeroCell : UITableViewCell
 
 @property (weak, nonatomic) D3Hero *hero;
-@property (assign, nonatomic) enum D3HeroCellType cellType;
 
 - (void)setupView;
 

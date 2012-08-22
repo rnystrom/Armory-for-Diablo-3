@@ -31,6 +31,7 @@
 		8664322915E450D800F53138 /* wizard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664321115E450D800F53138 /* wizard@2x.png */; };
 		8664322A15E450D800F53138 /* rune.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664321215E450D800F53138 /* rune.png */; };
 		8664322B15E450D800F53138 /* rune@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664321315E450D800F53138 /* rune@2x.png */; };
+		8675D70515E520520006B42F /* D3LogoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8675D70415E520520006B42F /* D3LogoutCell.m */; };
 		86A2269215E462F900971A53 /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A2269015E462F900971A53 /* texture.png */; };
 		86A2269315E462F900971A53 /* texture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A2269115E462F900971A53 /* texture@2x.png */; };
 		86A2269A15E4666300971A53 /* D3TexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A2269915E4666300971A53 /* D3TexturedView.m */; };
@@ -132,6 +133,8 @@
 		8664321115E450D800F53138 /* wizard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wizard@2x.png"; sourceTree = "<group>"; };
 		8664321215E450D800F53138 /* rune.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rune.png; sourceTree = "<group>"; };
 		8664321315E450D800F53138 /* rune@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rune@2x.png"; sourceTree = "<group>"; };
+		8675D70315E520520006B42F /* D3LogoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3LogoutCell.h; path = "Profiles for Diablo 3/Classes/D3LogoutCell.h"; sourceTree = "<group>"; };
+		8675D70415E520520006B42F /* D3LogoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3LogoutCell.m; path = "Profiles for Diablo 3/Classes/D3LogoutCell.m"; sourceTree = "<group>"; };
 		86A2269015E462F900971A53 /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
 		86A2269115E462F900971A53 /* texture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "texture@2x.png"; sourceTree = "<group>"; };
 		86A2269815E4666300971A53 /* D3TexturedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3TexturedView.h; path = "Profiles for Diablo 3/Classes/D3TexturedView.h"; sourceTree = "<group>"; };
@@ -426,14 +429,16 @@
 		94EF72DC15DBD56D008161FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				944F2C1715DC3AE400D5C08A /* D3RuneEmitterView.h */,
-				944F2C1815DC3AE400D5C08A /* D3RuneEmitterView.m */,
+				8675D70315E520520006B42F /* D3LogoutCell.h */,
+				8675D70415E520520006B42F /* D3LogoutCell.m */,
 				94ECD49315DC1B1E008A8BEB /* D3AccountView.h */,
 				94ECD49415DC1B1E008A8BEB /* D3AccountView.m */,
 				944F2C2615DC3E8D00D5C08A /* D3HeroCell.h */,
 				944F2C2715DC3E8D00D5C08A /* D3HeroCell.m */,
 				9483F36015DC9A050065E2C1 /* D3ItemButton.h */,
 				9483F36115DC9A050065E2C1 /* D3ItemButton.m */,
+				944F2C1715DC3AE400D5C08A /* D3RuneEmitterView.h */,
+				944F2C1815DC3AE400D5C08A /* D3RuneEmitterView.m */,
 				9447C1D015E0803C0084BE3F /* D3SkillButton.h */,
 				9447C1D115E0803C0084BE3F /* D3SkillButton.m */,
 				86A2269815E4666300971A53 /* D3TexturedView.h */,
@@ -772,6 +777,7 @@
 				943A123915E1B13400F03406 /* D3SkillDetailViewController.m in Sources */,
 				943A124115E1C8FA00F03406 /* D3StatsViewController.m in Sources */,
 				86A2269A15E4666300971A53 /* D3TexturedView.m in Sources */,
+				8675D70515E520520006B42F /* D3LogoutCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

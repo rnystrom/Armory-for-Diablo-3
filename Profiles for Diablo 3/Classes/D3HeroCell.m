@@ -31,15 +31,15 @@ CGFloat const kD3CellFadedAlpha = 0.5f;
 }
 
 
-//- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
-//    [super setHighlighted:highlighted animated:animated];
-//    if (highlighted) {
-//        self.contentView.alpha = 1.0f;
-//    }
-//    else if (! self.selected) {
-//        self.contentView.alpha = kD3CellFadedAlpha;
-//    }
-//}
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    [super setHighlighted:highlighted animated:animated];
+    if (highlighted) {
+        self.backgroundColor = [D3Theme backgroundColor];
+    }
+    else if (! self.selected) {
+        self.backgroundColor = [D3Theme midgroundColor];
+    }
+}
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -78,68 +78,48 @@ CGFloat const kD3CellFadedAlpha = 0.5f;
 #pragma mark - Helpers
 
 - (void)setupView {
-    if (self.cellType == D3HeroCellTypeHero) {
-        CGRect frame = self.contentView.frame;
-        CGFloat itemPadding = -2.0f;
-        if (! self.iconView && self.hero.className) {
-            UIImage *classImage = [UIImage imageNamed:self.hero.className];
-            self.iconView = [[UIImageView alloc] initWithImage:classImage];
-            
-            CGFloat iconScale = frame.size.height / self.iconView.frame.size.height;
-            CGFloat resizeScale = 0.6f;
-            CGFloat iconHeight = iconScale * self.iconView.frame.size.height * resizeScale;
-            CGFloat iconWidth = iconScale * self.iconView.frame.size.width * resizeScale;
-            
-            self.iconView.frame = CGRectMake(0, 0, iconWidth, iconHeight);
-            self.iconView.center = CGPointMake(frame.size.width / 2.0f, frame.size.height / 2.0f - kD3Grid1 / 2.5f);
-            [self.contentView addSubview:self.iconView];
-        }
-        if (! self.nameLabel) {
-            self.nameLabel = [D3Theme labelWithFrame:CGRectMake(0, 0, frame.size.width, 0)
-                                                font:[D3Theme systemFontSize:kD3TinyFontSize serif:NO bold:YES italic:NO]
-                                                text:[self.hero.name uppercaseString]];
-            self.nameLabel.textAlignment = NSTextAlignmentCenter;
-            self.nameLabel.center = CGPointMake(frame.size.width / 2.0f,
-                                                self.iconView.frame.size.height + self.iconView.frame.origin.y + self.nameLabel.frame.size.height / 2.0f + itemPadding);
-            [self.contentView addSubview:self.nameLabel];
-        }
-        if (! self.subtitleLabel) {
-            self.subtitleLabel = [D3Theme labelWithFrame:CGRectMake(0, 0, frame.size.width, 0)
-                                                    font:[D3Theme systemFontSize:kD3TinyFontSize serif:NO bold:NO italic:NO]
-                                                    text:[NSString stringWithFormat:@"%i %@",self.hero.level,[self.hero formattedClassName]]];
-            self.subtitleLabel.textAlignment = NSTextAlignmentCenter;
-            self.subtitleLabel.center = CGPointMake(frame.size.width / 2.0f,
-                                                    self.nameLabel.frame.size.height + self.nameLabel.frame.origin.y + self.subtitleLabel.frame.size.height / 2.0f + itemPadding);
-            [self.contentView addSubview:self.subtitleLabel];
-        }
-    }
-    else {
-        CGRect frame = self.contentView.frame;
+    CGRect frame = self.contentView.frame;
+    CGFloat itemPadding = -2.0f;
+    UIImage *classImage = [UIImage imageNamed:self.hero.className];
+    if (! self.iconView && self.hero.className) {
+        self.iconView = [[UIImageView alloc] initWithImage:classImage];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"off"]];
-        imageView.center = CGPointMake(frame.size.width / 2.0f, frame.size.height / 2.0f - kD3Grid1 / 3.0f);
-        [self.contentView addSubview:imageView];
+        CGFloat iconScale = frame.size.height / self.iconView.frame.size.height;
+        CGFloat resizeScale = 0.6f;
+        CGFloat iconHeight = iconScale * self.iconView.frame.size.height * resizeScale;
+        CGFloat iconWidth = iconScale * self.iconView.frame.size.width * resizeScale;
         
-        UILabel *label = [D3Theme labelWithFrame:CGRectMake(0, 0, frame.size.width, 0) font:[D3Theme systemFontSize:kD3TinyFontSize serif:NO bold:YES italic:NO] text:@"SIGN OUT"];
-        label.center = CGPointMake(frame.size.width / 2.0f, imageView.frame.size.height + imageView.frame.origin.y + 4.0f);
-        label.textAlignment = NSTextAlignmentCenter;
-        [self.contentView addSubview:label];
+        self.iconView.frame = CGRectMake(0, 0, iconWidth, iconHeight);
+        self.iconView.center = CGPointMake(frame.size.width / 2.0f, frame.size.height / 2.0f - kD3Grid1 / 2.5f);
+        [self.contentView addSubview:self.iconView];
     }
-    
+    if (! self.nameLabel) {
+        self.nameLabel = [D3Theme labelWithFrame:CGRectMake(0, 0, frame.size.width, 0)
+                                            font:[D3Theme systemFontSize:kD3TinyFontSize serif:NO bold:YES italic:NO]
+                                            text:[self.hero.name uppercaseString]];
+        self.nameLabel.textAlignment = NSTextAlignmentCenter;
+        self.nameLabel.center = CGPointMake(frame.size.width / 2.0f,
+                                            self.iconView.frame.size.height + self.iconView.frame.origin.y + self.nameLabel.frame.size.height / 2.0f + itemPadding);
+        [self.contentView addSubview:self.nameLabel];
+    }
+    if (! self.subtitleLabel) {
+        self.subtitleLabel = [D3Theme labelWithFrame:CGRectMake(0, 0, frame.size.width, 0)
+                                                font:[D3Theme systemFontSize:kD3TinyFontSize serif:NO bold:NO italic:NO]
+                                                text:[NSString stringWithFormat:@"%i %@",self.hero.level,[self.hero formattedClassName]]];
+        self.subtitleLabel.textAlignment = NSTextAlignmentCenter;
+        self.subtitleLabel.center = CGPointMake(frame.size.width / 2.0f,
+                                                self.nameLabel.frame.size.height + self.nameLabel.frame.origin.y + self.subtitleLabel.frame.size.height / 2.0f + itemPadding);
+        [self.contentView addSubview:self.subtitleLabel];
+    }
     if (self.isSelected) {
         self.contentView.alpha = 1.0f;
     }
     else {
         self.contentView.alpha = kD3CellFadedAlpha;
     }
-}
-
-
-#pragma mark - Setters
-
-- (void)setHero:(D3Hero *)hero {
-    _hero = hero;
-    self.cellType = D3HeroCellTypeHero;
+    self.nameLabel.text = [self.hero.name capitalizedString];
+    self.subtitleLabel.text = [NSString stringWithFormat:@"%i %@",self.hero.level,[self.hero formattedClassName]];
+    self.iconView.image = classImage;
 }
 
 

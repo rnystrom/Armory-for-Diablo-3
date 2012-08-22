@@ -22,6 +22,14 @@
         item.iconString = json[@"icon"];
         item.tooltipParams = json[@"tooltipParams"];
         item.itemType = type;
+        
+        NSDictionary *type = json[@"type"];
+        if ([type isKindOfClass:[NSDictionary class]]) {
+            item.typeString = type[@"id"];
+            
+            NSNumber *twoHanded = type[@"twoHanded"];
+            item.isTwoHand = twoHanded.boolValue;
+        }
     }
     return item;
 }
@@ -239,11 +247,6 @@
             }];
             self.setItems = mutItems;
             self.setBonuses = set[@"ranks"];
-        }
-        
-        NSDictionary *type = json[@"type"];
-        if ([type isKindOfClass:[NSDictionary class]]) {
-            self.typeString = type[@"id"];
         }
     }
 }
