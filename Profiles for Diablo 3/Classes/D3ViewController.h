@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "D3Theme.h"
 
 @interface D3ViewController : UIViewController
 

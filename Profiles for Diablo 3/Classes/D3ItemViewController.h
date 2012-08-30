@@ -7,10 +7,8 @@
 //
 
 #import "D3CardViewController.h"
-#import "PSStackedViewDelegate.h"
 
 @interface D3ItemViewController : D3CardViewController
-<PSStackedViewDelegate>
 
 @property (weak, nonatomic) D3Item *item;
 

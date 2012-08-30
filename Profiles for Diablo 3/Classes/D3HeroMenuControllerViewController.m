@@ -10,13 +10,12 @@
 #import "D3HeroCell.h"
 #import "D3LogoutCell.h"
 #import "PSStackedViewController.h"
-#import "AppDelegate.h"
 #import "D3HeroViewController.h"
-#import "D3AccountView.h"
+#import "AppDelegate.h"
 
 @interface D3HeroMenuControllerViewController ()
 @property (strong, nonatomic) UITableView *menuView;
-@property (weak, nonatomic) NSArray *heroes;
+@property (strong, nonatomic) D3Career *career;
 @property (strong, nonatomic) UIButton *logoutButton;
 @end
 
@@ -29,6 +28,7 @@
 - (id)init {
     if (self = [super init]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedCareerReadyNotification:) name:kD3CareerNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedLastHeroPlayedNotification:) name:kD3LastHeroPlayedNotification object:nil];
         isShowingHero = NO;
     }
     return self;
@@ -39,6 +39,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSLog(@"did load");
     
     CGSize screenSize = [UIApplication currentSize];
     self.menuView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kD3MenuWidth, screenSize.height) style:UITableViewStyleGrouped];
@@ -78,7 +80,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return [self.heroes count];
+        return [self.career.heroes count];
     }
     return 1;
 }
@@ -95,7 +97,7 @@
             heroCell = [[D3HeroCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:D3HeroCellIdentifier];
             heroCell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        D3Hero *hero = self.heroes[indexPath.row];
+        D3Hero *hero = self.career.heroes[indexPath.row];
         heroCell.hero = hero;
         if (! hero.isFullyLoaded) {
             UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -144,23 +146,17 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    D3HeroCell *cell = (D3HeroCell*)[tableView cellForRowAtIndexPath:indexPath];
+    
     [self.menuView.visibleCells enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if ([obj isMemberOfClass:[UITableViewCell class]]) {
-            UITableViewCell *cell = (UITableViewCell*)obj;
-            [cell setSelected:NO animated:NO];
+        if ([obj isMemberOfClass:[D3HeroCell class]] && obj != cell) {
+            D3HeroCell *heroCell = (D3HeroCell*)obj;
+            [heroCell setSelected:NO animated:NO];
         }
     }];
     
-    // TODO: unselect cells, disable connections for items
-    D3HeroCell *cell = (D3HeroCell*)[tableView cellForRowAtIndexPath:indexPath];
     if (indexPath.section == 1) {
-        [(UITableViewCell*)cell setSelected:NO animated:NO];
-        CGRect windowFrame = [[UIScreen mainScreen] bounds];
-        CGFloat windowWidth = windowFrame.size.width;
-        windowFrame.size.width = windowFrame.size.height;
-        windowFrame.size.height = windowWidth;
-        D3AccountView *accountView = [[D3AccountView alloc] initWithFrame:windowFrame];
-        [kAppDelegate.window.rootViewController.view addSubview:accountView];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kD3ShouldResetNotification object:nil];
     }
     else if (cell.hero.isFullyLoaded) { // do not load the card unless the hero is loaded
         [cell setSelected:YES animated:YES];
@@ -177,9 +173,27 @@
 
 - (void)receivedCareerReadyNotification:(NSNotification*)notification {
     [kAppDelegate.stackController popToRootViewControllerAnimated:YES];
-    D3Career *career = [D3HTTPClient sharedClient].career;
-    self.heroes = career.heroes;
+    D3Career *career = notification.userInfo[kD3CareerNotificationUserInfoKey];
+    self.career = career;
     [self.menuView reloadData];
+}
+
+- (void)receivedLastHeroPlayedNotification:(NSNotification*)notification {
+    D3Hero *lastHero = notification.userInfo[kD3HeroNotificationUserInfoKey];
+    D3HeroViewController *viewController = [[D3HeroViewController alloc] init];
+    viewController.hero = lastHero;
+    [kAppDelegate.stackController popToRootViewControllerAnimated:YES];
+    [kAppDelegate.stackController pushViewController:viewController fromViewController:nil animated:NO];
+    
+    [self.menuView.visibleCells enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isMemberOfClass:[D3HeroCell class]]) {
+            D3HeroCell *cell = (D3HeroCell*)obj;
+            if (cell.hero == lastHero) {
+                [cell setSelected:YES animated:NO];
+                *stop = YES;
+            }
+        }
+    }];
 }
 
 @end

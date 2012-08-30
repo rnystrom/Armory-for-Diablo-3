@@ -6,6 +6,11 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
+#import "UIImage+Toolkit.h"
+#import "UIApplication+AppDimensions.h"
+#import "UILabel+AutoSize.h"
+#import "UIView+PSSizes.h"
+
 extern CGFloat const kD3TinyFontSize;
 extern CGFloat const kD3SmallFontSize;
 extern CGFloat const kD3MediumFontSize;
@@ -18,6 +23,7 @@ extern CGFloat const kD3AccountButtonHeight;
 extern CGFloat const kD3MenuWidth;
 extern CGFloat const kD3MenuHeight;
 extern CGFloat const kD3CardWidth;
+extern CGFloat const kD3TopPadding;
 extern CGFloat const kD3Grid1;
 extern CGFloat const kD3Grid2;
 extern CGFloat const kD3Grid3;
@@ -26,6 +32,8 @@ extern CGFloat const kD3Grid5;
 extern CGFloat const kD3SystemAnimationDuration;
 extern CGFloat const kD3RuneSpinDuration;
 extern CGFloat const kD3DoorsOpenDuration;
+
+extern NSString * const kD3ShouldResetNotification;
 
 @interface D3Theme
 
@@ -55,7 +63,16 @@ extern CGFloat const kD3DoorsOpenDuration;
 + (UIColor*)greenItemColor;
 + (UIColor*)whiteItemColor;
 + (UIColor*)redItemColor;
++ (UIColor*)glowColor;
 
 + (UILabel*)labelWithFrame:(CGRect)frame font:(UIFont*)font text:(NSString*)text;
+
++ (UIImage*)cappedItemImage;
++ (UIImage*)cappedItemHighlightedImage;
++ (UIImage*)cappedItemSelectedImage;
++ (UIImage*)cappedButtonImage;
++ (UIImage*)cappedCardImage;
+
++ (CGPoint)cappedItemImageOffset;
 
 @end

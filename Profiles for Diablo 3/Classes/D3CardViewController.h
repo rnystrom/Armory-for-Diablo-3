@@ -13,5 +13,6 @@
 @interface D3CardViewController : D3ViewController
 
 @property (strong, nonatomic) D3TexturedView *texturedView;
+@property (strong, nonatomic) UIImage *backgroundImage;
 
 @end
