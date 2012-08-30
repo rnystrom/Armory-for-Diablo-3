@@ -11,7 +11,9 @@
 @interface D3SkillDetailViewController ()
 
 @property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UILabel *subtitleLabel;
 @property (strong, nonatomic) UILabel *skillLabel;
+@property (strong, nonatomic) UILabel *runeTitleLabel;
 @property (strong, nonatomic) UILabel *runeLabel;
 
 @property (strong, nonatomic) NSArray *labelsArray;
@@ -25,40 +27,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor blackColor];
-    
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kD3Grid1, kD3Grid1 / 4.0f, self.view.width - 2 * kD3Grid1, kD3LargeFontSize)];
-    self.titleLabel.font = [D3Theme exocetLargeWithBold:NO];
+    self.titleLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1, kD3TopPadding, self.view.width - 2.0f * kD3Grid1, 0) font:[D3Theme exocetLargeWithBold:NO] text:@"Placeholder"];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.titleLabel.backgroundColor = [UIColor clearColor];
-    self.titleLabel.textColor = [UIColor whiteColor];
     self.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.titleLabel.numberOfLines = 1;
     [self.view addSubview:self.titleLabel];
     
-    self.skillLabel = [[UILabel alloc] initWithFrame:CGRectMake(kD3Grid1, 0, self.view.width - 2 * kD3Grid1, 0)];
-    [self.skillLabel setTextColor:[UIColor whiteColor]];
-    [self.skillLabel setNumberOfLines:0];
-    self.skillLabel.backgroundColor = [UIColor clearColor];
+//    self.subtitleLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1, self.titleLabel.bottom, self.view.width - 2.0f * kD3Grid1, 0) font:[D3Theme systemSmallFontWithBold:NO] text:@"Placeholder"];
+//    self.subtitleLabel.numberOfLines = 1;
+//    self.subtitleLabel.textAlignment = NSTextAlignmentCenter;
+//    self.subtitleLabel.adjustsFontSizeToFitWidth = YES;
+//    [self.view addSubview:self.subtitleLabel];
+    
+    self.skillLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1, self.titleLabel.bottom, self.view.width - 2.0f * kD3Grid1, 0) font:[D3Theme systemSmallFontWithBold:NO] text:@"Placeholder"];
+    self.skillLabel.textColor = [UIColor blackColor];
+    self.skillLabel.numberOfLines = 0;
+    self.skillLabel.layer.shadowColor = [UIColor clearColor].CGColor;
+    self.skillLabel.layer.shadowOpacity = 0;
     [self.view addSubview:self.skillLabel];
     
     if (self.skill.isActive) {
-        self.runeLabel = [[UILabel alloc] initWithFrame:CGRectMake(kD3Grid1, 0, self.view.width - 2 * kD3Grid1, 0)];
-        [self.runeLabel setTextColor:[UIColor whiteColor]];
-        [self.runeLabel setNumberOfLines:0];
-        self.runeLabel.backgroundColor = [UIColor clearColor];
-        [self.view addSubview:self.runeLabel];
+        self.runeTitleLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1, 0, self.view.width - 2.0f * kD3Grid1, 0) font:[D3Theme exocetMediumWithBold:NO] text:@"Rune"];
+        self.runeTitleLabel.textColor = [D3Theme greenItemColor];
+        [self.view addSubview:self.runeTitleLabel];
         
-        self.labelsArray = @[
-        self.titleLabel,
-        self.skillLabel,
-        self.runeLabel
-        ];
-    }
-    else {
-        self.labelsArray = @[
-        self.titleLabel,
-        self.skillLabel
-        ];
+        self.runeLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1, 0, self.view.width - 2.0f * kD3Grid1, 0) font:[D3Theme systemSmallFontWithBold:NO] text:nil];
+        [self.runeLabel setTextColor:[UIColor blackColor]];
+        self.runeLabel.layer.shadowColor = [UIColor clearColor].CGColor;
+        self.runeLabel.layer.shadowOpacity = 0;
+        [self.runeLabel setNumberOfLines:0];
+        [self.view addSubview:self.runeLabel];
     }
     
     if (self.skill) {
@@ -74,22 +72,23 @@
 
 
 - (void)setupView {
-    CGFloat padding = kD3Grid1 / 4.0f;
-    
     self.titleLabel.text = self.skill.name;
     
+    self.skillLabel.top = kD3Grid3;
     self.skillLabel.text = self.skill.description;
     [self.skillLabel autoHeight];
-    CGRect skillFrame = self.skillLabel.frame;
-    skillFrame.origin.y = self.titleLabel.frame.size.height + self.titleLabel.frame.origin.y + padding;
-    self.skillLabel.frame = skillFrame;
     
     if (self.skill.isActive) {
+//        self.subtitleLabel.text = self.skill.rune.name;
+//        self.subtitleLabel.top = self.titleLabel.bottom;
+        
+        self.runeTitleLabel.top = self.skillLabel.bottom + kD3Grid1;
+        self.runeTitleLabel.text = self.skill.rune.name;
+        [self.runeTitleLabel autoHeight];
+        
         self.runeLabel.text = self.skill.rune.description;
         [self.runeLabel autoHeight];
-        CGRect runeFrame = self.runeLabel.frame;
-        runeFrame.origin.y = self.skillLabel.frame.size.height + self.skillLabel.frame.origin.y + padding;
-        self.runeLabel.frame = runeFrame;
+        self.runeLabel.top = self.runeTitleLabel.bottom + kD3Grid1 / 4.0f;
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "D3LogoutCell.h"
+#import "D3Theme.h"
 
 @implementation D3LogoutCell
 

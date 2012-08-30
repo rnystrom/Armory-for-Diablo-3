@@ -7,15 +7,6 @@
 //
 
 #import "D3Theme.h"
-#import <QuartzCore/QuartzCore.h>
-
-#pragma mark - Font Sizes
-
-CGFloat const kD3TinyFontSize = 12.0f;
-CGFloat const kD3SmallFontSize = 16.0f;
-CGFloat const kD3MediumFontSize = 22.0f;
-CGFloat const kD3LargeFontSize = 33.0f;
-CGFloat const kD3TitleFontSize = 66.0f;
 
 #pragma mark - Sizes
 
@@ -24,19 +15,32 @@ CGFloat const kD3Grid2 = kD3Grid1 * 2.0f;
 CGFloat const kD3Grid3 = kD3Grid1 * 3.0f;
 CGFloat const kD3Grid4 = kD3Grid1 * 4.0f;
 CGFloat const kD3Grid5 = kD3Grid1 * 5.0f;
-CGFloat const kD3AccountTextFieldWidth = 176.0f;
+CGFloat const kD3AccountTextFieldWidth  = 176.0f;
 CGFloat const kD3AccountTextFieldHeight = 44.0f;
-CGFloat const kD3AccountButtonWidth = 132.0f;
-CGFloat const kD3AccountButtonHeight = kD3AccountTextFieldHeight;
-CGFloat const kD3MenuWidth = kD3Grid4;
+CGFloat const kD3AccountButtonWidth     = 132.0f;
+CGFloat const kD3AccountButtonHeight    = kD3AccountTextFieldHeight;
+CGFloat const kD3MenuWidth  = kD3Grid4;
 CGFloat const kD3MenuHeight = kD3Grid4;
-CGFloat const kD3CardWidth = (1024.0f - kD3MenuWidth) / 2.0f;
+CGFloat const kD3CardWidth  = (1024.0f - kD3MenuWidth) / 2.0f;
+CGFloat const kD3TopPadding = 4.0;
 
 #pragma mark - Animations
 
-CGFloat const kD3SystemAnimationDuration = 0.25f;
-CGFloat const kD3RuneSpinDuration = 1.0f;
-CGFloat const kD3DoorsOpenDuration = 1.0f;
+CGFloat const kD3SystemAnimationDuration    = 0.25f;
+CGFloat const kD3RuneSpinDuration           = 1.0f;
+CGFloat const kD3DoorsOpenDuration          = 1.0f;
+
+#pragma mark - Font Sizes
+
+CGFloat const kD3TinyFontSize   = kD3Grid1 * 0.375f;
+CGFloat const kD3SmallFontSize  = kD3Grid1 * 0.5f;
+CGFloat const kD3MediumFontSize = kD3Grid1 * 0.7f;
+CGFloat const kD3LargeFontSize  = kD3Grid1;
+CGFloat const kD3TitleFontSize  = kD3Grid1 * 2.0f;
+
+#pragma mark - Notifications
+
+NSString * const kD3ShouldResetNotification = @"com.nystromproductions.profiles.app-should-reset";
 
 @implementation D3Theme
 
@@ -144,7 +148,6 @@ CGFloat const kD3DoorsOpenDuration = 1.0f;
 
 
 + (UIColor*)borderColor {
-//    return [UIColor colorWithRed:79.0f / 255.0f green:81.0f / 255.0f blue:83.0f / 255.0f alpha:1.0f];
     return [UIColor blackColor];
 }
 
@@ -155,12 +158,12 @@ CGFloat const kD3DoorsOpenDuration = 1.0f;
 
 
 + (UIColor*)yellowItemColor {
-    return [UIColor colorWithRed:166.0f / 255.0f green:162.0f / 255.0f blue:48.0f / 255.0f alpha:1.0f];
+    return [UIColor colorWithRed:230.0f / 255.0f green:235.0f / 255.0f blue:78.0f / 255.0f alpha:1.0f];
 }
 
 
 + (UIColor*)blueItemColor {
-    return [UIColor colorWithRed:68.0f / 255.0f green:118.0f / 255.0f blue:136.0f / 255.0f alpha:1.0f];
+    return [UIColor colorWithRed:78.0f / 255.0f green:156.0f / 255.0f blue:235.0f / 255.0f alpha:1.0f];
 }
 
 
@@ -170,7 +173,7 @@ CGFloat const kD3DoorsOpenDuration = 1.0f;
 
 
 + (UIColor*)greenItemColor {
-    return [UIColor colorWithRed:119.0f / 255.0f green:166.0f / 255.0f blue:64.0f / 255.0f alpha:1.0f];
+    return [UIColor colorWithRed:125.0f / 255.0f green:173.0f / 255.0f blue:68.0f / 255.0f alpha:1.0f];
 }
 
 
@@ -184,11 +187,17 @@ CGFloat const kD3DoorsOpenDuration = 1.0f;
 }
 
 
++ (UIColor*)glowColor {
+    return [self blueItemColor];
+}
+
+
 #pragma mark - Labels
 
 + (UILabel*)labelWithFrame:(CGRect)frame font:(UIFont*)font text:(NSString *)text {
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
     label.font = font;
+    label.numberOfLines = 0;
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [D3Theme textColor];
     label.text = text;
@@ -196,6 +205,38 @@ CGFloat const kD3DoorsOpenDuration = 1.0f;
     label.shadowOffset = CGSizeMake(0, 1.0f);
     [label autoHeight];
     return label;
+}
+
+
+#pragma mark - UIImages
+
++ (UIImage*)cappedItemImage {
+    return [[UIImage imageNamed:@"item-overlay"] resizableImageWithCapInsets:UIEdgeInsetsMake(15.0f, 14.0f, 15.0f, 12.0f)];
+}
+
+
++ (UIImage*)cappedItemHighlightedImage {
+    return [[UIImage imageNamed:@"item-overlay-highlighted"] resizableImageWithCapInsets:UIEdgeInsetsMake(15.0f, 14.0f, 15.0f, 12.0f)];
+}
+
+
++ (UIImage*)cappedItemSelectedImage {
+    return [[UIImage imageNamed:@"item-overlay-selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(15.0f, 14.0f, 15.0f, 12.0f)];
+}
+
+
++ (UIImage*)cappedButtonImage {
+    return [[UIImage imageNamed:@"item-overlay-button"] resizableImageWithCapInsets:UIEdgeInsetsMake(15.0f, 14.0f, 15.0f, 12.0f)];
+}
+
+
++ (CGPoint)cappedItemImageOffset {
+    return CGPointMake(8.0f, 8.0f);
+}
+
+
++ (UIImage*)cappedCardImage {
+    return [[UIImage imageNamed:@"cardblock"] resizableImageWithCapInsets:UIEdgeInsetsMake(14.0f, 14.0f, 14.0f, 14.0f)];
 }
 
 

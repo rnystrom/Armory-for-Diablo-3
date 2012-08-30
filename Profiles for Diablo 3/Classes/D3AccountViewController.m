@@ -1,76 +1,86 @@
 //
-//  D3AccountView.m
+//  D3AccountViewController.m
 //  Profiles for Diablo 3
 //
-//  Created by Ryan Nystrom on 8/15/12.
+//  Created by Ryan Nystrom on 8/30/12.
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
+//  Lots of hack for orientation...
 
-#import "D3AccountView.h"
+#import "D3AccountViewController.h"
 #import "D3HTTPClient.h"
 #import "D3RuneEmitterView.h"
 #import "D3Theme.h"
 
-@interface D3AccountView()
+@interface D3AccountViewController ()
+
 @property (strong, nonatomic) UIView *leftDoor;
 @property (strong, nonatomic) UIView *rightDoor;
 @property (strong, nonatomic) UIImageView *unlockView;
 @property (strong, nonatomic) UITextField *accountTextField;
 @property (strong, nonatomic) UIButton *enterAccountButton;
+
 @end
 
-@implementation D3AccountView {
+@implementation D3AccountViewController {
     CGFloat splitWidth;
 }
 
+
 #pragma mark - View lifecycle
 
-- (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-        
-        self.backgroundColor = [UIColor clearColor];
-        splitWidth = frame.size.width / 3.0f;
-        CGRect leftDoorFrame = CGRectMake(0, 0, splitWidth, frame.size.height);
-        CGRect rightDoorFrame = CGRectMake(splitWidth, 0, frame.size.width - splitWidth, self.frame.size.height);
-        self.leftDoor = [[UIView alloc] initWithFrame:leftDoorFrame];
-        self.rightDoor = [[UIView alloc] initWithFrame:rightDoorFrame];
-        [self.leftDoor setBackgroundColor:[UIColor redColor]];
-        [self.rightDoor setBackgroundColor:[UIColor grayColor]];
-        [self addSubview:self.rightDoor];
-        [self addSubview:self.leftDoor];
-        
-        CGFloat textFieldButtonPadding = 22.0f;
-        self.accountTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, kD3AccountTextFieldWidth, kD3AccountTextFieldHeight)];
-        [self.accountTextField setBackgroundColor:[UIColor whiteColor]];
-        self.accountTextField.placeholder = @"Battletag#1234";
-        self.accountTextField.delegate = self;
-        self.accountTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-        self.accountTextField.clearButtonMode = UITextFieldViewModeAlways;
-        
-        self.enterAccountButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        self.enterAccountButton.frame = CGRectMake(0, 0, kD3AccountButtonWidth, kD3AccountButtonHeight);
-        [self.enterAccountButton setTitle:@"Search" forState:UIControlStateNormal];
-        [self.enterAccountButton addTarget:self action:@selector(onEnterAccount:) forControlEvents:UIControlEventTouchUpInside];
-        
-        CGFloat combinedWidth = textFieldButtonPadding + kD3AccountButtonWidth + kD3AccountTextFieldWidth;
-        self.accountTextField.center = CGPointMake(rightDoorFrame.size.width / 2.0f - combinedWidth / 2.0f + kD3AccountTextFieldWidth / 2.0f, rightDoorFrame.size.height / 2.0f);
-        self.enterAccountButton.center = CGPointMake(rightDoorFrame.size.width / 2.0f + combinedWidth / 2.0f - kD3AccountButtonWidth / 2.0f, rightDoorFrame.size.height / 2.0f);
-        [self.rightDoor addSubview:self.accountTextField];
-        [self.rightDoor addSubview:self.enterAccountButton];
-        
-        self.unlockView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rune"]];
-        self.unlockView.center = CGPointMake(splitWidth, frame.size.height / 2.0f);
-        [self.leftDoor addSubview:self.unlockView];
-    }
-    return self;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+	
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    self.view.backgroundColor = [UIColor clearColor];
+    CGSize screenSize = [UIApplication currentSize];
+    splitWidth = screenSize.width / 3.0f;
+    CGRect leftDoorFrame = CGRectMake(0, 0, splitWidth, screenSize.height);
+    CGRect rightDoorFrame = CGRectMake(splitWidth, 0, screenSize.width - splitWidth, screenSize.height);
+    self.leftDoor = [[UIView alloc] initWithFrame:leftDoorFrame];
+    self.rightDoor = [[UIView alloc] initWithFrame:rightDoorFrame];
+    [self.leftDoor setBackgroundColor:[UIColor redColor]];
+    [self.rightDoor setBackgroundColor:[UIColor grayColor]];
+    [self.view addSubview:self.rightDoor];
+    [self.view addSubview:self.leftDoor];
+    
+    CGFloat textFieldButtonPadding = 22.0f;
+    self.accountTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, kD3AccountTextFieldWidth, kD3AccountTextFieldHeight)];
+    [self.accountTextField setBackgroundColor:[UIColor whiteColor]];
+    self.accountTextField.placeholder = @"Battletag#1234";
+    self.accountTextField.delegate = self;
+    self.accountTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    self.accountTextField.clearButtonMode = UITextFieldViewModeAlways;
+    
+    self.enterAccountButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.enterAccountButton.frame = CGRectMake(0, 0, kD3AccountButtonWidth, kD3AccountButtonHeight);
+    [self.enterAccountButton setTitle:@"Search" forState:UIControlStateNormal];
+    [self.enterAccountButton addTarget:self action:@selector(onEnterAccount:) forControlEvents:UIControlEventTouchUpInside];
+    
+    CGFloat combinedWidth = textFieldButtonPadding + kD3AccountButtonWidth + kD3AccountTextFieldWidth;
+    self.accountTextField.center = CGPointMake(rightDoorFrame.size.width / 2.0f - combinedWidth / 2.0f + kD3AccountTextFieldWidth / 2.0f, rightDoorFrame.size.height / 2.0f);
+    self.enterAccountButton.center = CGPointMake(rightDoorFrame.size.width / 2.0f + combinedWidth / 2.0f - kD3AccountButtonWidth / 2.0f, rightDoorFrame.size.height / 2.0f);
+    [self.rightDoor addSubview:self.accountTextField];
+    [self.rightDoor addSubview:self.enterAccountButton];
+    
+    self.unlockView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rune"]];
+    self.unlockView.center = CGPointMake(splitWidth, screenSize.height / 2.0f);
+    [self.leftDoor addSubview:self.unlockView];
 }
 
 
-- (void)dealloc {
+- (void) viewDidUnload {
+    [super viewDidUnload];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 
@@ -145,7 +155,7 @@
     CGRect leftFrame = self.leftDoor.frame;
     CGRect rightFrame = self.rightDoor.frame;
     leftFrame.origin.x = -leftFrame.size.width - self.unlockView.frame.size.width / 2.0f;
-    rightFrame.origin.x = self.frame.size.width;
+    rightFrame.origin.x = self.view.height;
     
     [UIView animateWithDuration:kD3DoorsOpenDuration
                           delay:0
@@ -184,14 +194,14 @@
         [boundsValue getValue:&keyboardRect];
         CGFloat keyboardHeight = keyboardRect.size.width;
         CGFloat adjustmentHeght = keyboardHeight / 2.0f;
-        CGRect newFrame = self.frame;
+        CGRect newFrame = self.view.frame;
         newFrame.origin.y = -1.0f * adjustmentHeght;
         
         [UIView animateWithDuration:kD3SystemAnimationDuration
                               delay:0
                             options:kNilOptions
                          animations:^{
-                             self.frame = newFrame;
+                             self.view.frame = newFrame;
                          }
                          completion:^(BOOL finished){
                              
@@ -201,18 +211,19 @@
 
 
 - (void)keyboardWillHide:(NSNotification*)notification {
-    CGRect newFrame = self.frame;
+    CGRect newFrame = self.view.frame;
     newFrame.origin.y = 0;
     
     [UIView animateWithDuration:kD3SystemAnimationDuration
                           delay:0
                         options:kNilOptions
                      animations:^{
-                         self.frame = newFrame;
+                         self.view.frame = newFrame;
                      }
                      completion:^(BOOL finished){
                          
                      }];
 }
+
 
 @end

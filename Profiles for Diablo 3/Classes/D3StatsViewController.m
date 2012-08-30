@@ -10,6 +10,8 @@
 
 @interface D3StatsViewController ()
 
+@property (strong, nonatomic) UIScrollView *scrollView;
+
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *strengthLabel;
 @property (strong, nonatomic) UILabel *dexterityLabel;
@@ -36,16 +38,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor darkGrayColor];
+    self.backgroundImage = [UIImage imageNamed:@"dark-bg"];
     
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kD3Grid1, kD3Grid1 / 4.0f, self.view.width - 2 * kD3Grid1, kD3LargeFontSize)];
-    self.titleLabel.font = [D3Theme exocetLargeWithBold:NO];
+    self.titleLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1, kD3TopPadding, self.view.width - 2.0f * kD3Grid1, 0) font:[D3Theme exocetLargeWithBold:NO] text:@"Stats"];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.titleLabel.backgroundColor = [UIColor clearColor];
-    self.titleLabel.textColor = [UIColor blackColor];
-    self.titleLabel.adjustsFontSizeToFitWidth = YES;
     self.titleLabel.text = @"STATS";
     [self.view addSubview:self.titleLabel];
+    
+    CGFloat viewHeight = [UIApplication currentSize].height;
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(kD3Grid1, kD3Grid2, self.view.width - 2.0f * kD3Grid1, viewHeight - 2.0f * kD3Grid1)];
+    self.scrollView.contentSize = self.scrollView.frame.size;
+    self.scrollView.bounces = YES;
+    self.scrollView.alwaysBounceHorizontal = NO;
+    self.scrollView.alwaysBounceVertical = YES;
+    [self.view addSubview:self.scrollView];
     
     if (self.hero) {
         [self setupView];
@@ -56,7 +62,8 @@
 #pragma mark - Helpers
 
 - (void)setupView {
-    CGFloat runningY = self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height + kD3Grid1;
+    CGFloat runningY = 0;
+    CGFloat spacer = kD3Grid1 / 2.0f;
     runningY = [self addStatsGroupWithTitle:@"Attributes" names:@[
                 @"Strength:",
                 @"Dexterity:",
@@ -68,7 +75,7 @@
                 [NSString stringWithFormat:@"%i",self.hero.intelligence],
                 [NSString stringWithFormat:@"%i",self.hero.vitality]
                 ] atY:runningY];
-    runningY += kD3Grid1;
+    runningY += spacer;
     
     runningY = [self addStatsGroupWithTitle:@"Offense" names:@[
                 @"Damage:",
@@ -79,7 +86,7 @@
                 [NSString stringWithFormat:@"%.0f%%",self.hero.damageIncrease],
                 [NSString stringWithFormat:@"%.0f%%",self.hero.critChance],
                 ] atY:runningY];
-    runningY += kD3Grid1;
+    runningY += spacer;
     
     runningY = [self addStatsGroupWithTitle:@"Defense" names:@[
                 @"Maximum Life:",
@@ -104,15 +111,11 @@
 
 // returns last height
 - (CGFloat)addStatsGroupWithTitle:(NSString*)title names:(NSArray*)names values:(NSArray*)values atY:(CGFloat)y {
-    __block CGRect runningFrame = CGRectMake(kD3Grid1, y, self.view.width - 2 * kD3Grid1, 0);
+    __block CGRect runningFrame = CGRectMake(kD3Grid1, y, self.scrollView.width - 2 * kD3Grid1, 0);
     CGFloat padding = kD3Grid1 / 4.0f;
-    UILabel *textLabel = [[UILabel alloc] initWithFrame:runningFrame];
-    textLabel.backgroundColor = [UIColor clearColor];
-    textLabel.text = title;
-    textLabel.font = [D3Theme systemSmallFontWithBold:NO];
-    textLabel.textColor = [UIColor whiteColor];
-    [textLabel autoHeight];
-    [self.view addSubview:textLabel];
+    UILabel *textLabel = [D3Theme labelWithFrame:runningFrame font:[D3Theme exocetMediumWithBold:NO] text:title];
+    textLabel.textAlignment = NSTextAlignmentCenter;
+    [self.scrollView addSubview:textLabel];
     
     runningFrame.origin.y += textLabel.frame.size.height + padding;
     if ([names count] == [values count]) {
@@ -121,22 +124,13 @@
                 NSString *name = (NSString*)obj;
                 NSString *value = values[idx];
                 
-                UILabel *nameLabel = [[UILabel alloc] initWithFrame:runningFrame];
-                nameLabel.text = name;
-                nameLabel.backgroundColor = [UIColor clearColor];
-                nameLabel.font = [D3Theme systemSmallFontWithBold:NO];
-                nameLabel.textColor = [UIColor whiteColor];
-                [nameLabel autoHeight];
-                [self.view addSubview:nameLabel];
+                UILabel *nameLabel = [D3Theme labelWithFrame:runningFrame font:[D3Theme systemSmallFontWithBold:NO] text:name];
+                nameLabel.textColor = [D3Theme yellowItemColor];
+                [self.scrollView addSubview:nameLabel];
                 
-                UILabel *valueLabel = [[UILabel alloc] initWithFrame:runningFrame];
-                valueLabel.text = value;
-                valueLabel.backgroundColor = [UIColor clearColor];
-                valueLabel.font = [D3Theme systemSmallFontWithBold:NO];
-                valueLabel.textColor = [UIColor whiteColor];
+                UILabel *valueLabel = [D3Theme labelWithFrame:runningFrame font:[D3Theme systemSmallFontWithBold:NO] text:value];
                 valueLabel.textAlignment = NSTextAlignmentRight;
-                [valueLabel autoHeight];
-                [self.view addSubview:valueLabel];
+                [self.scrollView addSubview:valueLabel];
                 
                 runningFrame.origin.y += nameLabel.frame.size.height + padding;
             }

@@ -7,14 +7,16 @@
 //
 
 #import "D3ItemViewController.h"
-#import "D3Theme.h"
 
 @interface D3ItemViewController ()
+
+@property (strong, nonatomic) UIView *itemContainerView;
+
+@property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
 
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *valueLabel;
 @property (strong, nonatomic) UILabel *valueUnitLabel;
-@property (strong, nonatomic) UILabel *weaponInfoLabel;
 @property (strong, nonatomic) UILabel *attributesLabel;
 @property (strong, nonatomic) UILabel *flavorLabel;
 @property (strong, nonatomic) UILabel *requiredLevelLabel;
@@ -26,84 +28,102 @@
 
 @property (strong, nonatomic) NSArray *labelsArray;
 
+@property (strong, nonatomic) UIImageView *imageView;
+
 @end
 
 @implementation D3ItemViewController
-
-#pragma mark - Class Helpers
-
-+ (UILabel*)labelForView:(UIView*)view frame:(CGRect)frame{
-    UILabel *label = [[UILabel alloc] initWithFrame:frame];
-    [label setNumberOfLines:0];
-    [label setAdjustsFontSizeToFitWidth:YES];
-    [label setBackgroundColor:[UIColor clearColor]];
-    [view addSubview:label];
-    return label;
-}
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.width = kD3CardWidth;
-    [self.view setBackgroundColor:[UIColor blackColor]];
+    self.itemContainerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height)];
+    self.itemContainerView.backgroundColor = [UIColor clearColor];
+    self.itemContainerView.alpha = 0.0f;
+    [self.view addSubview:self.itemContainerView];
+    
+    CGSize screenSize = [UIApplication currentSize];
+    self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.activityIndicator.center = CGPointMake(self.view.width / 2.0f, screenSize.height / 2.0f);
+    [self.activityIndicator startAnimating];
+    [self.view addSubview:self.activityIndicator];
+    
+    self.backgroundImage = [UIImage imageNamed:@"dark-bg"];
     CGSize frameSize = self.view.frame.size;
-    
     CGFloat padding = kD3Grid1;
+    CGFloat textWidth = frameSize.width / 1.7f;
+    CGRect textFrame = CGRectMake(padding, 0.0f, textWidth, 0.0f);
+    CGRect lowTextFrame = CGRectMake(padding, 0.0f, self.view.width - padding * 2.0f, 0.0f);
+
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    [self.itemContainerView addSubview:self.imageView];
     
-    CGFloat rightofImageY = padding;
-    
-    self.titleLabel = [D3ItemViewController labelForView:self.view frame:CGRectMake(padding, kD3Grid1 / 4.0f, frameSize.width - 2.0f * padding, kD3LargeFontSize)];
-    [self.titleLabel setFont:[D3Theme exocetLargeWithBold:YES]];
-    [self.titleLabel setTextColor:self.item.displayColor];
+    self.titleLabel = [D3Theme labelWithFrame:CGRectMake(padding, kD3TopPadding, frameSize.width - 2.0f * padding, 0)
+                                         font:[D3Theme exocetLargeWithBold:YES]
+                                         text:@"Title"];
     [self.titleLabel setAdjustsFontSizeToFitWidth:YES];
     [self.titleLabel setNumberOfLines:1];
     [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.itemContainerView addSubview:self.titleLabel];
+    
+    self.typeLabel = [D3Theme labelWithFrame:CGRectMake(padding, self.titleLabel.bottom, frameSize.width - 2.0f * padding, 0)
+                                        font:[D3Theme systemSmallFontWithBold:NO]
+                                        text:@"Type"];
+    [self.typeLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.itemContainerView addSubview:self.typeLabel];
 
-    self.valueLabel = [D3ItemViewController labelForView:self.view frame:CGRectMake(rightofImageY, 0.0f, frameSize.width - rightofImageY - padding, 0.0f)];
-    [self.valueLabel setFont:[D3Theme titleFontWithSize:kD3TitleFontSize bold:NO]];
-    [self.valueLabel setTextColor:[UIColor whiteColor]];
+    self.valueLabel = [D3Theme labelWithFrame:textFrame
+                                         font:[D3Theme titleFontWithSize:kD3TitleFontSize bold:NO]
+                                         text:@"0.0"];
+    [self.itemContainerView addSubview:self.valueLabel];
     
-    self.typeLabel = [D3ItemViewController labelForView:self.view frame:CGRectMake(rightofImageY, 0.0f, frameSize.width - rightofImageY - padding, 0.0f)];
-    [self.typeLabel setFont:[D3Theme systemSmallFontWithBold:NO]];
-    [self.typeLabel setTextColor:[UIColor grayColor]];
-    [self.typeLabel setTextAlignment:NSTextAlignmentRight];
+    self.valueUnitLabel = [D3Theme labelWithFrame:textFrame
+                                             font:[D3Theme systemSmallFontWithBold:NO]
+                                             text:@"Unit"];
+    [self.itemContainerView addSubview:self.valueUnitLabel];
+
+    self.attributesLabel = [D3Theme labelWithFrame:textFrame
+                                             font:[D3Theme systemSmallFontWithBold:NO]
+                                             text:@""];
+    [self.attributesLabel setTextColor:[D3Theme blueItemColor]];
+    [self.itemContainerView addSubview:self.attributesLabel];
     
-    self.valueUnitLabel = [D3ItemViewController labelForView:self.view frame:CGRectMake(rightofImageY, 0.0f, frameSize.width - rightofImageY - padding, 0.0f)];
-    [self.valueUnitLabel setFont:[D3Theme systemSmallFontWithBold:NO]];
-    [self.valueUnitLabel setTextColor:[UIColor grayColor]];
+    self.setNameLabel = [D3Theme labelWithFrame:textFrame
+                                              font:[D3Theme systemSmallFontWithBold:NO]
+                                              text:@""];
+    [self.setNameLabel setTextColor:[UIColor lightGrayColor]];
+    [self.itemContainerView addSubview:self.setNameLabel];
     
-    self.attributesLabel = [D3ItemViewController labelForView:self.view frame:CGRectMake(padding, 0.0f, frameSize.width - padding * 2.0f, 0.0f)];
-    [self.attributesLabel setFont:[D3Theme systemSmallFontWithBold:NO]];
-    [self.attributesLabel setTextColor:[UIColor blueColor]];
-    [self.view addSubview:self.attributesLabel];
+    self.setItemsLabel = [D3Theme labelWithFrame:textFrame
+                                           font:[D3Theme systemSmallFontWithBold:NO]
+                                           text:@""];
+    [self.setItemsLabel setTextColor:[UIColor lightGrayColor]];
+    [self.itemContainerView addSubview:self.setItemsLabel];
     
-    self.setNameLabel = [D3ItemViewController labelForView:self.view frame:CGRectMake(rightofImageY, 0.0f, frameSize.width - rightofImageY - padding, 0.0f)];
-    [self.setNameLabel setFont:[D3Theme systemSmallFontWithBold:NO]];
-    [self.setNameLabel setTextColor:[UIColor grayColor]];
+    self.setBonusesLabel = [D3Theme labelWithFrame:lowTextFrame
+                                              font:[D3Theme systemSmallFontWithBold:NO]
+                                              text:@""];
+    [self.setBonusesLabel setTextColor:[UIColor lightGrayColor]];
+    [self.itemContainerView addSubview:self.setBonusesLabel];
     
-    self.setItemsLabel = [D3ItemViewController labelForView:self.view frame:CGRectMake(padding, 0.0f, frameSize.width - padding * 2.0f, 0.0f)];
-    [self.setItemsLabel setFont:[D3Theme systemSmallFontWithBold:NO]];
-    [self.setItemsLabel setTextColor:[UIColor grayColor]];
-    
-    self.setBonusesLabel = [D3ItemViewController labelForView:self.view frame:CGRectMake(padding, 0.0f, frameSize.width - padding * 2.0f, 0.0f)];
-    [self.setBonusesLabel setFont:[D3Theme systemSmallFontWithBold:NO]];
-    [self.setBonusesLabel setTextColor:[UIColor grayColor]];
-    
-    self.flavorLabel = [D3ItemViewController labelForView:self.view frame:CGRectMake(padding, 0.0f, frameSize.width - padding * 2.0f, 0.0f)];
-    [self.flavorLabel setFont:[D3Theme systemFontSize:kD3SmallFontSize serif:NO bold:NO italic:YES]];
+    self.flavorLabel = [D3Theme labelWithFrame:lowTextFrame
+                                              font:[D3Theme systemFontSize:kD3SmallFontSize serif:NO bold:NO italic:YES]
+                                              text:@""];
     [self.flavorLabel setTextColor:[UIColor orangeColor]];
+    [self.itemContainerView addSubview:self.flavorLabel];
     
-    self.requiredLevelLabel = [D3ItemViewController labelForView:self.view frame:CGRectMake(padding, 0.0f, frameSize.width - padding * 2.0f, 0.0f)];
-    [self.requiredLevelLabel setFont:[D3Theme systemSmallFontWithBold:NO]];
-    [self.requiredLevelLabel setTextColor:[UIColor whiteColor]];
-    [self.requiredLevelLabel setTextAlignment:NSTextAlignmentRight];
+    self.itemLevelLabel = [D3Theme labelWithFrame:lowTextFrame
+                                             font:[D3Theme systemSmallFontWithBold:NO]
+                                             text:@""];
+    [self.itemContainerView addSubview:self.itemLevelLabel];
     
-    self.itemLevelLabel = [D3ItemViewController labelForView:self.view frame:CGRectMake(padding, 0.0f, frameSize.width - padding * 2.0f, 0.0f)];
-    [self.itemLevelLabel setFont:[D3Theme systemSmallFontWithBold:NO]];
-    [self.itemLevelLabel setTextColor:[UIColor whiteColor]];
-    [self.itemLevelLabel setTextAlignment:NSTextAlignmentLeft];
+    self.requiredLevelLabel = [D3Theme labelWithFrame:lowTextFrame
+                                              font:[D3Theme systemSmallFontWithBold:NO]
+                                              text:@""];
+    self.requiredLevelLabel.textAlignment = NSTextAlignmentRight;
+    [self.itemContainerView addSubview:self.requiredLevelLabel];
     
     self.labelsArray = @[
     self.valueLabel,
@@ -111,8 +131,7 @@
     self.attributesLabel,
     self.setNameLabel,
     self.setItemsLabel,
-    self.setBonusesLabel,
-    self.flavorLabel
+    self.setBonusesLabel
     ];
 }
 
@@ -120,13 +139,30 @@
 #pragma mark - Helpers
 
 - (void)populateView {
+    CGSize iconSize = self.item.icon.size;
+    CGFloat aspectRatio = iconSize.height / iconSize.width;
+    CGRect imageFrame = self.imageView.frame;
+    imageFrame.size = CGSizeMake(kD3Grid5, kD3Grid5 * aspectRatio);
+    imageFrame.origin = CGPointMake(kD3Grid1 * 8.0f, kD3Grid2);
+    self.imageView.frame = imageFrame;
+    self.imageView.image = self.item.icon;
+    
     [self.titleLabel setText:self.item.name];
-    [self.valueLabel setText:self.item.displayValue];
-    [self.valueUnitLabel setText:self.item.displayValueUnit];
     [self.requiredLevelLabel setText:self.item.requiredLevelString];
     [self.flavorLabel setText:self.item.flavorText];
     [self.itemLevelLabel setText:self.item.itemLevelString];
     [self.typeLabel setText:self.item.typeString];
+    
+    self.titleLabel.textColor = self.item.displayColor;
+    
+    if ([self.item isQuiver]) {
+        [self.valueLabel setText:@""];
+        [self.valueUnitLabel setText:@""];
+    }
+    else {
+        [self.valueLabel setText:self.item.displayValue];
+        [self.valueUnitLabel setText:self.item.displayValueUnit];
+    }
     
     if (self.item.isPartOfSet) {
         [self.setNameLabel setText:self.item.setName];
@@ -134,18 +170,10 @@
         [self.setBonusesLabel setText:[self.item setBonusesFormattedString]];
     }
     
-    NSMutableString *attributeString = [NSMutableString string];
-    [self.item.attributes enumerateObjectsUsingBlock:^(NSString *attribute, NSUInteger idx, BOOL *stop){
-        if (idx == 0) {
-            [attributeString appendFormat:@"%@",attribute];
-        }
-        else {
-            [attributeString appendFormat:@"\n%@",attribute];
-        }
-    }];
+    NSString *attributeString = [self.item.attributes componentsJoinedByString:@"\n"];
     [self.attributesLabel setText:attributeString];
     
-    __block CGFloat runningY = self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height;
+    __block CGFloat runningY = kD3Grid2;
     CGFloat padding = kD3Grid1 / 4.0f;
     
     // dynamically adjust height of labels that should stack into order
@@ -155,17 +183,6 @@
         
         CGRect labelFrame = label.frame;
         labelFrame.size.height = labelFrame.size.height;
-//        if (label == self.titleLabel) {
-//            CGRect iconFrame = self.iconView.frame;
-//            iconFrame.origin.y = labelFrame.size.height + labelFrame.origin.y;
-//            [self.iconView setFrame:iconFrame];
-//        }
-//        if (label == self.valueLabel) {
-//            runningY = self.iconView.frame.origin.y;
-//        }
-//        if (label == self.attributesLabel && runningY < (self.iconView.frame.size.height + self.iconView.frame.origin.y)) {
-//            runningY = self.iconView.frame.size.height + self.iconView.frame.origin.y + padding;
-//        }
         labelFrame.origin.y = runningY;
         runningY += labelFrame.size.height + padding;
         [label setFrame:labelFrame];
@@ -183,11 +200,10 @@
     itemLevelFrame.origin.y = self.view.height - itemLevelFrame.size.height - kD3Grid1;
     [self.itemLevelLabel setFrame:itemLevelFrame];
     
-    // set item level label
-    [self.typeLabel autoHeight];
-    CGRect typeFrame = self.typeLabel.frame;
-    typeFrame.origin.y = self.valueLabel.frame.origin.y;
-    [self.typeLabel setFrame:typeFrame];
+    [self.flavorLabel autoHeight];
+    CGRect flavorFrame = self.flavorLabel.frame;
+    flavorFrame.origin.y = self.itemLevelLabel.top - flavorFrame.size.height - kD3Grid1;
+    self.flavorLabel.frame = flavorFrame;
 }
 
 
@@ -201,9 +217,23 @@
     else {
         [item finishLoadingWithSuccess:^(D3Item *loadedItem) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                [self.activityIndicator stopAnimating];
+                [self.activityIndicator removeFromSuperview];
+                
+                [UIView animateWithDuration:0.25f
+                                      delay:0
+                                    options:kNilOptions
+                                 animations:^{
+                                     self.itemContainerView.alpha = 1.0f;
+                                 }
+                                 completion:NULL];
+                
                 [self populateView];
             });
         } failure:^(NSError *error) {
+            [self.activityIndicator stopAnimating];
+            [self.activityIndicator removeFromSuperview];
+            
             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [av show];
         }];

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PSStackedView.h"
+#import "D3AccountViewController.h"
 
 #define kAppDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 
@@ -15,5 +16,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong, readonly) PSStackedViewController *stackController;
-
+@property (nonatomic, strong) D3AccountViewController *accountViewController;
+@property (nonatomic, strong) UIViewController *masterController;
 @end

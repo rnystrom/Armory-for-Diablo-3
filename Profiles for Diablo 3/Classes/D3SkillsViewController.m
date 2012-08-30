@@ -32,20 +32,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor darkGrayColor];
+    self.backgroundImage = [UIImage imageNamed:@"dark-bg"];
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, kD3Grid1 / 4.0f, self.view.width, 0)];
-    titleLabel.font = [D3Theme exocetLargeWithBold:NO];
+    UILabel *titleLabel = [D3Theme labelWithFrame:CGRectMake(0, kD3TopPadding, self.view.width, 0) font:[D3Theme exocetLargeWithBold:YES] text:@"Skills"];
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.adjustsFontSizeToFitWidth = YES;
-    titleLabel.text = @"SKILLS";
     [self.view addSubview:titleLabel];
-    
-    CGPoint titleCenter = titleLabel.center;
-    titleCenter.x = self.view.width / 2.0f;
-    titleLabel.center = titleCenter;
-    [titleLabel autoHeight];
     
     if ([self.hero.activeSkills count] > 4 && [self.hero.passiveSkills count] > 1) {
         self.firstBarSkillButton = [D3SkillButton buttonWithSkill:self.hero.activeSkills[0]];
@@ -58,33 +50,40 @@
         self.secondPassiveSkillButton = [D3SkillButton buttonWithSkill:self.hero.passiveSkills[1]];
         self.thirdPassiveSkillButton = [D3SkillButton buttonWithSkill:self.hero.passiveSkills[2]];
         
-        CGFloat middleSpacing = kD3Grid2;
-        CGFloat buttonHeight = kD3Grid2;
-        CGFloat buttonWidth = kD3Grid2;
+        CGFloat spacer = kD3Grid3;
         
-        CGFloat leftX = (self.view.width - middleSpacing - buttonWidth) / 2.0f - buttonWidth;
-        CGFloat rightX = (self.view.width + middleSpacing + buttonWidth) / 2.0f;
+        UILabel *activeLabel = [D3Theme labelWithFrame:CGRectMake(0, titleLabel.bottom + kD3Grid1, self.view.width, 0) font:[D3Theme systemMediumFontWithBold:NO] text:@"Active"];
+        activeLabel.textAlignment = NSTextAlignmentCenter;
+        [self.view addSubview:activeLabel];
         
-        CGFloat ySpacing = kD3Grid2;
-        CGFloat runningY = ySpacing + titleLabel.frame.size.height + titleLabel.frame.origin.y;
+        CGPoint leftCenter = CGPointMake(self.view.width / 2.0f - kD3Grid3, activeLabel.bottom + activeLabel.height + kD3Grid1);
+        CGPoint rightCenter = CGPointMake(self.view.width / 2.0f + kD3Grid3, leftCenter.y);
+
+        self.firstBarSkillButton.center = leftCenter;
+        self.secondBarSkillButton.center = rightCenter;
         
-        self.firstBarSkillButton.frame = CGRectMake(leftX, runningY, buttonWidth, buttonHeight);
-        self.secondBarSkillButton.frame = CGRectMake(rightX, runningY, buttonWidth, buttonHeight);
+        leftCenter.y = self.firstBarSkillButton.bottom + spacer;
+        rightCenter.y = self.firstBarSkillButton.bottom + spacer;
+        self.firstActiveSkillButton.center = leftCenter;
+        self.secondActiveSkillButton.center = rightCenter;
         
-        self.firstActiveSkillButton.frame = CGRectMake(leftX, runningY += buttonHeight + ySpacing, buttonWidth, buttonHeight);
-        self.secondActiveSkillButton.frame = CGRectMake(rightX, runningY, buttonWidth, buttonHeight);
-        self.thirdActiveSkillButton.frame = CGRectMake(leftX, runningY += buttonHeight + ySpacing, buttonWidth, buttonHeight);
-        self.fourthActiveSkillButton.frame = CGRectMake(rightX, runningY, buttonWidth, buttonHeight);
+        leftCenter.y = self.firstActiveSkillButton.bottom + spacer;
+        rightCenter.y = self.firstActiveSkillButton.bottom + spacer;
+        self.thirdActiveSkillButton.center = leftCenter;
+        self.fourthActiveSkillButton.center = rightCenter;
         
-        self.firstPassiveSkillButton.frame = CGRectMake(0, 0, buttonWidth, buttonHeight);
-        self.secondPassiveSkillButton.frame = CGRectMake(0, 0, buttonWidth, buttonHeight);
-        self.thirdPassiveSkillButton.frame = CGRectMake(0, 0, buttonWidth, buttonHeight);
+        leftCenter.y = self.thirdActiveSkillButton.bottom + spacer;
         
-        CGFloat thirds = kD3Grid4;
-        runningY += buttonHeight + ySpacing + kD3Grid2;
-        self.firstPassiveSkillButton.center = CGPointMake(self.view.width / 2.0f - thirds, runningY);
-        self.secondPassiveSkillButton.center = CGPointMake(self.view.width / 2.0f, runningY);
-        self.thirdPassiveSkillButton.center = CGPointMake(self.view.width / 2.0f + thirds, runningY);
+        UILabel *passiveLabel = [D3Theme labelWithFrame:CGRectMake(0, leftCenter.y, self.view.width, 0) font:[D3Theme systemMediumFontWithBold:NO] text:@"Passive"];
+        passiveLabel.textAlignment = NSTextAlignmentCenter;
+        [self.view addSubview:passiveLabel];
+        
+        leftCenter.y = passiveLabel.bottom + passiveLabel.height + kD3Grid1;
+        
+        CGFloat thirds = kD3Grid1 * 4.5;
+        self.firstPassiveSkillButton.center = CGPointMake(self.view.width / 2.0f - thirds, leftCenter.y);
+        self.secondPassiveSkillButton.center = CGPointMake(self.view.width / 2.0f, leftCenter.y);
+        self.thirdPassiveSkillButton.center = CGPointMake(self.view.width / 2.0f + thirds, leftCenter.y);
         
         self.buttonsArray = @[
         self.firstBarSkillButton,
@@ -99,23 +98,42 @@
         ];
         NSMutableArray *mutOperations = [NSMutableArray array];
         [self.buttonsArray enumerateObjectsUsingBlock:^(D3SkillButton *button, NSUInteger idx, BOOL *stop) {
-            UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-            [button addSubview:activityIndicator];
-            [activityIndicator startAnimating];
+            // default image
+            if (button.skill.isActive) {
+                [button setImage:[UIImage imageNamed:@"skill-blank"] forState:UIControlStateNormal];
+            }
+            else {
+                [button setImage:[UIImage imageNamed:@"skills-passive-blank"] forState:UIControlStateNormal];
+            }
             [self.view addSubview:button];
             
-            [button setupView];
-            [button addTarget:self action:@selector(onSkill:) forControlEvents:UIControlEventTouchUpInside];
-            
-            AFImageRequestOperation *operation = [button.skill requestIconWithImageProcessingBlock:NULL success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                [button setBackgroundImage:image forState:UIControlStateNormal];
-                [activityIndicator stopAnimating];
-                [activityIndicator removeFromSuperview];
-            } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                // TODO: placeholder image
-            }];
-            if (operation) {
-                [mutOperations addObject:operation];
+            if (button.skill.iconString) {
+                UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+                [button addSubview:activityIndicator];
+                [activityIndicator startAnimating];
+                
+                [button setupView];
+                [button addTarget:self action:@selector(onSkill:) forControlEvents:UIControlEventTouchUpInside];
+                
+                AFImageRequestOperation *operation = [button.skill requestIconWithImageProcessingBlock:^UIImage* (UIImage* image) {
+                    if ([UIScreen mainScreen].scale > 1.0f) {
+                        CGFloat scale = [UIScreen mainScreen].scale;
+                        CGSize doubledSize = CGSizeMake(image.size.width * scale, image.size.height * scale);
+                        image = [image resizedToSize:doubledSize];
+                    }
+                    return image;
+                }  success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                    if (image) {
+                        [button setImage:image forState:UIControlStateNormal];
+                    }
+                    [activityIndicator stopAnimating];
+                    [activityIndicator removeFromSuperview];
+                } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                    // TODO: placeholder image
+                }];
+                if (operation) {
+                    [mutOperations addObject:operation];
+                }
             }
         }];
         [[D3HTTPClient sharedClient] enqueueBatchOfHTTPRequestOperations:mutOperations progressBlock:NULL completionBlock:NULL];

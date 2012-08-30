@@ -7,40 +7,47 @@
 //
 
 #import "AppDelegate.h"
-#import "D3AccountView.h"
 #import "D3HeroMenuControllerViewController.h"
+#import "D3Theme.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) PSStackedViewController *stackController;
 @end
 
 @implementation AppDelegate
-
+#import "UIApplication+AppDimensions.h"
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
+    // container so we can have a "modal" affect with the account view
+    self.masterController = [[UIViewController alloc] init];
+    self.window.rootViewController = self.masterController;
+    
     D3HeroMenuControllerViewController *menuController = [[D3HeroMenuControllerViewController alloc] init];
     self.stackController = [[PSStackedViewController alloc] initWithRootViewController:menuController];
     self.stackController.largeLeftInset = kD3MenuWidth;
-    self.window.rootViewController = self.stackController;
-
-    // init will be in portrait, adjust accordingly
-    CGRect windowFrame = [[UIScreen mainScreen] bounds];
-    CGFloat windowWidth = windowFrame.size.width;
-    windowFrame.size.width = windowFrame.size.height;
-    windowFrame.size.height = windowWidth;
-    D3AccountView *accountView = [[D3AccountView alloc] initWithFrame:windowFrame];
-    [self.window.rootViewController.view addSubview:accountView];
+    [self.masterController.view addSubview:self.stackController.view];
     
     self.window.backgroundColor = [D3Theme backgroundColor];
     
     [self.window makeKeyAndVisible];
     
+    self.accountViewController = [[D3AccountViewController alloc] init];
+    [self.masterController.view addSubview:self.accountViewController.view];
+    
+    // quick fix for alignment
+    self.stackController.view.left = 0;
+    self.accountViewController.view.left = 0;
+    
     // listen for when to remove the doors view
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedRemoveDoorsNotification:) name:kD3DoorsAnimatedOffScreenNotification object:nil];
+    
+    // listen for when to add the doors view
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedShouldResetNotification:) name:kD3ShouldResetNotification object:nil];
+    
     return YES;
 }
 
@@ -74,9 +81,15 @@
 #pragma mark - Notifications
 
 - (void)receivedRemoveDoorsNotification:(NSNotification*)notification {
-    UIView *view = notification.object;
-    [view removeFromSuperview];
-    view = nil;
+    [self.accountViewController.view removeFromSuperview];
+    self.accountViewController = nil;
+}
+
+
+- (void)receivedShouldResetNotification:(NSNotification*)notification {
+    self.accountViewController = [[D3AccountViewController alloc] init];
+    [self.masterController.view addSubview:self.accountViewController.view];
+    self.accountViewController.view.left = 0;
 }
 
 @end

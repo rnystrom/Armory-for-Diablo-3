@@ -49,20 +49,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [D3Theme foregroundColor];
+    self.backgroundImage = [UIImage imageNamed:@"hero-card-bg-3"];
     
     // placeholder text so we can autosize the labels
-    self.titleLabel = [D3Theme labelWithFrame:CGRectMake(0, kD3Grid1 / 4.0f, self.view.width, 0)
+    self.titleLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1 / 2.0f, kD3TopPadding, self.view.width - kD3Grid4, 0)
                                          font:[D3Theme exocetLargeWithBold:NO]
-                                         text:@"PLACEHOLDER"];
-    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+                                         text:@"NAME"];
     self.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.titleLabel.numberOfLines = 1;
     [self.view addSubview:self.titleLabel];
     
-    self.subtitleLabel = [D3Theme labelWithFrame:CGRectMake(0, kD3Grid1 / 4.0f, self.view.width, 0)
+    self.subtitleLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1 / 2.0f, kD3Grid1 / 4.0f, self.view.width - kD3Grid2, 0)
                                             font:[D3Theme systemSmallFontWithBold:NO]
                                             text:@"60 Placeholder"];
-    self.subtitleLabel.textAlignment = NSTextAlignmentCenter;
     self.subtitleLabel.adjustsFontSizeToFitWidth = YES;
     [self.view addSubview:self.subtitleLabel];
     
@@ -73,15 +72,17 @@
     
     [self setupGearButtons];
     
-    UIButton *skillsButton = [D3HeroViewController extraButtonLeft:YES containerFrame:self.view.frame];
-    [skillsButton setTitle:@"Skills" forState:UIControlStateNormal];
-    [skillsButton addTarget:self action:@selector(onSkills:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:skillsButton];
-    
-    UIButton *statsButton = [D3HeroViewController extraButtonLeft:NO containerFrame:self.view.frame];
-    [statsButton setTitle:@"Stats" forState:UIControlStateNormal];
+    UIButton *statsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    statsButton.frame = CGRectMake(self.view.width - kD3Grid1 * 1.5f - kD3Grid1 / 2.0f, kD3TopPadding + 4.0f, kD3Grid1 * 1.5f, kD3Grid1 * 1.5f);
+    [statsButton setImage:[UIImage imageNamed:@"stats-button"] forState:UIControlStateNormal];
     [statsButton addTarget:self action:@selector(onStats:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:statsButton];
+    
+    UIButton *skillsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    skillsButton.frame = CGRectMake(statsButton.left - statsButton.width - kD3Grid1 / 4.0f, statsButton.frame.origin.y, statsButton.width, statsButton.height);
+    [skillsButton setImage:[UIImage imageNamed:@"skills-button"] forState:UIControlStateNormal];
+    [skillsButton addTarget:self action:@selector(onSkills:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:skillsButton];
     
     if (self.hero) {
         [self setupHero];
@@ -93,11 +94,14 @@
 
 - (void)onItemTouchUpInside:(id)sender {
     D3ItemButton *button = (D3ItemButton*)sender;
+    
     D3Item *selectedItem = button.item;
-    D3ItemViewController *viewController = [[D3ItemViewController alloc] init];
-    viewController.item = selectedItem;
-    [self.stackController popToViewController:self animated:YES];
-    [self.stackController pushViewController:viewController animated:YES];
+    if (selectedItem.iconString) {
+        D3ItemViewController *viewController = [[D3ItemViewController alloc] init];
+        viewController.item = selectedItem;
+        [self.stackController popToViewController:self animated:YES];
+        [self.stackController pushViewController:viewController animated:YES];
+    }
 }
 
 
@@ -141,7 +145,7 @@
     CGFloat rightShoulderCenter = center + shoulderOffset + kD3Grid1;
     
     // center items
-    self.headButton.center = CGPointMake(center, self.subtitleLabel.bottom + self.headButton.height / 2.0f + minPadding);
+    self.headButton.center = CGPointMake(center, self.subtitleLabel.bottom + self.headButton.height / 2.0f + minPadding + 10.0f);
     self.torsoButton.center = CGPointMake(center, self.headButton.bottom + self.torsoButton.height / 2.0f + minPadding);
     self.waistButton.center = CGPointMake(center, self.torsoButton.bottom + self.waistButton.height / 2.0f + minPadding);
     self.legsButton.center = CGPointMake(center, self.waistButton.bottom + self.legsButton.height / 2.0f + minPadding);
@@ -199,7 +203,6 @@
 
 - (void)setupHero {
     [self.titleLabel setText:[self.hero.name uppercaseString]];
-    [self.titleLabel autoHeight];
     
     NSString *subtitleString = [NSString stringWithFormat:@"%i %@",self.hero.level, [self.hero formattedClassName]];
     CGRect subtitleFrame = self.subtitleLabel.frame;
@@ -216,10 +219,17 @@
                 // button background logic in [D3ItemButton setItem:...];
                 button.item = correspondingItem;
                 
-                AFImageRequestOperation *operation = [correspondingItem requestForItemIconWithImageProcessingBlock:NULL success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                AFImageRequestOperation *operation = [correspondingItem requestForItemIconWithImageProcessingBlock:^UIImage* (UIImage* image) {
+                    if ([UIScreen mainScreen].scale > 1.0f) {
+                        CGFloat scale = [UIScreen mainScreen].scale;
+                        CGSize doubledSize = CGSizeMake(image.size.width * scale, image.size.height * scale);
+                        image = [image resizedToSize:doubledSize];
+                    }
+                    return image;
+                } success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         button.item.icon = image;
-                        [button setBackgroundImage:image forState:UIControlStateNormal];
+                        [button setImage:image forState:UIControlStateNormal];
                     });
                 } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
 #ifdef D3_LOGGING_MODE
@@ -232,6 +242,7 @@
             }
         }
     }];
+        
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self addOperations:mutOperations];
     [[D3HTTPClient sharedClient] enqueueBatchOfHTTPRequestOperations:mutOperations progressBlock:NULL completionBlock:^(NSArray *operations) {
@@ -239,8 +250,8 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                 
-                if (self.hero.mainHand.isTwoHand) {
-                    [self.offHandButton setBackgroundImage:self.hero.mainHand.icon forState:UIControlStateNormal];
+                if (self.hero.mainHand.isTwoHand && ! [self.hero.mainHand isRanged]) {
+                    [self.offHandButton setImage:self.hero.mainHand.icon forState:UIControlStateNormal];
                     self.offHandButton.alpha = 0.5f;
                 }
                 else {

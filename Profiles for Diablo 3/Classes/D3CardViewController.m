@@ -10,19 +10,44 @@
 
 @interface D3CardViewController ()
 
+@property (strong, nonatomic) UIImageView *backgroundView;
+
 @end
 
 @implementation D3CardViewController
 
+#pragma mark - UIViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.width = kD3CardWidth;
+    self.backgroundImage = [UIImage imageNamed:@"card-bg"];
+    self.view.clipsToBounds = YES;
     
-    self.texturedView = [[D3TexturedView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height)];
-    [self.view addSubview:self.texturedView];
+    CGFloat orientedHeight = [UIApplication currentSize].height;
+//    self.texturedView = [[D3TexturedView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, orientedHeight)];
+//    [self.view addSubview:self.texturedView];
     
     CALayer *layer = self.view.layer;
-    layer.cornerRadius = 5.0f;
+    layer.cornerRadius = 10.0f;
+    
+    UIImageView *borderImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, orientedHeight)];
+    borderImage.image = [D3Theme cappedCardImage];
+    [self.view addSubview:borderImage];
+}
+
+
+#pragma mark - Setters
+
+- (void)setBackgroundImage:(UIImage *)backgroundImage {
+    _backgroundImage = backgroundImage;
+    if (! self.backgroundView) {
+        CGFloat orientedHeight = [UIApplication currentSize].height;
+        CGRect frame = CGRectMake(0, 0, self.view.width, orientedHeight);
+        self.backgroundView = [[UIImageView alloc] initWithFrame:frame];
+        [self.view insertSubview:self.backgroundView atIndex:0];
+    }
+    self.backgroundView.image = backgroundImage;
 }
 
 

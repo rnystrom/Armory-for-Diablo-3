@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		861B090C15E6B99500ADE1FA /* UIImage+Toolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = 861B090B15E6B99400ADE1FA /* UIImage+Toolkit.m */; };
+		861B093015E6C6DC00ADE1FA /* item-overlay-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 861B092C15E6C6DC00ADE1FA /* item-overlay-highlighted.png */; };
+		861B093115E6C6DC00ADE1FA /* item-overlay-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 861B092D15E6C6DC00ADE1FA /* item-overlay-highlighted@2x.png */; };
+		861B093215E6C6DC00ADE1FA /* item-overlay-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 861B092E15E6C6DC00ADE1FA /* item-overlay-selected.png */; };
+		861B093315E6C6DC00ADE1FA /* item-overlay-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 861B092F15E6C6DC00ADE1FA /* item-overlay-selected@2x.png */; };
+		861B093615E6CAD100ADE1FA /* cardblock.png in Resources */ = {isa = PBXBuildFile; fileRef = 861B093415E6CAD100ADE1FA /* cardblock.png */; };
+		861B093715E6CAD100ADE1FA /* cardblock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 861B093515E6CAD100ADE1FA /* cardblock@2x.png */; };
+		86377E2C15EFF7DB00EB1A6E /* D3AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86377E2B15EFF7DB00EB1A6E /* D3AccountViewController.m */; };
 		8664321415E450D800F53138 /* burn.png in Resources */ = {isa = PBXBuildFile; fileRef = 866431FB15E450D800F53138 /* burn.png */; };
 		8664321515E450D800F53138 /* burn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 866431FC15E450D800F53138 /* burn@2x.png */; };
 		8664321615E450D800F53138 /* barbarian-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 866431FE15E450D800F53138 /* barbarian-selected.png */; };
@@ -31,14 +39,30 @@
 		8664322915E450D800F53138 /* wizard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664321115E450D800F53138 /* wizard@2x.png */; };
 		8664322A15E450D800F53138 /* rune.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664321215E450D800F53138 /* rune.png */; };
 		8664322B15E450D800F53138 /* rune@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8664321315E450D800F53138 /* rune@2x.png */; };
+		8666362215E8458200C180E6 /* card-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8666361E15E8458200C180E6 /* card-bg.png */; };
+		8666362315E8458200C180E6 /* card-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8666361F15E8458200C180E6 /* card-bg@2x.png */; };
+		8666362815E93AC800C180E6 /* item-overlay-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8666362615E93AC800C180E6 /* item-overlay-button.png */; };
+		8666362915E93AC800C180E6 /* item-overlay-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8666362715E93AC800C180E6 /* item-overlay-button@2x.png */; };
+		8666362E15E9425D00C180E6 /* skills-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8666362A15E9425D00C180E6 /* skills-button.png */; };
+		8666362F15E9425D00C180E6 /* skills-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8666362B15E9425D00C180E6 /* skills-button@2x.png */; };
+		8666363015E9425D00C180E6 /* stats-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8666362C15E9425D00C180E6 /* stats-button.png */; };
+		8666363115E9425D00C180E6 /* stats-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8666362D15E9425D00C180E6 /* stats-button@2x.png */; };
+		8666363415E94BBC00C180E6 /* hero-card-bg-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8666363215E94BBB00C180E6 /* hero-card-bg-3.png */; };
+		8666363515E94BBC00C180E6 /* hero-card-bg-3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8666363315E94BBC00C180E6 /* hero-card-bg-3@2x.png */; };
+		8666363815E94D8100C180E6 /* dark-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8666363615E94D8100C180E6 /* dark-bg.png */; };
+		8666363915E94D8100C180E6 /* dark-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8666363715E94D8100C180E6 /* dark-bg@2x.png */; };
+		8666363E15EABBA400C180E6 /* skill-blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 8666363C15EABBA400C180E6 /* skill-blank.png */; };
+		8666363F15EABBA400C180E6 /* skill-blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8666363D15EABBA400C180E6 /* skill-blank@2x.png */; };
+		8666364215EAF08B00C180E6 /* skills-passive-blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 8666364015EAF08B00C180E6 /* skills-passive-blank.png */; };
+		8666364315EAF08B00C180E6 /* skills-passive-blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8666364115EAF08B00C180E6 /* skills-passive-blank@2x.png */; };
 		8675D70515E520520006B42F /* D3LogoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8675D70415E520520006B42F /* D3LogoutCell.m */; };
-		86A2269215E462F900971A53 /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A2269015E462F900971A53 /* texture.png */; };
-		86A2269315E462F900971A53 /* texture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A2269115E462F900971A53 /* texture@2x.png */; };
+		868C226C15E57D6F00AF33EA /* D3Item+OverrideColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C226B15E57D6F00AF33EA /* D3Item+OverrideColors.m */; };
+		868C226F15E583AA00AF33EA /* item-overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 868C226D15E583AA00AF33EA /* item-overlay.png */; };
+		868C227015E583AA00AF33EA /* item-overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 868C226E15E583AA00AF33EA /* item-overlay@2x.png */; };
 		86A2269A15E4666300971A53 /* D3TexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A2269915E4666300971A53 /* D3TexturedView.m */; };
 		86A226A015E48FC900971A53 /* off.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A2269E15E48FC900971A53 /* off.png */; };
 		86A226A115E48FC900971A53 /* off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A2269F15E48FC900971A53 /* off@2x.png */; };
-		86A226A415E492F100971A53 /* block-shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A226A215E492F100971A53 /* block-shadow.png */; };
-		86A226A515E492F100971A53 /* block-shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A226A315E492F100971A53 /* block-shadow@2x.png */; };
+		86F7749F15EC23B90038D3B1 /* libD3Kit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8675D79C15E555B90006B42F /* libD3Kit.a */; };
 		943A123915E1B13400F03406 /* D3SkillDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A123815E1B13400F03406 /* D3SkillDetailViewController.m */; };
 		943A124115E1C8FA00F03406 /* D3StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A124015E1C8FA00F03406 /* D3StatsViewController.m */; };
 		9444D3F815DBF5D90098CFE6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9444D3F715DBF5D90098CFE6 /* SenTestingKit.framework */; };
@@ -68,7 +92,6 @@
 		94ECD48915DC0A4E008A8BEB /* UIView+PSSizes.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECD48215DC0A4E008A8BEB /* UIView+PSSizes.m */; };
 		94ECD48A15DC0A4E008A8BEB /* UIViewController+PSStackedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECD48415DC0A4E008A8BEB /* UIViewController+PSStackedView.m */; };
 		94ECD49115DC0B25008A8BEB /* D3HeroMenuControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECD49015DC0B25008A8BEB /* D3HeroMenuControllerViewController.m */; };
-		94ECD49515DC1B1E008A8BEB /* D3AccountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECD49415DC1B1E008A8BEB /* D3AccountView.m */; };
 		94EF72C515DBD556008161FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C415DBD556008161FE /* UIKit.framework */; };
 		94EF72C715DBD556008161FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C615DBD556008161FE /* Foundation.framework */; };
 		94EF72C915DBD556008161FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EF72C815DBD556008161FE /* CoreGraphics.framework */; };
@@ -86,6 +109,13 @@
 			remoteGlobalIDString = 8675D73415E54A3A0006B42F;
 			remoteInfo = D3Kit;
 		};
+		8675D7A015E559B20006B42F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8675D79415E555B90006B42F /* D3Kit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8675D73315E54A3A0006B42F;
+			remoteInfo = D3Kit;
+		};
 		9444D40815DBF6150098CFE6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 94EF72B715DBD556008161FE /* Project object */;
@@ -96,6 +126,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		861B090A15E6B99400ADE1FA /* UIImage+Toolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Toolkit.h"; path = "Profiles for Diablo 3/Classes/UIImage+Toolkit.h"; sourceTree = "<group>"; };
+		861B090B15E6B99400ADE1FA /* UIImage+Toolkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Toolkit.m"; path = "Profiles for Diablo 3/Classes/UIImage+Toolkit.m"; sourceTree = "<group>"; };
+		861B092C15E6C6DC00ADE1FA /* item-overlay-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item-overlay-highlighted.png"; sourceTree = "<group>"; };
+		861B092D15E6C6DC00ADE1FA /* item-overlay-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item-overlay-highlighted@2x.png"; sourceTree = "<group>"; };
+		861B092E15E6C6DC00ADE1FA /* item-overlay-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item-overlay-selected.png"; sourceTree = "<group>"; };
+		861B092F15E6C6DC00ADE1FA /* item-overlay-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item-overlay-selected@2x.png"; sourceTree = "<group>"; };
+		861B093415E6CAD100ADE1FA /* cardblock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardblock.png; sourceTree = "<group>"; };
+		861B093515E6CAD100ADE1FA /* cardblock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cardblock@2x.png"; sourceTree = "<group>"; };
+		86377E2A15EFF7DB00EB1A6E /* D3AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3AccountViewController.h; path = "Profiles for Diablo 3/Classes/D3AccountViewController.h"; sourceTree = "<group>"; };
+		86377E2B15EFF7DB00EB1A6E /* D3AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3AccountViewController.m; path = "Profiles for Diablo 3/Classes/D3AccountViewController.m"; sourceTree = "<group>"; };
 		866431FB15E450D800F53138 /* burn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = burn.png; sourceTree = "<group>"; };
 		866431FC15E450D800F53138 /* burn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "burn@2x.png"; sourceTree = "<group>"; };
 		866431FE15E450D800F53138 /* barbarian-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbarian-selected.png"; sourceTree = "<group>"; };
@@ -118,19 +158,35 @@
 		8664320F15E450D800F53138 /* wizard-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wizard-selected@2x.png"; sourceTree = "<group>"; };
 		8664321015E450D800F53138 /* wizard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wizard.png; sourceTree = "<group>"; };
 		8664321115E450D800F53138 /* wizard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wizard@2x.png"; sourceTree = "<group>"; };
-		8664321215E450D800F53138 /* rune.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rune.png; sourceTree = "<group>"; };
-		8664321315E450D800F53138 /* rune@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rune@2x.png"; sourceTree = "<group>"; };
+		8664321215E450D800F53138 /* rune.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rune.png; path = ../rune.png; sourceTree = "<group>"; };
+		8664321315E450D800F53138 /* rune@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rune@2x.png"; path = "../rune@2x.png"; sourceTree = "<group>"; };
+		8666361E15E8458200C180E6 /* card-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card-bg.png"; sourceTree = "<group>"; };
+		8666361F15E8458200C180E6 /* card-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card-bg@2x.png"; sourceTree = "<group>"; };
+		8666362615E93AC800C180E6 /* item-overlay-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item-overlay-button.png"; sourceTree = "<group>"; };
+		8666362715E93AC800C180E6 /* item-overlay-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item-overlay-button@2x.png"; sourceTree = "<group>"; };
+		8666362A15E9425D00C180E6 /* skills-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "skills-button.png"; path = "../skills-button.png"; sourceTree = "<group>"; };
+		8666362B15E9425D00C180E6 /* skills-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "skills-button@2x.png"; path = "../skills-button@2x.png"; sourceTree = "<group>"; };
+		8666362C15E9425D00C180E6 /* stats-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stats-button.png"; path = "../stats-button.png"; sourceTree = "<group>"; };
+		8666362D15E9425D00C180E6 /* stats-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stats-button@2x.png"; path = "../stats-button@2x.png"; sourceTree = "<group>"; };
+		8666363215E94BBB00C180E6 /* hero-card-bg-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hero-card-bg-3.png"; sourceTree = "<group>"; };
+		8666363315E94BBC00C180E6 /* hero-card-bg-3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hero-card-bg-3@2x.png"; sourceTree = "<group>"; };
+		8666363615E94D8100C180E6 /* dark-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dark-bg.png"; sourceTree = "<group>"; };
+		8666363715E94D8100C180E6 /* dark-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dark-bg@2x.png"; sourceTree = "<group>"; };
+		8666363C15EABBA400C180E6 /* skill-blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "skill-blank.png"; sourceTree = "<group>"; };
+		8666363D15EABBA400C180E6 /* skill-blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "skill-blank@2x.png"; sourceTree = "<group>"; };
+		8666364015EAF08B00C180E6 /* skills-passive-blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "skills-passive-blank.png"; sourceTree = "<group>"; };
+		8666364115EAF08B00C180E6 /* skills-passive-blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "skills-passive-blank@2x.png"; sourceTree = "<group>"; };
 		8675D70315E520520006B42F /* D3LogoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3LogoutCell.h; path = "Profiles for Diablo 3/Classes/D3LogoutCell.h"; sourceTree = "<group>"; };
 		8675D70415E520520006B42F /* D3LogoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3LogoutCell.m; path = "Profiles for Diablo 3/Classes/D3LogoutCell.m"; sourceTree = "<group>"; };
 		8675D79415E555B90006B42F /* D3Kit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = D3Kit.xcodeproj; path = D3Kit/D3Kit.xcodeproj; sourceTree = "<group>"; };
-		86A2269015E462F900971A53 /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
-		86A2269115E462F900971A53 /* texture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "texture@2x.png"; sourceTree = "<group>"; };
+		868C226A15E57D6F00AF33EA /* D3Item+OverrideColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "D3Item+OverrideColors.h"; path = "Profiles for Diablo 3/Classes/D3Item+OverrideColors.h"; sourceTree = "<group>"; };
+		868C226B15E57D6F00AF33EA /* D3Item+OverrideColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "D3Item+OverrideColors.m"; path = "Profiles for Diablo 3/Classes/D3Item+OverrideColors.m"; sourceTree = "<group>"; };
+		868C226D15E583AA00AF33EA /* item-overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item-overlay.png"; sourceTree = "<group>"; };
+		868C226E15E583AA00AF33EA /* item-overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item-overlay@2x.png"; sourceTree = "<group>"; };
 		86A2269815E4666300971A53 /* D3TexturedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3TexturedView.h; path = "Profiles for Diablo 3/Classes/D3TexturedView.h"; sourceTree = "<group>"; };
 		86A2269915E4666300971A53 /* D3TexturedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3TexturedView.m; path = "Profiles for Diablo 3/Classes/D3TexturedView.m"; sourceTree = "<group>"; };
-		86A2269E15E48FC900971A53 /* off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = off.png; sourceTree = "<group>"; };
-		86A2269F15E48FC900971A53 /* off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "off@2x.png"; sourceTree = "<group>"; };
-		86A226A215E492F100971A53 /* block-shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block-shadow.png"; sourceTree = "<group>"; };
-		86A226A315E492F100971A53 /* block-shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block-shadow@2x.png"; sourceTree = "<group>"; };
+		86A2269E15E48FC900971A53 /* off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = off.png; path = ../off.png; sourceTree = "<group>"; };
+		86A2269F15E48FC900971A53 /* off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "off@2x.png"; path = "../off@2x.png"; sourceTree = "<group>"; };
 		943A123715E1B13400F03406 /* D3SkillDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3SkillDetailViewController.h; path = "Profiles for Diablo 3/Classes/D3SkillDetailViewController.h"; sourceTree = "<group>"; };
 		943A123815E1B13400F03406 /* D3SkillDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3SkillDetailViewController.m; path = "Profiles for Diablo 3/Classes/D3SkillDetailViewController.m"; sourceTree = "<group>"; };
 		943A123F15E1C8FA00F03406 /* D3StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3StatsViewController.h; path = "Profiles for Diablo 3/Classes/D3StatsViewController.h"; sourceTree = "<group>"; };
@@ -186,8 +242,6 @@
 		94ECD48415DC0A4E008A8BEB /* UIViewController+PSStackedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PSStackedView.m"; sourceTree = "<group>"; };
 		94ECD48F15DC0B25008A8BEB /* D3HeroMenuControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3HeroMenuControllerViewController.h; path = "Profiles for Diablo 3/Classes/D3HeroMenuControllerViewController.h"; sourceTree = "<group>"; };
 		94ECD49015DC0B25008A8BEB /* D3HeroMenuControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3HeroMenuControllerViewController.m; path = "Profiles for Diablo 3/Classes/D3HeroMenuControllerViewController.m"; sourceTree = "<group>"; };
-		94ECD49315DC1B1E008A8BEB /* D3AccountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3AccountView.h; path = "Profiles for Diablo 3/Classes/D3AccountView.h"; sourceTree = "<group>"; };
-		94ECD49415DC1B1E008A8BEB /* D3AccountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3AccountView.m; path = "Profiles for Diablo 3/Classes/D3AccountView.m"; sourceTree = "<group>"; };
 		94EF72C015DBD556008161FE /* D3 Profiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "D3 Profiles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94EF72C415DBD556008161FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		94EF72C615DBD556008161FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -216,6 +270,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86F7749F15EC23B90038D3B1 /* libD3Kit.a in Frameworks */,
 				94EF730015DBD614008161FE /* QuartzCore.framework in Frameworks */,
 				94EF72C515DBD556008161FE /* UIKit.framework in Frameworks */,
 				94EF72C715DBD556008161FE /* Foundation.framework in Frameworks */,
@@ -229,25 +284,29 @@
 		866431FA15E450D800F53138 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				86A226A215E492F100971A53 /* block-shadow.png */,
-				86A226A315E492F100971A53 /* block-shadow@2x.png */,
-				86A2269E15E48FC900971A53 /* off.png */,
-				86A2269F15E48FC900971A53 /* off@2x.png */,
-				86A2269015E462F900971A53 /* texture.png */,
-				86A2269115E462F900971A53 /* texture@2x.png */,
+				8666363A15E94DB200C180E6 /* Background */,
 				866431FB15E450D800F53138 /* burn.png */,
 				866431FC15E450D800F53138 /* burn@2x.png */,
-				866431FD15E450D800F53138 /* icons */,
-				8664321215E450D800F53138 /* rune.png */,
-				8664321315E450D800F53138 /* rune@2x.png */,
+				8666363B15E94DDA00C180E6 /* Buttons */,
+				861B093415E6CAD100ADE1FA /* cardblock.png */,
+				861B093515E6CAD100ADE1FA /* cardblock@2x.png */,
+				866431FD15E450D800F53138 /* Symbols */,
 			);
 			name = Graphics;
 			path = "Profiles for Diablo 3/Resources/Graphics";
 			sourceTree = "<group>";
 		};
-		866431FD15E450D800F53138 /* icons */ = {
+		866431FD15E450D800F53138 /* Symbols */ = {
 			isa = PBXGroup;
 			children = (
+				86A2269E15E48FC900971A53 /* off.png */,
+				86A2269F15E48FC900971A53 /* off@2x.png */,
+				8664321215E450D800F53138 /* rune.png */,
+				8664321315E450D800F53138 /* rune@2x.png */,
+				8666362A15E9425D00C180E6 /* skills-button.png */,
+				8666362B15E9425D00C180E6 /* skills-button@2x.png */,
+				8666362C15E9425D00C180E6 /* stats-button.png */,
+				8666362D15E9425D00C180E6 /* stats-button@2x.png */,
 				866431FE15E450D800F53138 /* barbarian-selected.png */,
 				866431FF15E450D800F53138 /* barbarian-selected@2x.png */,
 				8664320015E450D800F53138 /* barbarian.png */,
@@ -269,7 +328,40 @@
 				8664321015E450D800F53138 /* wizard.png */,
 				8664321115E450D800F53138 /* wizard@2x.png */,
 			);
+			name = Symbols;
 			path = icons;
+			sourceTree = "<group>";
+		};
+		8666363A15E94DB200C180E6 /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				8666363615E94D8100C180E6 /* dark-bg.png */,
+				8666363715E94D8100C180E6 /* dark-bg@2x.png */,
+				8666363215E94BBB00C180E6 /* hero-card-bg-3.png */,
+				8666363315E94BBC00C180E6 /* hero-card-bg-3@2x.png */,
+				8666361E15E8458200C180E6 /* card-bg.png */,
+				8666361F15E8458200C180E6 /* card-bg@2x.png */,
+			);
+			name = Background;
+			sourceTree = "<group>";
+		};
+		8666363B15E94DDA00C180E6 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				8666364015EAF08B00C180E6 /* skills-passive-blank.png */,
+				8666364115EAF08B00C180E6 /* skills-passive-blank@2x.png */,
+				8666363C15EABBA400C180E6 /* skill-blank.png */,
+				8666363D15EABBA400C180E6 /* skill-blank@2x.png */,
+				8666362615E93AC800C180E6 /* item-overlay-button.png */,
+				8666362715E93AC800C180E6 /* item-overlay-button@2x.png */,
+				861B092C15E6C6DC00ADE1FA /* item-overlay-highlighted.png */,
+				861B092D15E6C6DC00ADE1FA /* item-overlay-highlighted@2x.png */,
+				861B092E15E6C6DC00ADE1FA /* item-overlay-selected.png */,
+				861B092F15E6C6DC00ADE1FA /* item-overlay-selected@2x.png */,
+				868C226D15E583AA00AF33EA /* item-overlay.png */,
+				868C226E15E583AA00AF33EA /* item-overlay@2x.png */,
+			);
+			name = Buttons;
 			sourceTree = "<group>";
 		};
 		8675D79515E555B90006B42F /* Products */ = {
@@ -337,7 +429,6 @@
 		94EF72B515DBD556008161FE = {
 			isa = PBXGroup;
 			children = (
-				8675D79415E555B90006B42F /* D3Kit.xcodeproj */,
 				94EF72DB15DBD561008161FE /* Classes */,
 				94EF72C315DBD556008161FE /* Frameworks */,
 				94EF72FE15DBD5D7008161FE /* Other Sources */,
@@ -386,8 +477,6 @@
 			children = (
 				8675D70315E520520006B42F /* D3LogoutCell.h */,
 				8675D70415E520520006B42F /* D3LogoutCell.m */,
-				94ECD49315DC1B1E008A8BEB /* D3AccountView.h */,
-				94ECD49415DC1B1E008A8BEB /* D3AccountView.m */,
 				944F2C2615DC3E8D00D5C08A /* D3HeroCell.h */,
 				944F2C2715DC3E8D00D5C08A /* D3HeroCell.m */,
 				9483F36015DC9A050065E2C1 /* D3ItemButton.h */,
@@ -421,6 +510,8 @@
 				943A124015E1C8FA00F03406 /* D3StatsViewController.m */,
 				944C194F15DE8D3200B57C52 /* D3ViewController.h */,
 				944C195015DE8D3200B57C52 /* D3ViewController.m */,
+				86377E2A15EFF7DB00EB1A6E /* D3AccountViewController.h */,
+				86377E2B15EFF7DB00EB1A6E /* D3AccountViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -437,10 +528,14 @@
 		94EF72FA15DBD5AA008161FE /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				868C226A15E57D6F00AF33EA /* D3Item+OverrideColors.h */,
+				868C226B15E57D6F00AF33EA /* D3Item+OverrideColors.m */,
 				94AB662F15DD4E8500E285EA /* UIApplication+AppDimensions.h */,
 				94AB663015DD4E8500E285EA /* UIApplication+AppDimensions.m */,
 				9447C1C315E03D970084BE3F /* UILabel+AutoSize.h */,
 				9447C1C415E03D970084BE3F /* UILabel+AutoSize.m */,
+				861B090A15E6B99400ADE1FA /* UIImage+Toolkit.h */,
+				861B090B15E6B99400ADE1FA /* UIImage+Toolkit.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -468,6 +563,7 @@
 		94EF72FD15DBD5CE008161FE /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				8675D79415E555B90006B42F /* D3Kit.xcodeproj */,
 				94ECD47615DC0A4E008A8BEB /* PSStackedView */,
 			);
 			name = Vendor;
@@ -515,6 +611,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8675D7A115E559B20006B42F /* PBXTargetDependency */,
 			);
 			name = "D3 Profiles";
 			productName = "Profiles for Diablo 3";
@@ -605,12 +702,32 @@
 				8664322915E450D800F53138 /* wizard@2x.png in Resources */,
 				8664322A15E450D800F53138 /* rune.png in Resources */,
 				8664322B15E450D800F53138 /* rune@2x.png in Resources */,
-				86A2269215E462F900971A53 /* texture.png in Resources */,
-				86A2269315E462F900971A53 /* texture@2x.png in Resources */,
 				86A226A015E48FC900971A53 /* off.png in Resources */,
 				86A226A115E48FC900971A53 /* off@2x.png in Resources */,
-				86A226A415E492F100971A53 /* block-shadow.png in Resources */,
-				86A226A515E492F100971A53 /* block-shadow@2x.png in Resources */,
+				868C226F15E583AA00AF33EA /* item-overlay.png in Resources */,
+				868C227015E583AA00AF33EA /* item-overlay@2x.png in Resources */,
+				861B093015E6C6DC00ADE1FA /* item-overlay-highlighted.png in Resources */,
+				861B093115E6C6DC00ADE1FA /* item-overlay-highlighted@2x.png in Resources */,
+				861B093215E6C6DC00ADE1FA /* item-overlay-selected.png in Resources */,
+				861B093315E6C6DC00ADE1FA /* item-overlay-selected@2x.png in Resources */,
+				861B093615E6CAD100ADE1FA /* cardblock.png in Resources */,
+				861B093715E6CAD100ADE1FA /* cardblock@2x.png in Resources */,
+				8666362215E8458200C180E6 /* card-bg.png in Resources */,
+				8666362315E8458200C180E6 /* card-bg@2x.png in Resources */,
+				8666362815E93AC800C180E6 /* item-overlay-button.png in Resources */,
+				8666362915E93AC800C180E6 /* item-overlay-button@2x.png in Resources */,
+				8666362E15E9425D00C180E6 /* skills-button.png in Resources */,
+				8666362F15E9425D00C180E6 /* skills-button@2x.png in Resources */,
+				8666363015E9425D00C180E6 /* stats-button.png in Resources */,
+				8666363115E9425D00C180E6 /* stats-button@2x.png in Resources */,
+				8666363415E94BBC00C180E6 /* hero-card-bg-3.png in Resources */,
+				8666363515E94BBC00C180E6 /* hero-card-bg-3@2x.png in Resources */,
+				8666363815E94D8100C180E6 /* dark-bg.png in Resources */,
+				8666363915E94D8100C180E6 /* dark-bg@2x.png in Resources */,
+				8666363E15EABBA400C180E6 /* skill-blank.png in Resources */,
+				8666363F15EABBA400C180E6 /* skill-blank@2x.png in Resources */,
+				8666364215EAF08B00C180E6 /* skills-passive-blank.png in Resources */,
+				8666364315EAF08B00C180E6 /* skills-passive-blank@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,7 +772,6 @@
 				94ECD48915DC0A4E008A8BEB /* UIView+PSSizes.m in Sources */,
 				94ECD48A15DC0A4E008A8BEB /* UIViewController+PSStackedView.m in Sources */,
 				94ECD49115DC0B25008A8BEB /* D3HeroMenuControllerViewController.m in Sources */,
-				94ECD49515DC1B1E008A8BEB /* D3AccountView.m in Sources */,
 				944F2C1915DC3AE400D5C08A /* D3RuneEmitterView.m in Sources */,
 				944F2C2815DC3E8D00D5C08A /* D3HeroCell.m in Sources */,
 				9483F35B15DC90390065E2C1 /* D3HeroViewController.m in Sources */,
@@ -672,12 +788,20 @@
 				943A124115E1C8FA00F03406 /* D3StatsViewController.m in Sources */,
 				86A2269A15E4666300971A53 /* D3TexturedView.m in Sources */,
 				8675D70515E520520006B42F /* D3LogoutCell.m in Sources */,
+				868C226C15E57D6F00AF33EA /* D3Item+OverrideColors.m in Sources */,
+				861B090C15E6B99500ADE1FA /* UIImage+Toolkit.m in Sources */,
+				86377E2C15EFF7DB00EB1A6E /* D3AccountViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8675D7A115E559B20006B42F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = D3Kit;
+			targetProxy = 8675D7A015E559B20006B42F /* PBXContainerItemProxy */;
+		};
 		9444D40915DBF6150098CFE6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 94EF72BF15DBD556008161FE /* D3 Profiles */;

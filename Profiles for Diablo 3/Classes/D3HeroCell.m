@@ -7,6 +7,7 @@
 //
 
 #import "D3HeroCell.h"
+#import "D3Theme.h"
 
 CGFloat const kD3CellFadedAlpha = 0.5f;
 
