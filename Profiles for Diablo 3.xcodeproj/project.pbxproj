@@ -14,6 +14,8 @@
 		861B093315E6C6DC00ADE1FA /* item-overlay-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 861B092F15E6C6DC00ADE1FA /* item-overlay-selected@2x.png */; };
 		861B093615E6CAD100ADE1FA /* cardblock.png in Resources */ = {isa = PBXBuildFile; fileRef = 861B093415E6CAD100ADE1FA /* cardblock.png */; };
 		861B093715E6CAD100ADE1FA /* cardblock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 861B093515E6CAD100ADE1FA /* cardblock@2x.png */; };
+		86340D5615F44FE4008AA28E /* socket.png in Resources */ = {isa = PBXBuildFile; fileRef = 86340D5415F44FE4008AA28E /* socket.png */; };
+		86340D5715F44FE4008AA28E /* socket@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86340D5515F44FE4008AA28E /* socket@2x.png */; };
 		86377E2C15EFF7DB00EB1A6E /* D3AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86377E2B15EFF7DB00EB1A6E /* D3AccountViewController.m */; };
 		8664321415E450D800F53138 /* burn.png in Resources */ = {isa = PBXBuildFile; fileRef = 866431FB15E450D800F53138 /* burn.png */; };
 		8664321515E450D800F53138 /* burn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 866431FC15E450D800F53138 /* burn@2x.png */; };
@@ -134,6 +136,8 @@
 		861B092F15E6C6DC00ADE1FA /* item-overlay-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item-overlay-selected@2x.png"; sourceTree = "<group>"; };
 		861B093415E6CAD100ADE1FA /* cardblock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardblock.png; sourceTree = "<group>"; };
 		861B093515E6CAD100ADE1FA /* cardblock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cardblock@2x.png"; sourceTree = "<group>"; };
+		86340D5415F44FE4008AA28E /* socket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = socket.png; sourceTree = "<group>"; };
+		86340D5515F44FE4008AA28E /* socket@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "socket@2x.png"; sourceTree = "<group>"; };
 		86377E2A15EFF7DB00EB1A6E /* D3AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3AccountViewController.h; path = "Profiles for Diablo 3/Classes/D3AccountViewController.h"; sourceTree = "<group>"; };
 		86377E2B15EFF7DB00EB1A6E /* D3AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3AccountViewController.m; path = "Profiles for Diablo 3/Classes/D3AccountViewController.m"; sourceTree = "<group>"; };
 		866431FB15E450D800F53138 /* burn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = burn.png; sourceTree = "<group>"; };
@@ -284,6 +288,8 @@
 		866431FA15E450D800F53138 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				86340D5415F44FE4008AA28E /* socket.png */,
+				86340D5515F44FE4008AA28E /* socket@2x.png */,
 				8666363A15E94DB200C180E6 /* Background */,
 				866431FB15E450D800F53138 /* burn.png */,
 				866431FC15E450D800F53138 /* burn@2x.png */,
@@ -728,6 +734,8 @@
 				8666363F15EABBA400C180E6 /* skill-blank@2x.png in Resources */,
 				8666364215EAF08B00C180E6 /* skills-passive-blank.png in Resources */,
 				8666364315EAF08B00C180E6 /* skills-passive-blank@2x.png in Resources */,
+				86340D5615F44FE4008AA28E /* socket.png in Resources */,
+				86340D5715F44FE4008AA28E /* socket@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

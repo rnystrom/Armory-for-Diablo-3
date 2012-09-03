@@ -204,6 +204,16 @@
     CGRect flavorFrame = self.flavorLabel.frame;
     flavorFrame.origin.y = self.itemLevelLabel.top - flavorFrame.size.height - kD3Grid1;
     self.flavorLabel.frame = flavorFrame;
+    
+    [self.activityIndicator stopAnimating];
+    [self.activityIndicator removeFromSuperview];
+    [UIView animateWithDuration:0.25f
+                          delay:0
+                        options:kNilOptions
+                     animations:^{
+                         self.itemContainerView.alpha = 1.0f;
+                     }
+                     completion:NULL];
 }
 
 
@@ -212,31 +222,21 @@
 - (void)setItem:(D3Item *)item {
     _item = item;
     if (item.isFullyLoaded) {
-        [self populateView];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self populateView];
+        });
     }
     else {
-        [item finishLoadingWithSuccess:^(D3Item *loadedItem) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.activityIndicator stopAnimating];
-                [self.activityIndicator removeFromSuperview];
-                
-                [UIView animateWithDuration:0.25f
-                                      delay:0
-                                    options:kNilOptions
-                                 animations:^{
-                                     self.itemContainerView.alpha = 1.0f;
-                                 }
-                                 completion:NULL];
-                
-                [self populateView];
-            });
-        } failure:^(NSError *error) {
-            [self.activityIndicator stopAnimating];
-            [self.activityIndicator removeFromSuperview];
-            
-            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [av show];
-        }];
+        [item addObserver:self forKeyPath:@"isFullyLoaded" options:NSKeyValueObservingOptionNew context:NULL];
+    }
+}
+
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"isFullyLoaded"]) {
+        [self populateView];
     }
 }
 

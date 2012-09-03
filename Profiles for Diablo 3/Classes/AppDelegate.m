@@ -35,18 +35,28 @@
     
     [self.window makeKeyAndVisible];
     
-    self.accountViewController = [[D3AccountViewController alloc] init];
-    [self.masterController.view addSubview:self.accountViewController.view];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *previousCareer = [defaults objectForKey:kD3PreviouslyLoggedCareer];
+    if (previousCareer) {
+        [D3Career getCareerForBattletag:previousCareer success:^(D3Career *career) {
+            // TODO: remove placeholder image with spinner
+        } failure:^(NSError *error) {
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [av show];
+        }];
+    }
+    else {
+        self.accountViewController = [[D3AccountViewController alloc] init];
+        [self.masterController.view addSubview:self.accountViewController.view];
+    }
     
     // quick fix for alignment
     self.stackController.view.left = 0;
     self.accountViewController.view.left = 0;
     
-    // listen for when to remove the doors view
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedRemoveDoorsNotification:) name:kD3DoorsAnimatedOffScreenNotification object:nil];
-    
-    // listen for when to add the doors view
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedShouldResetNotification:) name:kD3ShouldResetNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedCareerReadyNotification:) name:kD3CareerNotification object:nil];
     
     return YES;
 }
@@ -90,6 +100,19 @@
     self.accountViewController = [[D3AccountViewController alloc] init];
     [self.masterController.view addSubview:self.accountViewController.view];
     self.accountViewController.view.left = 0;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:kD3PreviouslyLoggedCareer];
+    [defaults synchronize];
 }
+
+
+- (void)receivedCareerReadyNotification:(NSNotification*)notification {
+    D3Career *career = notification.userInfo[kD3CareerNotificationUserInfoKey];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:career.battletag forKey:kD3PreviouslyLoggedCareer];
+    [defaults synchronize];
+}
+
 
 @end

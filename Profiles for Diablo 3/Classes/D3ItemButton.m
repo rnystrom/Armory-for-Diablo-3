@@ -10,67 +10,37 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface D3ItemButton()
-//@property (strong, nonatomic) UIView *backgroundImageView;
+
 @end
 
 @implementation D3ItemButton
-
-#pragma mark - Helpers
-
-//- (void)setupBackgroundImageView {
-//    self.clipsToBounds = NO;
-//    CGRect frame = self.frame;
-//    CGPoint frameOffset = [D3Theme cappedItemImageOffset];
-//    CGRect backgroundFrame = CGRectMake(0, 0, frame.size.width - frameOffset.x, frame.size.height - frameOffset.y);
-//    self.backgroundImageView = [[UIView alloc] initWithFrame:backgroundFrame];
-//    self.backgroundImageView.center = self.center;
-    
-//    CALayer *layer = self.backgroundImageView.layer;
-//    layer.cornerRadius = 10.0f;
-    
-//    if ([self superview]) {
-//        [[self superview] insertSubview:self.backgroundImageView belowSubview:self];
-//    }
-//}
-
 
 #pragma mark - Setters
 
 - (void)setItem:(D3Item *)item {
     _item = item;
-//    self.backgroundImageView.backgroundColor = item.displayColor;
-    
     CALayer *layer = self.layer;
     layer.shadowColor = item.displayColor.CGColor;
     layer.shadowOffset = CGSizeZero;
     layer.shadowRadius = 10.0f;
     layer.shadowOpacity = 1.0f;
     layer.shouldRasterize = YES;
+    
+    if (item.sockets > 0) {
+//        NSMutableArray *mutSocketImageRequests = [NSMutableArray array];
+        CGSize socketImageSize = [UIImage imageNamed:@"socket"].size;
+        CGFloat socketHeight = socketImageSize.height / 2.0f * item.sockets;
+        CGPoint center = CGPointMake(self.frame.size.width / 2.0f, self.frame.size.height / 2.0f - socketHeight / 2.0f);
+        for (int i = 0; i < item.sockets; ++i) {
+            UIImageView *socketView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, socketImageSize.width, socketImageSize.height)];
+            socketView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"socket"]];
+            socketView.center = center;
+            [self addSubview:socketView];
+            
+            center.y += socketImageSize.height;
+        }
+    }
 }
 
-
-//- (void)setFrame:(CGRect)frame {
-//    [super setFrame:frame];
-//
-//    if (! self.backgroundImageView) {
-//        [self setupBackgroundImageView];
-//    }
-//    CGPoint frameOffset = [D3Theme cappedItemImageOffset];
-//    self.backgroundImageView.frame = CGRectMake(0, 0, frame.size.width - frameOffset.x, frame.size.height - frameOffset.y);
-//    self.backgroundImageView.center = self.center;
-//}
-
-
-//- (void)setCenter:(CGPoint)center {
-//    [super setCenter:center];
-//    self.backgroundImageView.center = center;
-//}
-
-
-#pragma mark - UIButton
-
-//- (void)didMoveToSuperview {
-//    [self setupBackgroundImageView];
-//}
 
 @end

@@ -118,7 +118,14 @@ CGFloat const kD3CellFadedAlpha = 0.5f;
     else {
         self.contentView.alpha = kD3CellFadedAlpha;
     }
-    self.nameLabel.text = [self.hero.name capitalizedString];
+    NSString *titleString = nil;
+    if (self.hero.hardcore) {
+        titleString = [NSString stringWithFormat:@"%@ - HC",[self.hero.name capitalizedString]];
+    }
+    else {
+        titleString = [self.hero.name capitalizedString];
+    }
+    self.nameLabel.text = titleString;
     self.subtitleLabel.text = [NSString stringWithFormat:@"%i %@",self.hero.level,[self.hero formattedClassName]];
     self.iconView.image = classImage;
 }

@@ -42,6 +42,10 @@ CGFloat const kD3TitleFontSize  = kD3Grid1 * 2.0f;
 
 NSString * const kD3ShouldResetNotification = @"com.nystromproductions.profiles.app-should-reset";
 
+#pragma mark - Keys
+
+NSString * const kD3PreviouslyLoggedCareer = @"com.nystromproductions.profiles.previously-logged-career";
+
 @implementation D3Theme
 
 #pragma mark - Fonts
@@ -183,7 +187,7 @@ NSString * const kD3ShouldResetNotification = @"com.nystromproductions.profiles.
 
 
 + (UIColor*)redItemColor {
-    return [UIColor colorWithRed:136.0f / 255.0f green:69.0f / 255.0f blue:69.0f / 255.0f alpha:1.0f];
+    return [UIColor colorWithRed:200.0f / 255.0f green:92.0f / 255.0f blue:92.0f / 255.0f alpha:1.0f];
 }
 
 

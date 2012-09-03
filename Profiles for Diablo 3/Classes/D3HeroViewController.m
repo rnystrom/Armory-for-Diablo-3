@@ -29,6 +29,7 @@
 @property (strong, nonatomic) NSArray *itemButtons;
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *subtitleLabel;
+@property (strong, nonatomic) UILabel *hardcoreLabel;
 @end
 
 @implementation D3HeroViewController
@@ -59,16 +60,16 @@
     self.titleLabel.numberOfLines = 1;
     [self.view addSubview:self.titleLabel];
     
-    self.subtitleLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1 / 2.0f, kD3Grid1 / 4.0f, self.view.width - kD3Grid2, 0)
+    self.hardcoreLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1 / 2.0f, self.titleLabel.bottom, 0, 0) font:[D3Theme systemSmallFontWithBold:YES] text:@"Hardcore"];
+    self.hardcoreLabel.textColor = [D3Theme redItemColor];
+    [self.hardcoreLabel sizeToFit];
+    [self.view addSubview:self.hardcoreLabel];
+    
+    self.subtitleLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1 / 2.0f, self.titleLabel.bottom, self.view.width - kD3Grid2, 0)
                                             font:[D3Theme systemSmallFontWithBold:NO]
                                             text:@"60 Placeholder"];
     self.subtitleLabel.adjustsFontSizeToFitWidth = YES;
     [self.view addSubview:self.subtitleLabel];
-    
-    // initializing positions here because the buttons are dependent on subtitleLabel's origin.y
-    CGRect subtitleFrame = self.subtitleLabel.frame;
-    subtitleFrame.origin.y = self.titleLabel.bottom;
-    self.subtitleLabel.frame = subtitleFrame;
     
     [self setupGearButtons];
     
@@ -84,8 +85,11 @@
     [skillsButton addTarget:self action:@selector(onSkills:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:skillsButton];
     
-    if (self.hero) {
+    if (self.hero.isFullyLoaded) {
         [self setupHero];
+    }
+    else {
+        [self.hero addObserver:self forKeyPath:@"isFullyLoaded" options:NSKeyValueObservingOptionNew context:NULL];
     }
 }
 
@@ -204,10 +208,25 @@
 - (void)setupHero {
     [self.titleLabel setText:[self.hero.name uppercaseString]];
     
-    NSString *subtitleString = [NSString stringWithFormat:@"%i %@",self.hero.level, [self.hero formattedClassName]];
-    CGRect subtitleFrame = self.subtitleLabel.frame;
-    subtitleFrame.origin.y = self.titleLabel.bottom;
-    self.subtitleLabel.frame = subtitleFrame;
+    if (self.hero.hardcore) {
+        self.hardcoreLabel.hidden = NO;
+        self.hardcoreLabel.left = self.titleLabel.left;
+        self.hardcoreLabel.top = self.titleLabel.bottom;
+        
+        self.subtitleLabel.left = self.hardcoreLabel.right + 8.0f;
+        self.subtitleLabel.top = self.titleLabel.bottom + 1.0f;
+    }
+    else {
+        self.hardcoreLabel.hidden = YES;
+    }
+    
+    NSString *subtitleString = nil;
+    if (self.hero.level == 60) {
+        subtitleString = [NSString stringWithFormat:@"%i %@ - Paragon %i",self.hero.level, [self.hero formattedClassName], self.hero.paragonLevel];
+    }
+    else {
+        subtitleString = [NSString stringWithFormat:@"%i %@",self.hero.level, [self.hero formattedClassName]];
+    }
     self.subtitleLabel.text = subtitleString;
     
     NSMutableArray *mutOperations = [NSMutableArray array];
@@ -217,6 +236,7 @@
             D3Item *correspondingItem = self.hero.itemsArray[idx];
             if (correspondingItem) {
                 // button background logic in [D3ItemButton setItem:...];
+                // includes handling gems/sockets
                 button.item = correspondingItem;
                 
                 AFImageRequestOperation *operation = [correspondingItem requestForItemIconWithImageProcessingBlock:^UIImage* (UIImage* image) {
@@ -230,6 +250,11 @@
                     dispatch_async(dispatch_get_main_queue(), ^{
                         button.item.icon = image;
                         [button setImage:image forState:UIControlStateNormal];
+                        
+                        if (button.item == self.hero.mainHand) {
+                            [self.offHandButton setImage:self.hero.mainHand.icon forState:UIControlStateNormal];
+                            self.offHandButton.alpha = 0.5f;
+                        }
                     });
                 } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
 #ifdef D3_LOGGING_MODE
@@ -249,14 +274,6 @@
         if ([[operations filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"isCancelled == NO"]] count] > 0) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                
-                if (self.hero.mainHand.isTwoHand && ! [self.hero.mainHand isRanged]) {
-                    [self.offHandButton setImage:self.hero.mainHand.icon forState:UIControlStateNormal];
-                    self.offHandButton.alpha = 0.5f;
-                }
-                else {
-                    self.offHandButton.alpha = 1.0f;
-                }
             });
         }
     }];
@@ -268,6 +285,15 @@
 - (void)setHero:(D3Hero *)hero {
     _hero = hero;
     [self setupHero];
+}
+
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"isFullyLoaded"]) {
+        [self setupHero];
+    }
 }
 
 

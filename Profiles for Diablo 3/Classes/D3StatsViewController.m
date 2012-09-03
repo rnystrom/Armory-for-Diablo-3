@@ -40,7 +40,7 @@
     
     self.backgroundImage = [UIImage imageNamed:@"dark-bg"];
     
-    self.titleLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1, kD3TopPadding, self.view.width - 2.0f * kD3Grid1, 0) font:[D3Theme exocetLargeWithBold:NO] text:@"Stats"];
+    self.titleLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1, kD3TopPadding + 10.0f, self.view.width - 2.0f * kD3Grid1, 0) font:[D3Theme exocetLargeWithBold:NO] text:@"Stats"];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.text = @"STATS";
     [self.view addSubview:self.titleLabel];
@@ -51,6 +51,8 @@
     self.scrollView.bounces = YES;
     self.scrollView.alwaysBounceHorizontal = NO;
     self.scrollView.alwaysBounceVertical = YES;
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.scrollView];
     
     if (self.hero) {
@@ -62,7 +64,7 @@
 #pragma mark - Helpers
 
 - (void)setupView {
-    CGFloat runningY = 0;
+    CGFloat runningY = kD3Grid1 / 2.0f;
     CGFloat spacer = kD3Grid1 / 2.0f;
     runningY = [self addStatsGroupWithTitle:@"Attributes" names:@[
                 @"Strength:",
@@ -81,32 +83,59 @@
                 @"Damage:",
                 @"Damage Incresase:",
                 @"Crit Hit Chance:",
+                @"Thorns:",
                 ] values:@[
                 [NSString stringWithFormat:@"%.0f",self.hero.damage],
                 [NSString stringWithFormat:@"%.0f%%",self.hero.damageIncrease],
                 [NSString stringWithFormat:@"%.0f%%",self.hero.critChance],
+                [NSString stringWithFormat:@"%.0f",self.hero.thorns]
                 ] atY:runningY];
     runningY += spacer;
     
     runningY = [self addStatsGroupWithTitle:@"Defense" names:@[
                 @"Maximum Life:",
+                @"Life on Hit:",
+                @"Life per Kill:",
+                @"Life Steal:",
                 @"Armor:",
+                @"Block Chance:",
+                @"Block Amount:",
                 @"Damage Reduction:",
                 @"Arcane Resist:",
                 @"Cold Resist:",
                 @"Fire Resist:",
                 @"Lightning Resist:",
                 @"Poison Resist:",
+                @"Physical Resist:",
                 ] values:@[
                 [NSString stringWithFormat:@"%i",self.hero.life],
+                [NSString stringWithFormat:@"%.0f",self.hero.lifeOnHit],
+                [NSString stringWithFormat:@"%.0f",self.hero.lifePerKill],
+                [NSString stringWithFormat:@"%.0f",self.hero.lifeSteal],
                 [NSString stringWithFormat:@"%i",self.hero.armor],
+                [NSString stringWithFormat:@"%.0f%%",self.hero.blockChance],
+                [NSString stringWithFormat:@"%i",self.hero.blockAmountMax],
                 [NSString stringWithFormat:@"%.0f%%",self.hero.damageReduction],
                 [NSString stringWithFormat:@"%i",self.hero.arcaneResist],
                 [NSString stringWithFormat:@"%i",self.hero.coldResist],
                 [NSString stringWithFormat:@"%i",self.hero.fireResist],
                 [NSString stringWithFormat:@"%i",self.hero.lightningResist],
-                [NSString stringWithFormat:@"%i",self.hero.poisonResist]
+                [NSString stringWithFormat:@"%i",self.hero.poisonResist],
+                [NSString stringWithFormat:@"%i",self.hero.physicalResist]
                 ] atY:runningY];
+    runningY += spacer;
+    
+    runningY = [self addStatsGroupWithTitle:@"Misc" names:@[
+                @"Gold Find:",
+                @"Magic Find:",
+                ] values:@[
+                [NSString stringWithFormat:@"%.0f%%",self.hero.goldFind * 100.0f],
+                [NSString stringWithFormat:@"%.0f%%",self.hero.magicFind * 100.0f],
+                ] atY:runningY];
+    
+    CGSize contentSize = self.scrollView.contentSize;
+    contentSize.height = runningY;
+    self.scrollView.contentSize = contentSize;
 }
 
 // returns last height
@@ -124,8 +153,8 @@
                 NSString *name = (NSString*)obj;
                 NSString *value = values[idx];
                 
-                UILabel *nameLabel = [D3Theme labelWithFrame:runningFrame font:[D3Theme systemSmallFontWithBold:NO] text:name];
-                nameLabel.textColor = [D3Theme yellowItemColor];
+                UILabel *nameLabel = [D3Theme labelWithFrame:runningFrame font:[D3Theme systemSmallFontWithBold:YES] text:name];
+                nameLabel.textColor = [D3Theme redItemColor];
                 [self.scrollView addSubview:nameLabel];
                 
                 UILabel *valueLabel = [D3Theme labelWithFrame:runningFrame font:[D3Theme systemSmallFontWithBold:NO] text:value];

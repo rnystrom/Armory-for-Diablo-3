@@ -48,7 +48,7 @@
         if (self.skill.isActive) {
             self.runeLabel = [D3Theme labelWithFrame:CGRectMake(0, 0, kD3Grid1 * 6.0f, 0) font:[D3Theme systemSmallFontWithBold:NO] text:@"Placeholder"];
             self.runeLabel.text = self.skill.rune.name;
-            self.runeLabel.textColor = [D3Theme greenItemColor];
+            self.runeLabel.textColor = [D3Theme redItemColor];
             self.runeLabel.numberOfLines = 1;
             self.runeLabel.adjustsFontSizeToFitWidth = YES;
             [self.runeLabel autoHeight];
