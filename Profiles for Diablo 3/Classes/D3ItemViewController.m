@@ -188,6 +188,24 @@
         [label setFrame:labelFrame];
     }];
     
+    // Gem labels generated in setupView because of dynamics of # of gems
+    [self.item.gems enumerateObjectsUsingBlock:^(D3Gem *gem, NSUInteger idx, BOOL *stop) {
+        UIImageView *gemIcon = [[UIImageView alloc] initWithImage:gem.icon];
+        UILabel *gemLabel = [D3Theme labelWithFrame:CGRectMake(0, 0, self.itemContainerView.width - 2.0f * kD3Grid1, 0) font:[D3Theme systemSmallFontWithBold:NO] text:[gem.attributes componentsJoinedByString:@", "]];
+        
+        gemIcon.left = kD3Grid1;
+        gemIcon.top = runningY;
+        
+        CGPoint labelCenter = gemIcon.center;
+        gemLabel.center = labelCenter;
+        gemLabel.left = gemIcon.right + 5.0f;
+        
+        [self.itemContainerView addSubview:gemIcon];
+        [self.itemContainerView addSubview:gemLabel];
+        
+        runningY += gemIcon.height;
+    }];
+    
     // set required level label
     [self.requiredLevelLabel autoHeight];
     CGRect requiredFrame = self.requiredLevelLabel.frame;

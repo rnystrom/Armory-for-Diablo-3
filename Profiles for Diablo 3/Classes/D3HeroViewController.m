@@ -251,7 +251,7 @@
                         button.item.icon = image;
                         [button setImage:image forState:UIControlStateNormal];
                         
-                        if (button.item == self.hero.mainHand) {
+                        if (button.item == self.hero.mainHand && self.hero.mainHand.isTwoHand && ! [self.hero.mainHand isRanged]) {
                             [self.offHandButton setImage:self.hero.mainHand.icon forState:UIControlStateNormal];
                             self.offHandButton.alpha = 0.5f;
                         }
