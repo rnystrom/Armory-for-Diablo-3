@@ -11,6 +11,8 @@
 #import "D3HTTPClient.h"
 #import "D3RuneEmitterView.h"
 #import "D3Theme.h"
+#import "OLGhostAlertView.h"
+#import "D3Defines.h"
 
 @interface D3AccountViewController ()
 
@@ -19,6 +21,9 @@
 @property (strong, nonatomic) UIImageView *unlockView;
 @property (strong, nonatomic) UITextField *accountTextField;
 @property (strong, nonatomic) UIButton *enterAccountButton;
+@property (strong, nonatomic) UILabel *accountLabel;
+@property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UILabel *subtitleLabel;
 
 @end
 
@@ -30,45 +35,69 @@
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
+    NSLog(@"did load");
     [super viewDidLoad];
-	
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
     self.view.backgroundColor = [UIColor clearColor];
-    CGSize screenSize = [UIApplication currentSize];
-    splitWidth = screenSize.width / 3.0f;
-    CGRect leftDoorFrame = CGRectMake(0, 0, splitWidth, screenSize.height);
-    CGRect rightDoorFrame = CGRectMake(splitWidth, 0, screenSize.width - splitWidth, screenSize.height);
-    self.leftDoor = [[UIView alloc] initWithFrame:leftDoorFrame];
-    self.rightDoor = [[UIView alloc] initWithFrame:rightDoorFrame];
-    [self.leftDoor setBackgroundColor:[UIColor redColor]];
-    [self.rightDoor setBackgroundColor:[UIColor grayColor]];
+    
+    self.leftDoor = [[UIView alloc] initWithFrame:CGRectZero];
+    self.rightDoor = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.leftDoor setBackgroundColor:[UIColor clearColor]];
+    [self.rightDoor setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:self.rightDoor];
     [self.view addSubview:self.leftDoor];
+    self.leftDoor.clipsToBounds = NO;
+    self.rightDoor.clipsToBounds = NO;
     
-    CGFloat textFieldButtonPadding = 22.0f;
+    UIImageView *leftDoorImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"left-door"]];
+    [self.leftDoor addSubview:leftDoorImage];
+    UIImageView *rightDoorImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right-door"]];
+    [self.rightDoor addSubview:rightDoorImage];
+    
     self.accountTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, kD3AccountTextFieldWidth, kD3AccountTextFieldHeight)];
     [self.accountTextField setBackgroundColor:[UIColor whiteColor]];
     self.accountTextField.placeholder = @"Battletag#1234";
     self.accountTextField.delegate = self;
     self.accountTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    self.accountTextField.clearButtonMode = UITextFieldViewModeAlways;
+    self.accountTextField.background = [D3Theme cappedTextboxImage];
+    self.accountTextField.backgroundColor = [UIColor clearColor];
+    self.accountTextField.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    self.accountTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    self.accountTextField.textColor = [D3Theme whiteItemColor];
+    self.accountTextField.font = [D3Theme systemSmallFontWithBold:NO];
+    self.accountTextField.textAlignment = UITextAlignmentCenter;
     
-    self.enterAccountButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.enterAccountButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.enterAccountButton.frame = CGRectMake(0, 0, kD3AccountButtonWidth, kD3AccountButtonHeight);
     [self.enterAccountButton setTitle:@"Search" forState:UIControlStateNormal];
+    self.enterAccountButton.titleLabel.font = [D3Theme exocetSmallWithBold:NO];
     [self.enterAccountButton addTarget:self action:@selector(onEnterAccount:) forControlEvents:UIControlEventTouchUpInside];
+    [self.enterAccountButton setBackgroundImage:[D3Theme cappedDiabloButtonImage] forState:UIControlStateNormal];
+    self.enterAccountButton.hidden = NO;
     
-    CGFloat combinedWidth = textFieldButtonPadding + kD3AccountButtonWidth + kD3AccountTextFieldWidth;
-    self.accountTextField.center = CGPointMake(rightDoorFrame.size.width / 2.0f - combinedWidth / 2.0f + kD3AccountTextFieldWidth / 2.0f, rightDoorFrame.size.height / 2.0f);
-    self.enterAccountButton.center = CGPointMake(rightDoorFrame.size.width / 2.0f + combinedWidth / 2.0f - kD3AccountButtonWidth / 2.0f, rightDoorFrame.size.height / 2.0f);
     [self.rightDoor addSubview:self.accountTextField];
     [self.rightDoor addSubview:self.enterAccountButton];
     
+    self.accountLabel = [D3Theme labelWithFrame:CGRectZero font:[D3Theme exocetLargeWithBold:NO] text:@"battletag"];
+    self.accountLabel.textAlignment = UITextAlignmentCenter;
+    self.accountLabel.textColor = [D3Theme backgroundColor];
+    self.accountLabel.shadowColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2f];
+    self.accountLabel.shadowOffset = CGSizeMake(0, -1);
+    [self.rightDoor addSubview:self.accountLabel];
+    
+    self.titleLabel = [D3Theme labelWithFrame:CGRectZero font:[D3Theme exocetWithFontSize:60.0f bold:YES] text:@"Armory"];
+    self.titleLabel.textAlignment = UITextAlignmentCenter;
+    [self.rightDoor addSubview:self.titleLabel];
+    
+    self.subtitleLabel = [D3Theme labelWithFrame:CGRectZero font:[D3Theme systemMediumFontWithBold:NO] text:@"For Diablo 3"];
+    self.subtitleLabel.textAlignment = UITextAlignmentCenter;
+    [self.rightDoor addSubview:self.subtitleLabel];
+    
     self.unlockView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rune"]];
-    self.unlockView.center = CGPointMake(splitWidth, screenSize.height / 2.0f);
     [self.leftDoor addSubview:self.unlockView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 
@@ -81,6 +110,34 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (void)viewWillLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    CGSize size = self.view.size;
+    splitWidth = size.width / 3.0f;
+    CGRect leftDoorFrame = CGRectMake(0, 0, splitWidth, size.height);
+    CGRect rightDoorFrame = CGRectMake(splitWidth - 1.0f, 0, size.width - splitWidth, size.height);
+    self.leftDoor.frame = leftDoorFrame;
+    self.rightDoor.frame = rightDoorFrame;
+    
+        CGFloat textFieldButtonPadding = 22.0f;
+    CGFloat combinedWidth = textFieldButtonPadding + kD3AccountButtonWidth + kD3AccountTextFieldWidth;
+    self.accountTextField.center = CGPointMake(rightDoorFrame.size.width / 2.0f - combinedWidth / 2.0f + kD3AccountTextFieldWidth / 2.0f, rightDoorFrame.size.height / 2.0f);
+    self.enterAccountButton.center = CGPointMake(rightDoorFrame.size.width / 2.0f + combinedWidth / 2.0f - kD3AccountButtonWidth / 2.0f, rightDoorFrame.size.height / 2.0f);
+    
+    self.unlockView.center = CGPointMake(splitWidth, size.height / 2.0f);
+    
+    self.accountLabel.width = self.rightDoor.width;
+    self.accountLabel.center = CGPointMake(self.rightDoor.width / 2.0f, self.rightDoor.height / 2.0f - kD3Grid1 - 15.0f);
+    
+    self.titleLabel.width = self.rightDoor.width;
+    self.titleLabel.center = CGPointMake(self.rightDoor.width / 2.0f, kD3Grid3);
+    
+    self.subtitleLabel.width = self.rightDoor.width;
+    self.subtitleLabel.center = CGPointMake(self.rightDoor.width / 2.0f, kD3Grid3 + kD3Grid1 + 10.0f);
 }
 
 
@@ -105,11 +162,16 @@
     [D3Career getCareerForBattletag:account success:^(D3Career *career) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (! career || [career.heroes count] == 0) {
-                UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No heroes found for account." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                OLGhostAlertView *av = [[OLGhostAlertView alloc] initWithTitle:@"Error" message:@"No heroes found for account."];
                 [av show];
+                
                 [activityIndicator stopAnimating];
                 [activityIndicator removeFromSuperview];
+                
+                // disable all interaction so animation can complete
+                self.accountTextField.enabled = NO;
                 self.enterAccountButton.hidden = NO;
+                self.enterAccountButton.enabled = NO;
             }
             else {
                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -118,11 +180,15 @@
                 [self spinRune];
             }
         });
-    } failure:^(NSError *error) {
+    } failure:^(NSHTTPURLResponse *response, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            NSInteger code = response.statusCode != 0 ? response.statusCode : error.code;
+            if (error.code > 100) {
+                code = error.code;
+            }
+            OLGhostAlertView *av = [[OLGhostAlertView alloc] initWithTitle:errorTitleForStatusCode(code) message:errorMessageForStatusCode(code)];
             [av show];
+            
             [activityIndicator stopAnimating];
             [activityIndicator removeFromSuperview];
             self.enterAccountButton.hidden = NO;
@@ -155,7 +221,7 @@
     CGRect leftFrame = self.leftDoor.frame;
     CGRect rightFrame = self.rightDoor.frame;
     leftFrame.origin.x = -leftFrame.size.width - self.unlockView.frame.size.width / 2.0f;
-    rightFrame.origin.x = self.view.height;
+    rightFrame.origin.x = self.view.width;
     
     [UIView animateWithDuration:kD3DoorsOpenDuration
                           delay:0

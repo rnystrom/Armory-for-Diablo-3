@@ -32,8 +32,6 @@ extern CGFloat const kD3Grid5;
 extern CGFloat const kD3SystemAnimationDuration;
 extern CGFloat const kD3RuneSpinDuration;
 extern CGFloat const kD3DoorsOpenDuration;
-extern NSString * const kD3ShouldResetNotification;
-extern NSString * const kD3PreviouslyLoggedCareer;
 
 @interface D3Theme
 
@@ -72,6 +70,8 @@ extern NSString * const kD3PreviouslyLoggedCareer;
 + (UIImage*)cappedItemSelectedImage;
 + (UIImage*)cappedButtonImage;
 + (UIImage*)cappedCardImage;
++ (UIImage*)cappedTextboxImage;
++ (UIImage*)cappedDiabloButtonImage;
 
 + (CGPoint)cappedItemImageOffset;
 

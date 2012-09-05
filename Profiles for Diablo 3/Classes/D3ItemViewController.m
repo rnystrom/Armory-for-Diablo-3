@@ -65,13 +65,13 @@
                                          text:@"Title"];
     [self.titleLabel setAdjustsFontSizeToFitWidth:YES];
     [self.titleLabel setNumberOfLines:1];
-    [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.titleLabel setTextAlignment:UITextAlignmentCenter];
     [self.itemContainerView addSubview:self.titleLabel];
     
     self.typeLabel = [D3Theme labelWithFrame:CGRectMake(padding, self.titleLabel.bottom, frameSize.width - 2.0f * padding, 0)
                                         font:[D3Theme systemSmallFontWithBold:NO]
                                         text:@"Type"];
-    [self.typeLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.typeLabel setTextAlignment:UITextAlignmentCenter];
     [self.itemContainerView addSubview:self.typeLabel];
 
     self.valueLabel = [D3Theme labelWithFrame:textFrame
@@ -122,7 +122,7 @@
     self.requiredLevelLabel = [D3Theme labelWithFrame:lowTextFrame
                                               font:[D3Theme systemSmallFontWithBold:NO]
                                               text:@""];
-    self.requiredLevelLabel.textAlignment = NSTextAlignmentRight;
+    self.requiredLevelLabel.textAlignment = UITextAlignmentRight;
     [self.itemContainerView addSubview:self.requiredLevelLabel];
     
     self.labelsArray = @[

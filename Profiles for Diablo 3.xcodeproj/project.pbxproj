@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8609E57815F7806500EFF174 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8609E57615F7806500EFF174 /* button.png */; };
+		8609E57915F7806500EFF174 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8609E57715F7806500EFF174 /* button@2x.png */; };
 		861B090C15E6B99500ADE1FA /* UIImage+Toolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = 861B090B15E6B99400ADE1FA /* UIImage+Toolkit.m */; };
 		861B093015E6C6DC00ADE1FA /* item-overlay-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 861B092C15E6C6DC00ADE1FA /* item-overlay-highlighted.png */; };
 		861B093115E6C6DC00ADE1FA /* item-overlay-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 861B092D15E6C6DC00ADE1FA /* item-overlay-highlighted@2x.png */; };
@@ -17,6 +19,14 @@
 		86340D5615F44FE4008AA28E /* socket.png in Resources */ = {isa = PBXBuildFile; fileRef = 86340D5415F44FE4008AA28E /* socket.png */; };
 		86340D5715F44FE4008AA28E /* socket@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86340D5515F44FE4008AA28E /* socket@2x.png */; };
 		86377E2C15EFF7DB00EB1A6E /* D3AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86377E2B15EFF7DB00EB1A6E /* D3AccountViewController.m */; };
+		863A260E15F6CE11000E59E2 /* rune-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 863A260C15F6CE11000E59E2 /* rune-highlighted.png */; };
+		863A260F15F6CE11000E59E2 /* rune-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 863A260D15F6CE11000E59E2 /* rune-highlighted@2x.png */; };
+		863A261415F7069B000E59E2 /* left-door.png in Resources */ = {isa = PBXBuildFile; fileRef = 863A261015F7069B000E59E2 /* left-door.png */; };
+		863A261515F7069B000E59E2 /* left-door@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 863A261115F7069B000E59E2 /* left-door@2x.png */; };
+		863A261615F7069B000E59E2 /* right-door.png in Resources */ = {isa = PBXBuildFile; fileRef = 863A261215F7069B000E59E2 /* right-door.png */; };
+		863A261715F7069B000E59E2 /* right-door@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 863A261315F7069B000E59E2 /* right-door@2x.png */; };
+		863A261A15F70D6B000E59E2 /* textbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 863A261815F70D6B000E59E2 /* textbox.png */; };
+		863A261B15F70D6B000E59E2 /* textbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 863A261915F70D6B000E59E2 /* textbox@2x.png */; };
 		8664321415E450D800F53138 /* burn.png in Resources */ = {isa = PBXBuildFile; fileRef = 866431FB15E450D800F53138 /* burn.png */; };
 		8664321515E450D800F53138 /* burn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 866431FC15E450D800F53138 /* burn@2x.png */; };
 		8664321615E450D800F53138 /* barbarian-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 866431FE15E450D800F53138 /* barbarian-selected.png */; };
@@ -64,6 +74,21 @@
 		86A2269A15E4666300971A53 /* D3TexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A2269915E4666300971A53 /* D3TexturedView.m */; };
 		86A226A015E48FC900971A53 /* off.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A2269E15E48FC900971A53 /* off.png */; };
 		86A226A115E48FC900971A53 /* off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A2269F15E48FC900971A53 /* off@2x.png */; };
+		86A57F0515F682CF0077F0B0 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A57EFB15F682CF0077F0B0 /* Icon-72.png */; };
+		86A57F0615F682CF0077F0B0 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A57EFC15F682CF0077F0B0 /* Icon-72@2x.png */; };
+		86A57F0715F682CF0077F0B0 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A57EFD15F682CF0077F0B0 /* Icon-Small-50.png */; };
+		86A57F0815F682CF0077F0B0 /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A57EFE15F682CF0077F0B0 /* Icon-Small-50@2x.png */; };
+		86A57F0915F682CF0077F0B0 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A57EFF15F682CF0077F0B0 /* Icon-Small.png */; };
+		86A57F0A15F682CF0077F0B0 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A57F0015F682CF0077F0B0 /* Icon-Small@2x.png */; };
+		86A57F0B15F682CF0077F0B0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A57F0115F682CF0077F0B0 /* Icon.png */; };
+		86A57F0C15F682CF0077F0B0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A57F0215F682CF0077F0B0 /* Icon@2x.png */; };
+		86A57F0D15F682CF0077F0B0 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A57F0315F682CF0077F0B0 /* iTunesArtwork.png */; };
+		86A57F0E15F682CF0077F0B0 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A57F0415F682CF0077F0B0 /* iTunesArtwork@2x.png */; };
+		86A57F2415F68D8B0077F0B0 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A57F2215F68D8B0077F0B0 /* libTestFlight.a */; };
+		86A57F2615F68EAF0077F0B0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A57F2515F68EAF0077F0B0 /* libz.dylib */; };
+		86A57F2915F6910D0077F0B0 /* D3Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A57F2815F6910D0077F0B0 /* D3Defines.m */; };
+		86A57F2B15F691EE0077F0B0 /* StatusCodeErrors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86A57F2A15F691EE0077F0B0 /* StatusCodeErrors.plist */; };
+		86A57F3015F6958B0077F0B0 /* OLGhostAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A57F2E15F6958B0077F0B0 /* OLGhostAlertView.m */; };
 		86F7749F15EC23B90038D3B1 /* libD3Kit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8675D79C15E555B90006B42F /* libD3Kit.a */; };
 		943A123915E1B13400F03406 /* D3SkillDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A123815E1B13400F03406 /* D3SkillDetailViewController.m */; };
 		943A124115E1C8FA00F03406 /* D3StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A124015E1C8FA00F03406 /* D3StatsViewController.m */; };
@@ -128,6 +153,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8609E57615F7806500EFF174 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		8609E57715F7806500EFF174 /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
 		861B090A15E6B99400ADE1FA /* UIImage+Toolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Toolkit.h"; path = "Profiles for Diablo 3/Classes/UIImage+Toolkit.h"; sourceTree = "<group>"; };
 		861B090B15E6B99400ADE1FA /* UIImage+Toolkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Toolkit.m"; path = "Profiles for Diablo 3/Classes/UIImage+Toolkit.m"; sourceTree = "<group>"; };
 		861B092C15E6C6DC00ADE1FA /* item-overlay-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item-overlay-highlighted.png"; sourceTree = "<group>"; };
@@ -140,6 +167,14 @@
 		86340D5515F44FE4008AA28E /* socket@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "socket@2x.png"; sourceTree = "<group>"; };
 		86377E2A15EFF7DB00EB1A6E /* D3AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3AccountViewController.h; path = "Profiles for Diablo 3/Classes/D3AccountViewController.h"; sourceTree = "<group>"; };
 		86377E2B15EFF7DB00EB1A6E /* D3AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3AccountViewController.m; path = "Profiles for Diablo 3/Classes/D3AccountViewController.m"; sourceTree = "<group>"; };
+		863A260C15F6CE11000E59E2 /* rune-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rune-highlighted.png"; path = "../rune-highlighted.png"; sourceTree = "<group>"; };
+		863A260D15F6CE11000E59E2 /* rune-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rune-highlighted@2x.png"; path = "../rune-highlighted@2x.png"; sourceTree = "<group>"; };
+		863A261015F7069B000E59E2 /* left-door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-door.png"; sourceTree = "<group>"; };
+		863A261115F7069B000E59E2 /* left-door@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-door@2x.png"; sourceTree = "<group>"; };
+		863A261215F7069B000E59E2 /* right-door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-door.png"; sourceTree = "<group>"; };
+		863A261315F7069B000E59E2 /* right-door@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-door@2x.png"; sourceTree = "<group>"; };
+		863A261815F70D6B000E59E2 /* textbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textbox.png; sourceTree = "<group>"; };
+		863A261915F70D6B000E59E2 /* textbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textbox@2x.png"; sourceTree = "<group>"; };
 		866431FB15E450D800F53138 /* burn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = burn.png; sourceTree = "<group>"; };
 		866431FC15E450D800F53138 /* burn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "burn@2x.png"; sourceTree = "<group>"; };
 		866431FE15E450D800F53138 /* barbarian-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbarian-selected.png"; sourceTree = "<group>"; };
@@ -191,6 +226,24 @@
 		86A2269915E4666300971A53 /* D3TexturedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3TexturedView.m; path = "Profiles for Diablo 3/Classes/D3TexturedView.m"; sourceTree = "<group>"; };
 		86A2269E15E48FC900971A53 /* off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = off.png; path = ../off.png; sourceTree = "<group>"; };
 		86A2269F15E48FC900971A53 /* off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "off@2x.png"; path = "../off@2x.png"; sourceTree = "<group>"; };
+		86A57EFB15F682CF0077F0B0 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		86A57EFC15F682CF0077F0B0 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		86A57EFD15F682CF0077F0B0 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		86A57EFE15F682CF0077F0B0 /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		86A57EFF15F682CF0077F0B0 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		86A57F0015F682CF0077F0B0 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		86A57F0115F682CF0077F0B0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		86A57F0215F682CF0077F0B0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		86A57F0315F682CF0077F0B0 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		86A57F0415F682CF0077F0B0 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		86A57F2215F68D8B0077F0B0 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		86A57F2315F68D8B0077F0B0 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		86A57F2515F68EAF0077F0B0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		86A57F2715F6910D0077F0B0 /* D3Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3Defines.h; path = "Profiles for Diablo 3/Other Sources/D3Defines.h"; sourceTree = "<group>"; };
+		86A57F2815F6910D0077F0B0 /* D3Defines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3Defines.m; path = "Profiles for Diablo 3/Other Sources/D3Defines.m"; sourceTree = "<group>"; };
+		86A57F2A15F691EE0077F0B0 /* StatusCodeErrors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = StatusCodeErrors.plist; path = "Profiles for Diablo 3/Resources/StatusCodeErrors.plist"; sourceTree = "<group>"; };
+		86A57F2D15F6958B0077F0B0 /* OLGhostAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OLGhostAlertView.h; sourceTree = "<group>"; };
+		86A57F2E15F6958B0077F0B0 /* OLGhostAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OLGhostAlertView.m; sourceTree = "<group>"; };
 		943A123715E1B13400F03406 /* D3SkillDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3SkillDetailViewController.h; path = "Profiles for Diablo 3/Classes/D3SkillDetailViewController.h"; sourceTree = "<group>"; };
 		943A123815E1B13400F03406 /* D3SkillDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3SkillDetailViewController.m; path = "Profiles for Diablo 3/Classes/D3SkillDetailViewController.m"; sourceTree = "<group>"; };
 		943A123F15E1C8FA00F03406 /* D3StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3StatsViewController.h; path = "Profiles for Diablo 3/Classes/D3StatsViewController.h"; sourceTree = "<group>"; };
@@ -246,7 +299,7 @@
 		94ECD48415DC0A4E008A8BEB /* UIViewController+PSStackedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PSStackedView.m"; sourceTree = "<group>"; };
 		94ECD48F15DC0B25008A8BEB /* D3HeroMenuControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3HeroMenuControllerViewController.h; path = "Profiles for Diablo 3/Classes/D3HeroMenuControllerViewController.h"; sourceTree = "<group>"; };
 		94ECD49015DC0B25008A8BEB /* D3HeroMenuControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3HeroMenuControllerViewController.m; path = "Profiles for Diablo 3/Classes/D3HeroMenuControllerViewController.m"; sourceTree = "<group>"; };
-		94EF72C015DBD556008161FE /* D3 Profiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "D3 Profiles.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94EF72C015DBD556008161FE /* D3 Armory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "D3 Armory.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94EF72C415DBD556008161FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		94EF72C615DBD556008161FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94EF72C815DBD556008161FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -274,11 +327,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A57F2615F68EAF0077F0B0 /* libz.dylib in Frameworks */,
 				86F7749F15EC23B90038D3B1 /* libD3Kit.a in Frameworks */,
 				94EF730015DBD614008161FE /* QuartzCore.framework in Frameworks */,
 				94EF72C515DBD556008161FE /* UIKit.framework in Frameworks */,
 				94EF72C715DBD556008161FE /* Foundation.framework in Frameworks */,
 				94EF72C915DBD556008161FE /* CoreGraphics.framework in Frameworks */,
+				86A57F2415F68D8B0077F0B0 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +343,9 @@
 		866431FA15E450D800F53138 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				863A261815F70D6B000E59E2 /* textbox.png */,
+				863A261915F70D6B000E59E2 /* textbox@2x.png */,
+				86A57EFA15F682CF0077F0B0 /* Icons */,
 				86340D5415F44FE4008AA28E /* socket.png */,
 				86340D5515F44FE4008AA28E /* socket@2x.png */,
 				8666363A15E94DB200C180E6 /* Background */,
@@ -305,6 +363,8 @@
 		866431FD15E450D800F53138 /* Symbols */ = {
 			isa = PBXGroup;
 			children = (
+				863A260C15F6CE11000E59E2 /* rune-highlighted.png */,
+				863A260D15F6CE11000E59E2 /* rune-highlighted@2x.png */,
 				86A2269E15E48FC900971A53 /* off.png */,
 				86A2269F15E48FC900971A53 /* off@2x.png */,
 				8664321215E450D800F53138 /* rune.png */,
@@ -341,6 +401,10 @@
 		8666363A15E94DB200C180E6 /* Background */ = {
 			isa = PBXGroup;
 			children = (
+				863A261015F7069B000E59E2 /* left-door.png */,
+				863A261115F7069B000E59E2 /* left-door@2x.png */,
+				863A261215F7069B000E59E2 /* right-door.png */,
+				863A261315F7069B000E59E2 /* right-door@2x.png */,
 				8666363615E94D8100C180E6 /* dark-bg.png */,
 				8666363715E94D8100C180E6 /* dark-bg@2x.png */,
 				8666363215E94BBB00C180E6 /* hero-card-bg-3.png */,
@@ -354,6 +418,8 @@
 		8666363B15E94DDA00C180E6 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				8609E57615F7806500EFF174 /* button.png */,
+				8609E57715F7806500EFF174 /* button@2x.png */,
 				8666364015EAF08B00C180E6 /* skills-passive-blank.png */,
 				8666364115EAF08B00C180E6 /* skills-passive-blank@2x.png */,
 				8666363C15EABBA400C180E6 /* skill-blank.png */,
@@ -376,6 +442,44 @@
 				8675D79C15E555B90006B42F /* libD3Kit.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		86A57EFA15F682CF0077F0B0 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				86A57EFB15F682CF0077F0B0 /* Icon-72.png */,
+				86A57EFC15F682CF0077F0B0 /* Icon-72@2x.png */,
+				86A57EFD15F682CF0077F0B0 /* Icon-Small-50.png */,
+				86A57EFE15F682CF0077F0B0 /* Icon-Small-50@2x.png */,
+				86A57EFF15F682CF0077F0B0 /* Icon-Small.png */,
+				86A57F0015F682CF0077F0B0 /* Icon-Small@2x.png */,
+				86A57F0115F682CF0077F0B0 /* Icon.png */,
+				86A57F0215F682CF0077F0B0 /* Icon@2x.png */,
+				86A57F0315F682CF0077F0B0 /* iTunesArtwork.png */,
+				86A57F0415F682CF0077F0B0 /* iTunesArtwork@2x.png */,
+			);
+			name = Icons;
+			path = system;
+			sourceTree = "<group>";
+		};
+		86A57F2115F68D8B0077F0B0 /* Testflight */ = {
+			isa = PBXGroup;
+			children = (
+				86A57F2215F68D8B0077F0B0 /* libTestFlight.a */,
+				86A57F2315F68D8B0077F0B0 /* TestFlight.h */,
+			);
+			name = Testflight;
+			path = "Profiles for Diablo 3/Vendor/Testflight";
+			sourceTree = "<group>";
+		};
+		86A57F2C15F6958B0077F0B0 /* OLGhostAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				86A57F2D15F6958B0077F0B0 /* OLGhostAlertView.h */,
+				86A57F2E15F6958B0077F0B0 /* OLGhostAlertView.m */,
+			);
+			name = OLGhostAlertView;
+			path = "Profiles for Diablo 3/Vendor/OLGhostAlertView";
 			sourceTree = "<group>";
 		};
 		9444D3FB15DBF5D90098CFE6 /* Profiles-Tests */ = {
@@ -448,7 +552,7 @@
 		94EF72C115DBD556008161FE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				94EF72C015DBD556008161FE /* D3 Profiles.app */,
+				94EF72C015DBD556008161FE /* D3 Armory.app */,
 				9444D3F615DBF5D90098CFE6 /* Profiles-Tests.octest */,
 			);
 			name = Products;
@@ -457,6 +561,7 @@
 		94EF72C315DBD556008161FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				86A57F2515F68EAF0077F0B0 /* libz.dylib */,
 				94EF72FF15DBD614008161FE /* QuartzCore.framework */,
 				94EF72C415DBD556008161FE /* UIKit.framework */,
 				94EF72C615DBD556008161FE /* Foundation.framework */,
@@ -562,6 +667,7 @@
 				9447C1B615E03C600084BE3F /* Fonts */,
 				94EF734C15DBD99A008161FE /* InfoPlist.strings */,
 				94EF735515DBDA04008161FE /* Profiles for Diablo 3-Info.plist */,
+				86A57F2A15F691EE0077F0B0 /* StatusCodeErrors.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -569,6 +675,8 @@
 		94EF72FD15DBD5CE008161FE /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				86A57F2C15F6958B0077F0B0 /* OLGhostAlertView */,
+				86A57F2115F68D8B0077F0B0 /* Testflight */,
 				8675D79415E555B90006B42F /* D3Kit.xcodeproj */,
 				94ECD47615DC0A4E008A8BEB /* PSStackedView */,
 			);
@@ -580,6 +688,8 @@
 			children = (
 				94EF734F15DBD9A5008161FE /* main.m */,
 				94EF735715DBDA08008161FE /* Profiles for Diablo 3-Prefix.pch */,
+				86A57F2715F6910D0077F0B0 /* D3Defines.h */,
+				86A57F2815F6910D0077F0B0 /* D3Defines.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -606,9 +716,9 @@
 			productReference = 9444D3F615DBF5D90098CFE6 /* Profiles-Tests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		94EF72BF15DBD556008161FE /* D3 Profiles */ = {
+		94EF72BF15DBD556008161FE /* D3 Armory */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 94EF72D815DBD556008161FE /* Build configuration list for PBXNativeTarget "D3 Profiles" */;
+			buildConfigurationList = 94EF72D815DBD556008161FE /* Build configuration list for PBXNativeTarget "D3 Armory" */;
 			buildPhases = (
 				94EF72BC15DBD556008161FE /* Sources */,
 				94EF72BD15DBD556008161FE /* Frameworks */,
@@ -619,9 +729,9 @@
 			dependencies = (
 				8675D7A115E559B20006B42F /* PBXTargetDependency */,
 			);
-			name = "D3 Profiles";
+			name = "D3 Armory";
 			productName = "Profiles for Diablo 3";
-			productReference = 94EF72C015DBD556008161FE /* D3 Profiles.app */;
+			productReference = 94EF72C015DBD556008161FE /* D3 Armory.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -652,7 +762,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				94EF72BF15DBD556008161FE /* D3 Profiles */,
+				94EF72BF15DBD556008161FE /* D3 Armory */,
 				9444D3F515DBF5D90098CFE6 /* Profiles-Tests */,
 			);
 		};
@@ -736,6 +846,27 @@
 				8666364315EAF08B00C180E6 /* skills-passive-blank@2x.png in Resources */,
 				86340D5615F44FE4008AA28E /* socket.png in Resources */,
 				86340D5715F44FE4008AA28E /* socket@2x.png in Resources */,
+				86A57F0515F682CF0077F0B0 /* Icon-72.png in Resources */,
+				86A57F0615F682CF0077F0B0 /* Icon-72@2x.png in Resources */,
+				86A57F0715F682CF0077F0B0 /* Icon-Small-50.png in Resources */,
+				86A57F0815F682CF0077F0B0 /* Icon-Small-50@2x.png in Resources */,
+				86A57F0915F682CF0077F0B0 /* Icon-Small.png in Resources */,
+				86A57F0A15F682CF0077F0B0 /* Icon-Small@2x.png in Resources */,
+				86A57F0B15F682CF0077F0B0 /* Icon.png in Resources */,
+				86A57F0C15F682CF0077F0B0 /* Icon@2x.png in Resources */,
+				86A57F0D15F682CF0077F0B0 /* iTunesArtwork.png in Resources */,
+				86A57F0E15F682CF0077F0B0 /* iTunesArtwork@2x.png in Resources */,
+				86A57F2B15F691EE0077F0B0 /* StatusCodeErrors.plist in Resources */,
+				863A260E15F6CE11000E59E2 /* rune-highlighted.png in Resources */,
+				863A260F15F6CE11000E59E2 /* rune-highlighted@2x.png in Resources */,
+				863A261415F7069B000E59E2 /* left-door.png in Resources */,
+				863A261515F7069B000E59E2 /* left-door@2x.png in Resources */,
+				863A261615F7069B000E59E2 /* right-door.png in Resources */,
+				863A261715F7069B000E59E2 /* right-door@2x.png in Resources */,
+				863A261A15F70D6B000E59E2 /* textbox.png in Resources */,
+				863A261B15F70D6B000E59E2 /* textbox@2x.png in Resources */,
+				8609E57815F7806500EFF174 /* button.png in Resources */,
+				8609E57915F7806500EFF174 /* button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,6 +930,8 @@
 				868C226C15E57D6F00AF33EA /* D3Item+OverrideColors.m in Sources */,
 				861B090C15E6B99500ADE1FA /* UIImage+Toolkit.m in Sources */,
 				86377E2C15EFF7DB00EB1A6E /* D3AccountViewController.m in Sources */,
+				86A57F2915F6910D0077F0B0 /* D3Defines.m in Sources */,
+				86A57F3015F6958B0077F0B0 /* OLGhostAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,7 +945,7 @@
 		};
 		9444D40915DBF6150098CFE6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 94EF72BF15DBD556008161FE /* D3 Profiles */;
+			target = 94EF72BF15DBD556008161FE /* D3 Armory */;
 			targetProxy = 9444D40815DBF6150098CFE6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -849,7 +982,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Profiles-Tests/Profiles-Tests-Prefix.pch";
 				INFOPLIST_FILE = "Profiles-Tests/Profiles-Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -868,7 +1001,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Profiles-Tests/Profiles-Tests-Prefix.pch";
 				INFOPLIST_FILE = "Profiles-Tests/Profiles-Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -936,6 +1069,10 @@
 				HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/D3Kit\"/**";
 				INFOPLIST_FILE = "Profiles for Diablo 3/Profiles for Diablo 3-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Profiles for Diablo 3/Vendor/Testflight\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -957,6 +1094,10 @@
 				HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/D3Kit\"/**";
 				INFOPLIST_FILE = "Profiles for Diablo 3/Profiles for Diablo 3-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Profiles for Diablo 3/Vendor/Testflight\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -987,7 +1128,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		94EF72D815DBD556008161FE /* Build configuration list for PBXNativeTarget "D3 Profiles" */ = {
+		94EF72D815DBD556008161FE /* Build configuration list for PBXNativeTarget "D3 Armory" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				94EF72D915DBD556008161FE /* Debug */,

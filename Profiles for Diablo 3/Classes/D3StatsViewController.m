@@ -41,7 +41,7 @@
     self.backgroundImage = [UIImage imageNamed:@"dark-bg"];
     
     self.titleLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1, kD3TopPadding + 10.0f, self.view.width - 2.0f * kD3Grid1, 0) font:[D3Theme exocetLargeWithBold:NO] text:@"Stats"];
-    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.textAlignment = UITextAlignmentCenter;
     self.titleLabel.text = @"STATS";
     [self.view addSubview:self.titleLabel];
     
@@ -143,7 +143,7 @@
     __block CGRect runningFrame = CGRectMake(kD3Grid1, y, self.scrollView.width - 2 * kD3Grid1, 0);
     CGFloat padding = kD3Grid1 / 4.0f;
     UILabel *textLabel = [D3Theme labelWithFrame:runningFrame font:[D3Theme exocetMediumWithBold:NO] text:title];
-    textLabel.textAlignment = NSTextAlignmentCenter;
+    textLabel.textAlignment = UITextAlignmentCenter;
     [self.scrollView addSubview:textLabel];
     
     runningFrame.origin.y += textLabel.frame.size.height + padding;
@@ -158,7 +158,7 @@
                 [self.scrollView addSubview:nameLabel];
                 
                 UILabel *valueLabel = [D3Theme labelWithFrame:runningFrame font:[D3Theme systemSmallFontWithBold:NO] text:value];
-                valueLabel.textAlignment = NSTextAlignmentRight;
+                valueLabel.textAlignment = UITextAlignmentRight;
                 [self.scrollView addSubview:valueLabel];
                 
                 runningFrame.origin.y += nameLabel.frame.size.height + padding;

@@ -35,7 +35,7 @@
     self.backgroundImage = [UIImage imageNamed:@"dark-bg"];
     
     UILabel *titleLabel = [D3Theme labelWithFrame:CGRectMake(0, kD3TopPadding + 10.0f, self.view.width, 0) font:[D3Theme exocetLargeWithBold:YES] text:@"Skills"];
-    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.textAlignment = UITextAlignmentCenter;
     titleLabel.adjustsFontSizeToFitWidth = YES;
     [self.view addSubview:titleLabel];
     
@@ -53,7 +53,7 @@
         CGFloat spacer = kD3Grid3;
         
         UILabel *activeLabel = [D3Theme labelWithFrame:CGRectMake(0, titleLabel.bottom + kD3Grid1, self.view.width, 0) font:[D3Theme exocetMediumWithBold:NO] text:@"Active"];
-        activeLabel.textAlignment = NSTextAlignmentCenter;
+        activeLabel.textAlignment = UITextAlignmentCenter;
         [self.view addSubview:activeLabel];
         
         CGPoint leftCenter = CGPointMake(self.view.width / 2.0f - kD3Grid3, activeLabel.bottom + activeLabel.height + kD3Grid1);
@@ -75,7 +75,7 @@
         leftCenter.y = self.thirdActiveSkillButton.bottom + spacer;
         
         UILabel *passiveLabel = [D3Theme labelWithFrame:CGRectMake(0, leftCenter.y, self.view.width, 0) font:[D3Theme exocetMediumWithBold:NO] text:@"Passive"];
-        passiveLabel.textAlignment = NSTextAlignmentCenter;
+        passiveLabel.textAlignment = UITextAlignmentCenter;
         [self.view addSubview:passiveLabel];
         
         leftCenter.y = passiveLabel.bottom + passiveLabel.height + kD3Grid1;

@@ -1472,12 +1472,17 @@ enum {
     [super viewDidUnload];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    if (PSIsIpad()) {
-        return YES;
-    }else {
-        return toInterfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
-    }
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+//    if (PSIsIpad()) {
+//        return YES;
+//    }else {
+//        return toInterfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
+//    }
+//}
+
+// Overriding the default
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight || interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
 }
 
 // event relay

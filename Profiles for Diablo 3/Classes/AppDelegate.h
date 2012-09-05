@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "D3ViewController.h"
 #import "PSStackedView.h"
 #import "D3AccountViewController.h"
 
@@ -17,5 +18,5 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong, readonly) PSStackedViewController *stackController;
 @property (nonatomic, strong) D3AccountViewController *accountViewController;
-@property (nonatomic, strong) UIViewController *masterController;
+@property (nonatomic, strong) D3ViewController *masterController;
 @end

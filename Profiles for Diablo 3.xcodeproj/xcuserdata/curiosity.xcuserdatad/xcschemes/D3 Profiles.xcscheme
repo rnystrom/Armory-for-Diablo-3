@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "94EF72BF15DBD556008161FE"
-               BuildableName = "D3 Profiles.app"
-               BlueprintName = "D3 Profiles"
+               BuildableName = "D3 Armory.app"
+               BlueprintName = "D3 Armory"
                ReferencedContainer = "container:Profiles for Diablo 3.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "94EF72BF15DBD556008161FE"
-            BuildableName = "D3 Profiles.app"
-            BlueprintName = "D3 Profiles"
+            BuildableName = "D3 Armory.app"
+            BlueprintName = "D3 Armory"
             ReferencedContainer = "container:Profiles for Diablo 3.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -57,13 +57,14 @@
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      enableOpenGLFrameCaptureMode = "0"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "94EF72BF15DBD556008161FE"
-            BuildableName = "D3 Profiles.app"
-            BlueprintName = "D3 Profiles"
+            BuildableName = "D3 Armory.app"
+            BlueprintName = "D3 Armory"
             ReferencedContainer = "container:Profiles for Diablo 3.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,8 +81,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "94EF72BF15DBD556008161FE"
-            BuildableName = "D3 Profiles.app"
-            BlueprintName = "D3 Profiles"
+            BuildableName = "D3 Armory.app"
+            BlueprintName = "D3 Armory"
             ReferencedContainer = "container:Profiles for Diablo 3.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

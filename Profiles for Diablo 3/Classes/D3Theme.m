@@ -15,7 +15,7 @@ CGFloat const kD3Grid2 = kD3Grid1 * 2.0f;
 CGFloat const kD3Grid3 = kD3Grid1 * 3.0f;
 CGFloat const kD3Grid4 = kD3Grid1 * 4.0f;
 CGFloat const kD3Grid5 = kD3Grid1 * 5.0f;
-CGFloat const kD3AccountTextFieldWidth  = 176.0f;
+CGFloat const kD3AccountTextFieldWidth  = kD3Grid3 * 2;
 CGFloat const kD3AccountTextFieldHeight = 44.0f;
 CGFloat const kD3AccountButtonWidth     = 132.0f;
 CGFloat const kD3AccountButtonHeight    = kD3AccountTextFieldHeight;
@@ -37,14 +37,6 @@ CGFloat const kD3SmallFontSize  = kD3Grid1 * 0.5f;
 CGFloat const kD3MediumFontSize = kD3Grid1 * 0.7f;
 CGFloat const kD3LargeFontSize  = kD3Grid1;
 CGFloat const kD3TitleFontSize  = kD3Grid1 * 2.0f;
-
-#pragma mark - Notifications
-
-NSString * const kD3ShouldResetNotification = @"com.nystromproductions.profiles.app-should-reset";
-
-#pragma mark - Keys
-
-NSString * const kD3PreviouslyLoggedCareer = @"com.nystromproductions.profiles.previously-logged-career";
 
 @implementation D3Theme
 
@@ -241,6 +233,15 @@ NSString * const kD3PreviouslyLoggedCareer = @"com.nystromproductions.profiles.p
 
 + (UIImage*)cappedCardImage {
     return [[UIImage imageNamed:@"cardblock"] resizableImageWithCapInsets:UIEdgeInsetsMake(14.0f, 14.0f, 14.0f, 14.0f)];
+}
+
++ (UIImage*)cappedTextboxImage {
+    return [[UIImage imageNamed:@"textbox"] resizableImageWithCapInsets:UIEdgeInsetsMake(10.0f, 10.0f, 11.0f, 10.0f)];
+}
+
+
++ (UIImage*)cappedDiabloButtonImage {
+    return [[UIImage imageNamed:@"button"] resizableImageWithCapInsets:UIEdgeInsetsMake(13.0f, 21.5f, 13.5f, 20.5f)];
 }
 
 

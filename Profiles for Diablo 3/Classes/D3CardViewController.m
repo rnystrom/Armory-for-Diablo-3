@@ -25,8 +25,6 @@
     self.view.clipsToBounds = YES;
     
     CGFloat orientedHeight = [UIApplication currentSize].height;
-//    self.texturedView = [[D3TexturedView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, orientedHeight)];
-//    [self.view addSubview:self.texturedView];
     
     CALayer *layer = self.view.layer;
     layer.cornerRadius = 10.0f;
