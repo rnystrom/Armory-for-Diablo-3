@@ -65,13 +65,13 @@
                                          text:@"Title"];
     [self.titleLabel setAdjustsFontSizeToFitWidth:YES];
     [self.titleLabel setNumberOfLines:1];
-    [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.titleLabel setTextAlignment:UITextAlignmentCenter];
     [self.itemContainerView addSubview:self.titleLabel];
     
     self.typeLabel = [D3Theme labelWithFrame:CGRectMake(padding, self.titleLabel.bottom, frameSize.width - 2.0f * padding, 0)
                                         font:[D3Theme systemSmallFontWithBold:NO]
                                         text:@"Type"];
-    [self.typeLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.typeLabel setTextAlignment:UITextAlignmentCenter];
     [self.itemContainerView addSubview:self.typeLabel];
 
     self.valueLabel = [D3Theme labelWithFrame:textFrame
@@ -122,7 +122,7 @@
     self.requiredLevelLabel = [D3Theme labelWithFrame:lowTextFrame
                                               font:[D3Theme systemSmallFontWithBold:NO]
                                               text:@""];
-    self.requiredLevelLabel.textAlignment = NSTextAlignmentRight;
+    self.requiredLevelLabel.textAlignment = UITextAlignmentRight;
     [self.itemContainerView addSubview:self.requiredLevelLabel];
     
     self.labelsArray = @[
@@ -188,6 +188,24 @@
         [label setFrame:labelFrame];
     }];
     
+    // Gem labels generated in setupView because of dynamics of # of gems
+    [self.item.gems enumerateObjectsUsingBlock:^(D3Gem *gem, NSUInteger idx, BOOL *stop) {
+        UIImageView *gemIcon = [[UIImageView alloc] initWithImage:gem.icon];
+        UILabel *gemLabel = [D3Theme labelWithFrame:CGRectMake(0, 0, self.itemContainerView.width - 2.0f * kD3Grid1, 0) font:[D3Theme systemSmallFontWithBold:NO] text:[gem.attributes componentsJoinedByString:@", "]];
+        
+        gemIcon.left = kD3Grid1;
+        gemIcon.top = runningY;
+        
+        CGPoint labelCenter = gemIcon.center;
+        gemLabel.center = labelCenter;
+        gemLabel.left = gemIcon.right + 5.0f;
+        
+        [self.itemContainerView addSubview:gemIcon];
+        [self.itemContainerView addSubview:gemLabel];
+        
+        runningY += gemIcon.height;
+    }];
+    
     // set required level label
     [self.requiredLevelLabel autoHeight];
     CGRect requiredFrame = self.requiredLevelLabel.frame;
@@ -204,6 +222,16 @@
     CGRect flavorFrame = self.flavorLabel.frame;
     flavorFrame.origin.y = self.itemLevelLabel.top - flavorFrame.size.height - kD3Grid1;
     self.flavorLabel.frame = flavorFrame;
+    
+    [self.activityIndicator stopAnimating];
+    [self.activityIndicator removeFromSuperview];
+    [UIView animateWithDuration:0.25f
+                          delay:0
+                        options:kNilOptions
+                     animations:^{
+                         self.itemContainerView.alpha = 1.0f;
+                     }
+                     completion:NULL];
 }
 
 
@@ -212,31 +240,21 @@
 - (void)setItem:(D3Item *)item {
     _item = item;
     if (item.isFullyLoaded) {
-        [self populateView];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self populateView];
+        });
     }
     else {
-        [item finishLoadingWithSuccess:^(D3Item *loadedItem) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.activityIndicator stopAnimating];
-                [self.activityIndicator removeFromSuperview];
-                
-                [UIView animateWithDuration:0.25f
-                                      delay:0
-                                    options:kNilOptions
-                                 animations:^{
-                                     self.itemContainerView.alpha = 1.0f;
-                                 }
-                                 completion:NULL];
-                
-                [self populateView];
-            });
-        } failure:^(NSError *error) {
-            [self.activityIndicator stopAnimating];
-            [self.activityIndicator removeFromSuperview];
-            
-            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [av show];
-        }];
+        [item addObserver:self forKeyPath:@"isFullyLoaded" options:NSKeyValueObservingOptionNew context:NULL];
+    }
+}
+
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"isFullyLoaded"]) {
+        [self populateView];
     }
 }
 

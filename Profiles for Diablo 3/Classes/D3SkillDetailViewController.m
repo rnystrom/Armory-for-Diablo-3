@@ -27,34 +27,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.titleLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1, kD3TopPadding, self.view.width - 2.0f * kD3Grid1, 0) font:[D3Theme exocetLargeWithBold:NO] text:@"Placeholder"];
-    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1, kD3TopPadding + 10.0f, self.view.width - 2.0f * kD3Grid1, 0) font:[D3Theme exocetLargeWithBold:NO] text:@"Placeholder"];
+    self.titleLabel.textAlignment = UITextAlignmentCenter;
     self.titleLabel.adjustsFontSizeToFitWidth = YES;
     self.titleLabel.numberOfLines = 1;
     [self.view addSubview:self.titleLabel];
     
-//    self.subtitleLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1, self.titleLabel.bottom, self.view.width - 2.0f * kD3Grid1, 0) font:[D3Theme systemSmallFontWithBold:NO] text:@"Placeholder"];
-//    self.subtitleLabel.numberOfLines = 1;
-//    self.subtitleLabel.textAlignment = NSTextAlignmentCenter;
-//    self.subtitleLabel.adjustsFontSizeToFitWidth = YES;
-//    [self.view addSubview:self.subtitleLabel];
-    
     self.skillLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1, self.titleLabel.bottom, self.view.width - 2.0f * kD3Grid1, 0) font:[D3Theme systemSmallFontWithBold:NO] text:@"Placeholder"];
-    self.skillLabel.textColor = [UIColor blackColor];
+    self.skillLabel.textColor = [D3Theme backgroundColor];
     self.skillLabel.numberOfLines = 0;
-    self.skillLabel.layer.shadowColor = [UIColor clearColor].CGColor;
-    self.skillLabel.layer.shadowOpacity = 0;
+    self.skillLabel.shadowColor = [UIColor whiteColor];
     [self.view addSubview:self.skillLabel];
     
     if (self.skill.isActive) {
         self.runeTitleLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1, 0, self.view.width - 2.0f * kD3Grid1, 0) font:[D3Theme exocetMediumWithBold:NO] text:@"Rune"];
-        self.runeTitleLabel.textColor = [D3Theme greenItemColor];
+        self.runeTitleLabel.textColor = [D3Theme redItemColor];
+//        self.runeTitleLabel.shadowColor = [UIColor whiteColor];
         [self.view addSubview:self.runeTitleLabel];
         
         self.runeLabel = [D3Theme labelWithFrame:CGRectMake(kD3Grid1, 0, self.view.width - 2.0f * kD3Grid1, 0) font:[D3Theme systemSmallFontWithBold:NO] text:nil];
-        [self.runeLabel setTextColor:[UIColor blackColor]];
-        self.runeLabel.layer.shadowColor = [UIColor clearColor].CGColor;
-        self.runeLabel.layer.shadowOpacity = 0;
+        self.runeLabel.textColor = [D3Theme backgroundColor];
+        self.runeLabel.shadowColor = [UIColor whiteColor];
         [self.runeLabel setNumberOfLines:0];
         [self.view addSubview:self.runeLabel];
     }
@@ -79,9 +72,6 @@
     [self.skillLabel autoHeight];
     
     if (self.skill.isActive) {
-//        self.subtitleLabel.text = self.skill.rune.name;
-//        self.subtitleLabel.top = self.titleLabel.bottom;
-        
         self.runeTitleLabel.top = self.skillLabel.bottom + kD3Grid1;
         self.runeTitleLabel.text = self.skill.rune.name;
         [self.runeTitleLabel autoHeight];

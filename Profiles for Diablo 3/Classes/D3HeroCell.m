@@ -98,7 +98,7 @@ CGFloat const kD3CellFadedAlpha = 0.5f;
         self.nameLabel = [D3Theme labelWithFrame:CGRectMake(0, 0, frame.size.width, 0)
                                             font:[D3Theme systemFontSize:kD3TinyFontSize serif:NO bold:YES italic:NO]
                                             text:[self.hero.name uppercaseString]];
-        self.nameLabel.textAlignment = NSTextAlignmentCenter;
+        self.nameLabel.textAlignment = UITextAlignmentCenter;
         self.nameLabel.center = CGPointMake(frame.size.width / 2.0f,
                                             self.iconView.frame.size.height + self.iconView.frame.origin.y + self.nameLabel.frame.size.height / 2.0f + itemPadding);
         [self.contentView addSubview:self.nameLabel];
@@ -107,7 +107,7 @@ CGFloat const kD3CellFadedAlpha = 0.5f;
         self.subtitleLabel = [D3Theme labelWithFrame:CGRectMake(0, 0, frame.size.width, 0)
                                                 font:[D3Theme systemFontSize:kD3TinyFontSize serif:NO bold:NO italic:NO]
                                                 text:[NSString stringWithFormat:@"%i %@",self.hero.level,[self.hero formattedClassName]]];
-        self.subtitleLabel.textAlignment = NSTextAlignmentCenter;
+        self.subtitleLabel.textAlignment = UITextAlignmentCenter;
         self.subtitleLabel.center = CGPointMake(frame.size.width / 2.0f,
                                                 self.nameLabel.frame.size.height + self.nameLabel.frame.origin.y + self.subtitleLabel.frame.size.height / 2.0f + itemPadding);
         [self.contentView addSubview:self.subtitleLabel];
@@ -118,7 +118,14 @@ CGFloat const kD3CellFadedAlpha = 0.5f;
     else {
         self.contentView.alpha = kD3CellFadedAlpha;
     }
-    self.nameLabel.text = [self.hero.name capitalizedString];
+    NSString *titleString = nil;
+    if (self.hero.hardcore) {
+        titleString = [NSString stringWithFormat:@"%@ - HC",[self.hero.name capitalizedString]];
+    }
+    else {
+        titleString = [self.hero.name capitalizedString];
+    }
+    self.nameLabel.text = titleString;
     self.subtitleLabel.text = [NSString stringWithFormat:@"%i %@",self.hero.level,[self.hero formattedClassName]];
     self.iconView.image = classImage;
 }

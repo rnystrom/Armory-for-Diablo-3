@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>667</key>
+	<dict>
+		<key>message</key>
+		<string>Make sure your battletag is in the format accountname#1234.</string>
+		<key>title</key>
+		<string>Incorrect Battletag</string>
+	</dict>
+	<key>-1009</key>
+	<dict>
+		<key>message</key>
+		<string>The internet connection appears to be offline. Try again when you have reconnected.</string>
+		<key>title</key>
+		<string>Connection Lost</string>
+	</dict>
+	<key>666</key>
+	<dict>
+		<key>message</key>
+		<string>Your career could not be found. Make sure to use the format accountname#1234.</string>
+		<key>title</key>
+		<string>Career Not Found</string>
+	</dict>
+	<key>501</key>
+	<dict>
+		<key>message</key>
+		<string>The Diablo 3 web services are unavailable. This could be caused by maintenance our an outtage. Please try again later.</string>
+		<key>title</key>
+		<string>Diablo 3 Service Unavailable</string>
+	</dict>
+	<key>504</key>
+	<dict>
+		<key>message</key>
+		<string>The Diablo 3 web services are unavailable. This could be caused by maintenance our an outtage. Please try again later.</string>
+		<key>title</key>
+		<string>Diablo 3 Service Unavailable</string>
+	</dict>
+	<key>502</key>
+	<dict>
+		<key>message</key>
+		<string>The Diablo 3 web services are unavailable. This could be caused by maintenance our an outtage. Please try again later.</string>
+		<key>title</key>
+		<string>Diablo 3 Service Unavailable</string>
+	</dict>
+	<key>408</key>
+	<dict>
+		<key>message</key>
+		<string>The request to Diablo 3 web services experienced a timeout. Please try again later.</string>
+		<key>title</key>
+		<string>Request Timed Out</string>
+	</dict>
+	<key>405</key>
+	<dict>
+		<key>message</key>
+		<string>Armory for Diablo 3 is experiencing difficulties. Please try again later.</string>
+		<key>title</key>
+		<string>Armory is Experiencing Difficulties</string>
+	</dict>
+	<key>406</key>
+	<dict>
+		<key>message</key>
+		<string>Armory for Diablo 3 is experiencing difficulties. Please try again later.</string>
+		<key>title</key>
+		<string>Armory is Experiencing Difficulties</string>
+	</dict>
+	<key>403</key>
+	<dict>
+		<key>message</key>
+		<string>Armory for Diablo 3 is experiencing difficulties. Please try again later.</string>
+		<key>title</key>
+		<string>Armory is Experiencing Difficulties</string>
+	</dict>
+	<key>400</key>
+	<dict>
+		<key>message</key>
+		<string>The requested character or account cannot be found.</string>
+		<key>title</key>
+		<string>Request Not Found</string>
+	</dict>
+	<key>204</key>
+	<dict>
+		<key>message</key>
+		<string>The requested character or account cannot be found.</string>
+		<key>title</key>
+		<string>Request Not Found</string>
+	</dict>
+	<key>404</key>
+	<dict>
+		<key>message</key>
+		<string>The requested character or account cannot be found.</string>
+		<key>title</key>
+		<string>Request Not Found</string>
+	</dict>
+	<key>503</key>
+	<dict>
+		<key>message</key>
+		<string>The Diablo 3 web services are unavailable. This could be caused by maintenance our an outtage. Please try again later.</string>
+		<key>title</key>
+		<string>Diablo 3 Service Unavailable</string>
+	</dict>
+</dict>
+</plist>

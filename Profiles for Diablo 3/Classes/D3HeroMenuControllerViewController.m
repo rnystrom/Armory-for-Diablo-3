@@ -12,6 +12,8 @@
 #import "PSStackedViewController.h"
 #import "D3HeroViewController.h"
 #import "AppDelegate.h"
+#import "OLGhostAlertView.h"
+#import "D3Defines.h"
 
 @interface D3HeroMenuControllerViewController ()
 @property (strong, nonatomic) UITableView *menuView;
@@ -39,8 +41,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSLog(@"did load");
     
     CGSize screenSize = [UIApplication currentSize];
     self.menuView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kD3MenuWidth, screenSize.height) style:UITableViewStyleGrouped];
@@ -110,8 +110,12 @@
                     [activityIndicator removeFromSuperview];
                     [heroCell setupView];
                 });
-            } failure:^(NSError *error) {
-                
+            } failure:^(NSHTTPURLResponse *response, NSError *error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSInteger code = response.statusCode != 0 ? response.statusCode : error.code;
+                    OLGhostAlertView *av = [[OLGhostAlertView alloc] initWithTitle:errorTitleForStatusCode(code) message:errorMessageForStatusCode(code)];
+                    [av show];
+                });
             }];
         }
         else {
@@ -134,7 +138,7 @@
 
         UILabel *label = [D3Theme labelWithFrame:CGRectMake(0, 0, frame.size.width, 0) font:[D3Theme systemFontSize:kD3TinyFontSize serif:NO bold:YES italic:NO] text:@"SIGN OUT"];
         label.center = CGPointMake(frame.size.width / 2.0f, imageView.frame.size.height + imageView.frame.origin.y + 4.0f);
-        label.textAlignment = NSTextAlignmentCenter;
+        label.textAlignment = UITextAlignmentCenter;
         [logoutCell.contentView addSubview:label];
         
         cell = logoutCell;

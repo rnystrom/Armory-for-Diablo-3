@@ -33,8 +33,6 @@ extern CGFloat const kD3SystemAnimationDuration;
 extern CGFloat const kD3RuneSpinDuration;
 extern CGFloat const kD3DoorsOpenDuration;
 
-extern NSString * const kD3ShouldResetNotification;
-
 @interface D3Theme
 
 + (UIFont*)exocetWithFontSize:(CGFloat)size bold:(BOOL)isBold;
@@ -72,6 +70,8 @@ extern NSString * const kD3ShouldResetNotification;
 + (UIImage*)cappedItemSelectedImage;
 + (UIImage*)cappedButtonImage;
 + (UIImage*)cappedCardImage;
++ (UIImage*)cappedTextboxImage;
++ (UIImage*)cappedDiabloButtonImage;
 
 + (CGPoint)cappedItemImageOffset;
 

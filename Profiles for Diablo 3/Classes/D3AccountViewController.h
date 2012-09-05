@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "D3ViewController.h"
 
-@interface D3AccountViewController : UIViewController
+@interface D3AccountViewController : D3ViewController
 <UITextFieldDelegate>
 
 @end
