@@ -72,6 +72,7 @@ extern CGFloat const kD3DoorsOpenDuration;
 + (UIImage*)cappedCardImage;
 + (UIImage*)cappedTextboxImage;
 + (UIImage*)cappedDiabloButtonImage;
++ (UIImage*)cappedNoFlareDiabloButtonImage;
 
 + (CGPoint)cappedItemImageOffset;
 

@@ -89,6 +89,9 @@
 		86A57F2915F6910D0077F0B0 /* D3Defines.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A57F2815F6910D0077F0B0 /* D3Defines.m */; };
 		86A57F2B15F691EE0077F0B0 /* StatusCodeErrors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86A57F2A15F691EE0077F0B0 /* StatusCodeErrors.plist */; };
 		86A57F3015F6958B0077F0B0 /* OLGhostAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A57F2E15F6958B0077F0B0 /* OLGhostAlertView.m */; };
+		86CD119015FB718700BC3ADE /* no-flare-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 86CD118E15FB718700BC3ADE /* no-flare-button.png */; };
+		86CD119115FB718700BC3ADE /* no-flare-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86CD118F15FB718700BC3ADE /* no-flare-button@2x.png */; };
+		86CD119415FB720A00BC3ADE /* D3DropdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CD119315FB720A00BC3ADE /* D3DropdownButton.m */; };
 		86F7749F15EC23B90038D3B1 /* libD3Kit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8675D79C15E555B90006B42F /* libD3Kit.a */; };
 		943A123915E1B13400F03406 /* D3SkillDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A123815E1B13400F03406 /* D3SkillDetailViewController.m */; };
 		943A124115E1C8FA00F03406 /* D3StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A124015E1C8FA00F03406 /* D3StatsViewController.m */; };
@@ -244,6 +247,10 @@
 		86A57F2A15F691EE0077F0B0 /* StatusCodeErrors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = StatusCodeErrors.plist; path = "Profiles for Diablo 3/Resources/StatusCodeErrors.plist"; sourceTree = "<group>"; };
 		86A57F2D15F6958B0077F0B0 /* OLGhostAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OLGhostAlertView.h; sourceTree = "<group>"; };
 		86A57F2E15F6958B0077F0B0 /* OLGhostAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OLGhostAlertView.m; sourceTree = "<group>"; };
+		86CD118E15FB718700BC3ADE /* no-flare-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-flare-button.png"; sourceTree = "<group>"; };
+		86CD118F15FB718700BC3ADE /* no-flare-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-flare-button@2x.png"; sourceTree = "<group>"; };
+		86CD119215FB720A00BC3ADE /* D3DropdownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3DropdownButton.h; path = "Profiles for Diablo 3/Classes/D3DropdownButton.h"; sourceTree = "<group>"; };
+		86CD119315FB720A00BC3ADE /* D3DropdownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3DropdownButton.m; path = "Profiles for Diablo 3/Classes/D3DropdownButton.m"; sourceTree = "<group>"; };
 		943A123715E1B13400F03406 /* D3SkillDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3SkillDetailViewController.h; path = "Profiles for Diablo 3/Classes/D3SkillDetailViewController.h"; sourceTree = "<group>"; };
 		943A123815E1B13400F03406 /* D3SkillDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3SkillDetailViewController.m; path = "Profiles for Diablo 3/Classes/D3SkillDetailViewController.m"; sourceTree = "<group>"; };
 		943A123F15E1C8FA00F03406 /* D3StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3StatsViewController.h; path = "Profiles for Diablo 3/Classes/D3StatsViewController.h"; sourceTree = "<group>"; };
@@ -418,6 +425,8 @@
 		8666363B15E94DDA00C180E6 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				86CD118E15FB718700BC3ADE /* no-flare-button.png */,
+				86CD118F15FB718700BC3ADE /* no-flare-button@2x.png */,
 				8609E57615F7806500EFF174 /* button.png */,
 				8609E57715F7806500EFF174 /* button@2x.png */,
 				8666364015EAF08B00C180E6 /* skills-passive-blank.png */,
@@ -598,6 +607,8 @@
 				9447C1D115E0803C0084BE3F /* D3SkillButton.m */,
 				86A2269815E4666300971A53 /* D3TexturedView.h */,
 				86A2269915E4666300971A53 /* D3TexturedView.m */,
+				86CD119215FB720A00BC3ADE /* D3DropdownButton.h */,
+				86CD119315FB720A00BC3ADE /* D3DropdownButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -867,6 +878,8 @@
 				863A261B15F70D6B000E59E2 /* textbox@2x.png in Resources */,
 				8609E57815F7806500EFF174 /* button.png in Resources */,
 				8609E57915F7806500EFF174 /* button@2x.png in Resources */,
+				86CD119015FB718700BC3ADE /* no-flare-button.png in Resources */,
+				86CD119115FB718700BC3ADE /* no-flare-button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -932,6 +945,7 @@
 				86377E2C15EFF7DB00EB1A6E /* D3AccountViewController.m in Sources */,
 				86A57F2915F6910D0077F0B0 /* D3Defines.m in Sources */,
 				86A57F3015F6958B0077F0B0 /* OLGhostAlertView.m in Sources */,
+				86CD119415FB720A00BC3ADE /* D3DropdownButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,6 +24,8 @@
 @property (strong, nonatomic) UILabel *accountLabel;
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *subtitleLabel;
+@property (copy, nonatomic) NSString *selectedRegion;
+@property (strong, nonatomic) D3DropdownButton *dropdown;
 
 @end
 
@@ -35,7 +37,6 @@
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
-    NSLog(@"did load");
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor clearColor];
@@ -55,7 +56,6 @@
     [self.rightDoor addSubview:rightDoorImage];
     
     self.accountTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, kD3AccountTextFieldWidth, kD3AccountTextFieldHeight)];
-    [self.accountTextField setBackgroundColor:[UIColor whiteColor]];
     self.accountTextField.placeholder = @"Battletag#1234";
     self.accountTextField.delegate = self;
     self.accountTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -78,7 +78,7 @@
     [self.rightDoor addSubview:self.accountTextField];
     [self.rightDoor addSubview:self.enterAccountButton];
     
-    self.accountLabel = [D3Theme labelWithFrame:CGRectZero font:[D3Theme exocetLargeWithBold:NO] text:@"battletag"];
+    self.accountLabel = [D3Theme labelWithFrame:CGRectZero font:[D3Theme exocetLargeWithBold:NO] text:@"Battle.net Account"];
     self.accountLabel.textAlignment = UITextAlignmentCenter;
     self.accountLabel.textColor = [D3Theme backgroundColor];
     self.accountLabel.shadowColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2f];
@@ -95,6 +95,10 @@
     
     self.unlockView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rune"]];
     [self.leftDoor addSubview:self.unlockView];
+    
+    self.dropdown = [[D3DropdownButton alloc] initWithFrame:CGRectMake(0, 0, kD3Grid4, kD3AccountButtonHeight)];
+    self.dropdown.delegate = self;
+    [self.rightDoor addSubview:self.dropdown];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -123,15 +127,19 @@
     self.leftDoor.frame = leftDoorFrame;
     self.rightDoor.frame = rightDoorFrame;
     
-        CGFloat textFieldButtonPadding = 22.0f;
-    CGFloat combinedWidth = textFieldButtonPadding + kD3AccountButtonWidth + kD3AccountTextFieldWidth;
-    self.accountTextField.center = CGPointMake(rightDoorFrame.size.width / 2.0f - combinedWidth / 2.0f + kD3AccountTextFieldWidth / 2.0f, rightDoorFrame.size.height / 2.0f);
-    self.enterAccountButton.center = CGPointMake(rightDoorFrame.size.width / 2.0f + combinedWidth / 2.0f - kD3AccountButtonWidth / 2.0f, rightDoorFrame.size.height / 2.0f);
+    CGFloat textFieldButtonPadding = 22.0f;
+    self.accountTextField.center = CGPointMake(0, rightDoorFrame.size.height / 2.0f);
+    self.enterAccountButton.center = CGPointMake(0, rightDoorFrame.size.height / 2.0f);
+    self.dropdown.center = CGPointMake(0, rightDoorFrame.size.height / 2.0f);
+    
+    self.dropdown.left = 150.0f;
+    self.accountTextField.left = self.dropdown.right + textFieldButtonPadding;
+    self.enterAccountButton.left = self.accountTextField.right + textFieldButtonPadding;
     
     self.unlockView.center = CGPointMake(splitWidth, size.height / 2.0f);
     
     self.accountLabel.width = self.rightDoor.width;
-    self.accountLabel.center = CGPointMake(self.rightDoor.width / 2.0f, self.rightDoor.height / 2.0f - kD3Grid1 - 15.0f);
+    self.accountLabel.center = CGPointMake(self.accountTextField.center.x, self.rightDoor.height / 2.0f - kD3Grid1 - 15.0f);
     
     self.titleLabel.width = self.rightDoor.width;
     self.titleLabel.center = CGPointMake(self.rightDoor.width / 2.0f, kD3Grid3);
@@ -159,7 +167,8 @@
     [activityIndicator startAnimating];
     
     NSString *account = self.accountTextField.text;
-    [D3Career getCareerForBattletag:account success:^(D3Career *career) {
+    NSString *region = [[D3Career availableRegions] allValues][self.dropdown.selectedIndex];
+    [D3Career getCareerForBattletag:account region:region success:^(D3Career *career) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (! career || [career.heroes count] == 0) {
                 OLGhostAlertView *av = [[OLGhostAlertView alloc] initWithTitle:@"Error" message:@"No heroes found for account."];
@@ -289,6 +298,23 @@
                      completion:^(BOOL finished){
                          
                      }];
+}
+
+
+#pragma mark - D3DropdownDelegate
+
+- (NSInteger)numberOfRows {
+    return [[[D3Career availableRegions] allKeys] count];
+}
+
+
+- (NSString*)titleForButtonAtIndex:(NSInteger)index {
+    return [[D3Career availableRegions] allKeys][index];
+}
+
+
+- (void)didSelectButtonAtIndex:(NSInteger)index {
+    
 }
 
 

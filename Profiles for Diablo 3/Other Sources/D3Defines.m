@@ -15,6 +15,7 @@ NSString * const kD3ShouldResetNotification = @"com.nystromproductions.profiles.
 #pragma mark - Keys
 
 NSString * const kD3PreviouslyLoggedCareer = @"com.nystromproductions.profiles.previously-logged-career";
+NSString * const kD3PreviouslyLoggedRegion = @"com.nystromproductions.profiles.previously-logged-region";
 
 #pragma mark - Helpers
 

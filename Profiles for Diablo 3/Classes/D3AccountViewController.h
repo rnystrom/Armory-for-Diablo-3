@@ -7,8 +7,9 @@
 //
 
 #import "D3ViewController.h"
+#import "D3DropdownButton.h"
 
 @interface D3AccountViewController : D3ViewController
-<UITextFieldDelegate>
+<UITextFieldDelegate, D3DropdownButtonProtocol>
 
 @end

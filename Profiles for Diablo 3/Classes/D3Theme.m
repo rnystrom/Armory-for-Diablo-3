@@ -245,4 +245,9 @@ CGFloat const kD3TitleFontSize  = kD3Grid1 * 2.0f;
 }
 
 
++ (UIImage*)cappedNoFlareDiabloButtonImage {
+    return [[UIImage imageNamed:@"no-flare-button"] resizableImageWithCapInsets:UIEdgeInsetsMake(13.0f, 21.5f, 13.5f, 20.5f)];
+}
+
+
 @end

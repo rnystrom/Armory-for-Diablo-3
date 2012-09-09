@@ -100,7 +100,8 @@
         D3Hero *hero = self.career.heroes[indexPath.row];
         heroCell.hero = hero;
         if (! hero.isFullyLoaded) {
-            UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+            activityIndicator.center = CGPointMake(kD3Grid3 / 2.0f, kD3Grid1);
             [heroCell.contentView addSubview:activityIndicator];
             [activityIndicator startAnimating];
             

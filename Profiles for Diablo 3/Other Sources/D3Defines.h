@@ -8,6 +8,7 @@
 
 extern NSString * const kD3ShouldResetNotification;
 extern NSString * const kD3PreviouslyLoggedCareer;
+extern NSString * const kD3PreviouslyLoggedRegion;
 
 extern NSString * errorTitleForStatusCode(NSInteger statusCode);
 extern NSString * errorMessageForStatusCode(NSInteger statusCode);

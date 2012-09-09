@@ -47,9 +47,10 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *previousCareer = [defaults objectForKey:kD3PreviouslyLoggedCareer];
+    NSString *previousRegion = [defaults objectForKey:kD3PreviouslyLoggedRegion];
     if (previousCareer) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-        [D3Career getCareerForBattletag:previousCareer success:^(D3Career *career) {
+        [D3Career getCareerForBattletag:previousCareer region:previousRegion success:^(D3Career *career) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             });
@@ -139,6 +140,7 @@
     D3Career *career = notification.userInfo[kD3CareerNotificationUserInfoKey];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:career.battletag forKey:kD3PreviouslyLoggedCareer];
+    [defaults setObject:career.region forKey:kD3PreviouslyLoggedRegion];
     [defaults synchronize];
 }
 
