@@ -92,6 +92,8 @@
 		86CD119015FB718700BC3ADE /* no-flare-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 86CD118E15FB718700BC3ADE /* no-flare-button.png */; };
 		86CD119115FB718700BC3ADE /* no-flare-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86CD118F15FB718700BC3ADE /* no-flare-button@2x.png */; };
 		86CD119415FB720A00BC3ADE /* D3DropdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CD119315FB720A00BC3ADE /* D3DropdownButton.m */; };
+		86CD11A015FD6C3D00BC3ADE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 86CD119E15FD6C3D00BC3ADE /* Default.png */; };
+		86CD11A115FD6C3D00BC3ADE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86CD119F15FD6C3D00BC3ADE /* Default@2x.png */; };
 		86F7749F15EC23B90038D3B1 /* libD3Kit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8675D79C15E555B90006B42F /* libD3Kit.a */; };
 		943A123915E1B13400F03406 /* D3SkillDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A123815E1B13400F03406 /* D3SkillDetailViewController.m */; };
 		943A124115E1C8FA00F03406 /* D3StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A124015E1C8FA00F03406 /* D3StatsViewController.m */; };
@@ -251,6 +253,8 @@
 		86CD118F15FB718700BC3ADE /* no-flare-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-flare-button@2x.png"; sourceTree = "<group>"; };
 		86CD119215FB720A00BC3ADE /* D3DropdownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3DropdownButton.h; path = "Profiles for Diablo 3/Classes/D3DropdownButton.h"; sourceTree = "<group>"; };
 		86CD119315FB720A00BC3ADE /* D3DropdownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3DropdownButton.m; path = "Profiles for Diablo 3/Classes/D3DropdownButton.m"; sourceTree = "<group>"; };
+		86CD119E15FD6C3D00BC3ADE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = "Profiles for Diablo 3/Resources/Graphics/Default.png"; sourceTree = SOURCE_ROOT; };
+		86CD119F15FD6C3D00BC3ADE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Profiles for Diablo 3/Resources/Graphics/Default@2x.png"; sourceTree = SOURCE_ROOT; };
 		943A123715E1B13400F03406 /* D3SkillDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3SkillDetailViewController.h; path = "Profiles for Diablo 3/Classes/D3SkillDetailViewController.h"; sourceTree = "<group>"; };
 		943A123815E1B13400F03406 /* D3SkillDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D3SkillDetailViewController.m; path = "Profiles for Diablo 3/Classes/D3SkillDetailViewController.m"; sourceTree = "<group>"; };
 		943A123F15E1C8FA00F03406 /* D3StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D3StatsViewController.h; path = "Profiles for Diablo 3/Classes/D3StatsViewController.h"; sourceTree = "<group>"; };
@@ -456,6 +460,8 @@
 		86A57EFA15F682CF0077F0B0 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				86CD119E15FD6C3D00BC3ADE /* Default.png */,
+				86CD119F15FD6C3D00BC3ADE /* Default@2x.png */,
 				86A57EFB15F682CF0077F0B0 /* Icon-72.png */,
 				86A57EFC15F682CF0077F0B0 /* Icon-72@2x.png */,
 				86A57EFD15F682CF0077F0B0 /* Icon-Small-50.png */,
@@ -880,6 +886,8 @@
 				8609E57915F7806500EFF174 /* button@2x.png in Resources */,
 				86CD119015FB718700BC3ADE /* no-flare-button.png in Resources */,
 				86CD119115FB718700BC3ADE /* no-flare-button@2x.png in Resources */,
+				86CD11A015FD6C3D00BC3ADE /* Default.png in Resources */,
+				86CD11A115FD6C3D00BC3ADE /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
